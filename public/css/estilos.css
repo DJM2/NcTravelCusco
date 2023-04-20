@@ -1,0 +1,309 @@
+.logo {
+  width: 230px;
+  padding: 2em;
+  transition: 1s;
+}
+
+.sticky-wrapper.is-sticky .logo {
+  width: 150px;
+  transition: 1s;
+  padding: 1em;
+}
+
+.centrado {
+  text-align: center;
+  position: relative;
+  top: 45%;
+  color: #fff;
+  font-weight: bold;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+section {
+  width: 100%;
+}
+
+.h1-inicio {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.btn-inicio {
+  color: #fff;
+  background: #e55500;
+  padding: 12px;
+  font-size: 9px;
+  border-radius: 16px;
+  margin-right: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.btn-inicio:hover {
+  background: #fff;
+  color: #e55500;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: 0.5s;
+}
+
+.footer {
+  background: #383838;
+  color: #fff;
+  padding: 3em;
+}
+
+.footer h4 {
+  font-size: 20px;
+  text-align: left;
+}
+
+.footer ul {
+  list-style: none;
+  margin-top: 1em;
+  padding-left: 0px;
+}
+
+.footer ul li {
+  display: flex;
+  margin-bottom: 0.4em;
+  font-size: 12px;
+}
+
+.footer ul li a {
+  color: #fff;
+  transition: 0.5s;
+  float: left;
+}
+
+.footer ul li a:hover {
+  color: #e55500;
+  transition: 0.5s;
+}
+
+.line-left {
+  width: 100%;
+  height: 1px;
+  background: #e55500;
+  float: left;
+  position: relative;
+  top: 10px;
+}
+
+.links {
+  color: #fff;
+  text-transform: uppercase;
+  padding-right: 2em;
+}
+
+.links a {
+  color: #fff;
+  text-transform: uppercase;
+  padding-right: 2em;
+  transition: 0.5s
+}
+
+.links a:hover {
+  color: #000;
+  transition: 0.5s
+}
+
+.line-right {
+  width: 100%;
+  height: 1px;
+  background: #e55500;
+  float: right;
+  position: relative;
+  top: 10px;
+}
+
+.linea {
+  height: 4px;
+  background: #e55500;
+  width: 60px;
+}
+
+.social-foot {
+  display: inline-flex;
+  color: #fff;
+  margin-right: 1em;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+.social-foot:hover {
+  color: #e55500;
+  transition: 0.5s;
+}
+
+img.btn-whatsapp {
+  display: block !important;
+  position: fixed;
+  z-index: 9999999;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  border-radius: 100px !important;
+  width: 50px;
+  height: 50px;
+}
+
+.line-white {
+  width: 100%;
+  height: 1px;
+  color: #fff;
+}
+
+.down {
+  background: #e55500;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 3em;
+  padding-bottom: 2em;
+}
+
+.down p {
+  color: #fff;
+  margin: 1.5em;
+  text-align: center;
+}
+
+.cusco {
+  height: 60vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/panoramico/cusco-imperdible-tierras-vivas.webp);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+table {
+  border-style: solid;
+  border-color: #e55500;
+  border-width: 1px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+table thead {
+  background: #e55500
+}
+
+table h3 {
+  color: #fff;
+  text-align: center;
+}
+
+table tr {
+  border-style: solid;
+  border-color: #e55500;
+  border-width: 1px;
+  transition: 0.4s;
+}
+
+table tr td {
+  padding: 0.6em;
+  border-style: solid;
+  border-width: 1px;
+}
+
+table tr:hover {
+  background: #e55500;
+  color: #fff;
+  transition: 0.4s;
+}
+.uldjm li a{
+  color: #e55500;
+}
+.h3book{
+  text-align: center;
+    color: #283950;
+    font-size: 22px;
+}
+.boton-card{
+  margin-top: 1em;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 0.6em;
+    font-weight: 600;
+    transition: 0.4s;
+}
+.card{margin-top: 2em;}
+.card:hover{box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+.card-new img{
+  padding: 0px;
+    width: 100%;
+}
+.boton-card:hover{
+  background: #283950;
+  color: #fff;
+  border: 1px solid #ffffff56;
+  transition: 0.4s;
+}
+
+.djmFormShow {
+  padding: 1.8em;
+  background: #283950;
+  color: #fff;
+  border-radius: 10px;
+}
+.djmFormShow label{
+  font-size: 14px;
+}
+.form-row{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+.form-group{
+  padding-right: 0.6em;
+  margin-top: 0.5em;
+}
+
+@media (max-width: 768px) {
+  .mobile {
+    display: none;
+  }
+
+  .h1-inicio {
+    font-size: 20px;
+    margin: 2em;
+  }
+
+  .btn-inicio {
+    margin: auto;
+    display: block;
+    width: 150px;
+    margin-top: 2em;
+  }
+
+  .footer h4 {
+    margin-top: 1em;
+  }
+
+  .line-left {
+    display: none;
+  }
+
+  .line-right {
+    display: none;
+  }
+
+  .logo-foot {
+    text-align: center;
+  }
+}
