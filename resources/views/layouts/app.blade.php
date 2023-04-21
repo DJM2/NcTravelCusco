@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="css/nuevos.css">
+    <link rel="stylesheet" href="{{asset('css/nuevos.css')}}">
     @yield('metas')
 </head>
 
@@ -35,189 +35,64 @@
                     <nav class="site-navigation position-relative text-left" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li class="has-children">
-                                <a href="{{route('peru')}}" class="nav-link">Pacotes perú</a>
+                                <a href="{{ route('peru') }}" class="nav-link">Pacotes perú</a>
                                 <ul class="dropdown">
-                                    <li><a href="#team-section" class="nav-link">
-                                            <strong>Cusco e Puno alternativo</strong> → Pacote de 7 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#pricing-section" class="nav-link">
-                                            <strong>Lima Cuso e Puno</strong> → Pacote de 9 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#faq-section" class="nav-link">
-                                            <strong>Cusco, machu Picchu e Puno</strong> → Pacote de 9 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#gallery-section" class="nav-link">
-                                            <strong>Lima, Cusco e Puno</strong> → Pacote de 11 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#services-section" class="nav-link">
-                                            <strong>Cusco, Puno, Puno, Arequipa , Lima</strong> → Pacote de 12 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#services-section" class="nav-link">
-                                            <strong>Lima, Paracas , Nazca, Arequipa, Puno, Cusco, Machu Picchu</strong>
-                                            → Pacote de 14 dias
-                                        </a>
-                                    </li>
+                                    @foreach ($tours as $tour)
+                                        @if ($tour->categoria == 'hikes')
+                                            <li>
+                                                <a href="{{ $tour->slug }}">
+                                                    <strong> {{ $tour->nombre }} → </strong>
+                                                    Pacote de {{ $tour->dias }} días
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </li>
                             <li class="has-children">
-                                <a href="{{route('mapi')}}" class="nav-link">Pacotes Machu Picchu</a>
+                                <a href="{{ route('mapi') }}" class="nav-link">Pacotes Machu Picchu</a>
                                 <ul class="dropdown">
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco, Machu Picchu</strong> → Pacote de 1 dia
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco Classico Cultural</strong> → Pacote de 2 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco Classico Moderno</strong> → Pacote de 3 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco Classico Opcional</strong> → Pacote de 3 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco Classico Com Pernoite</strong> → Pacote de 4 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco Classico Com Tradicional</strong> → Pacote de 4 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco Classico Arqueologico</strong> → Pacote de 5 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco Classico Convencional</strong> → Pacote de 5 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Cusco Classico Imperial</strong> → Pacote de 6 dias
-                                        </a>
-                                    </li>
+                                    @foreach ($tours as $tour)
+                                        @if ($tour->categoria == 'around')
+                                            <li>
+                                                <a href="{{ $tour->slug }}">
+                                                    <strong> {{ $tour->nombre }} → </strong>
+                                                    Pacote de {{ $tour->dias }} días
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </li>
 
                             <li class="has-children">
-                                <a href="{{route('trilhas')}}" class="nav-link">Pacotes Trilha Inca</a>
+                                <a href="{{ route('trilhas') }}" class="nav-link">Pacotes Trilha Inca</a>
                                 <ul class="dropdown">
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Inca Antisuyo</strong> → Pacote de 1 dia
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Antisuyo a Machu Picchu</strong> → Pacote de 2 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Inca Curta</strong> → Pacote de 2 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Antisuyo Machu Picchu</strong> → Pacote de 3 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Inca Classica</strong> → Pacote de 4 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Salkantay com Barraca Dome</strong> → Pacote de 4 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Salkantay Machu Picchu</strong> → Pacote de 4 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Lares para Machu Picchu</strong> → Pacote de 4 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Choquequirao</strong> → Pacote de 5 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Inca de Huchuy Qosqo</strong> → Pacote de 2 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Salkantay com Barraca Dome</strong> → Pacote de 5 dias
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Trilha Salkantay para Machu Picchu</strong> → Pacote de 5 dias
-                                        </a>
-                                    </li>
+                                    @foreach ($tours as $tour)
+                                        @if ($tour->categoria == 'machupicchu')
+                                            <li>
+                                                <a href="{{ $tour->slug }}">
+                                                    <strong> {{ $tour->nombre }} → </strong>
+                                                    Pacote de {{ $tour->dias }} días
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </li>
                             <li class="has-children">
-                                <a href="{{route('alternativas')}}" class="nav-link">Rotas Alternativas</a>
+                                <a href="{{ route('alternativas') }}" class="nav-link">Rotas Alternativas</a>
                                 <ul class="dropdown">
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Vale Sagrado dos Incas</strong> → Pacote de 1 dia
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Montanha Colorida Peru </strong> → Pacote de 1 dia
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Lagoa Humantay </strong> → Pacote de 1 dia
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Maras, Moray & Salineras</strong> → Pacote de 1 dia
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Montanha Colorida Palcoyo</strong> → Pacote de 1 dia
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#team-section" class="nav-link">
-                                            <strong>Inca Jungle Machu Picchu </strong> → Pacote de 4 dia
-                                        </a>
-                                    </li>
+                                    @foreach ($tours as $tour)
+                                        @if ($tour->categoria == 'luxury')
+                                            <li>
+                                                <a href="{{ $tour->slug }}">
+                                                    <strong> {{ $tour->nombre }} → </strong>
+                                                    Pacote de {{ $tour->dias }} días
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </li>
                             <li class="escritorio">
@@ -227,19 +102,21 @@
                             </li>
                             <li class="responsive">
                                 <form action="{{ route('search') }}" method="get">
-                                    @csrf                         
-                                      <div class="input-group mb-3">
-                                        <input type="search" id="name" name="name" class="form-control" placeholder="Procurar...">
+                                    @csrf
+                                    <div class="input-group mb-3">
+                                        <input type="search" id="name" name="name" class="form-control"
+                                            placeholder="Procurar...">
                                         <div class="input-group-append">
-                                          <input type="submit" class="btn btn-outline-secondary" value="Ir"></button>
+                                            <input type="submit" class="btn btn-outline-secondary"
+                                                value="Ir"></button>
                                         </div>
-                                      </div>
+                                    </div>
                                 </form>
                             </li>
                         </ul>
                     </nav>
                 </div>
-                
+
                 <div class="col-12 col-md-2 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-left" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
@@ -300,10 +177,10 @@
                     <img src="{{ asset('img/Trilha-Inca-Machu-Picchu.png') }}" alt="Logo Salkantay Trilha Inca"
                         style="padding: 0em">
                     <ul>
-                        <li><a href="{{route('nosotros')}}">Quem Somos</a></li>
-                        <li><a href="{{route('contato')}}">Contato</a></li>
+                        <li><a href="{{ route('nosotros') }}">Quem Somos</a></li>
+                        <li><a href="{{ route('contato') }}">Contato</a></li>
                         <li><a href="">Nossa localização</a></li>
-                        <li><a href="{{route('condicoes')}}">Condições Gerais</a></li>
+                        <li><a href="{{ route('condicoes') }}">Condições Gerais</a></li>
                         <li><a href="">Pagamento</a></li>
                     </ul>
                 </div>
@@ -372,16 +249,16 @@
                         @csrf
                         <div class="input-group">
                             <div class="form-outline">
-                              <input type="search" id="name" name="name" class="form-control" />
+                                <input type="search" id="name" name="name" class="form-control" />
                             </div>
                             <input type="submit" style="border:none" class="btn-inicio" value="Procurar">
-                          </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="{{asset('js/djm2.js')}}"></script>
+    <script src="{{ asset('js/djm2.js') }}"></script>
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>

@@ -8,8 +8,6 @@
             <h1 class="h1-inicio">Encontre os melhores passeios para o Peru</h1>
             <a href="" class="btn-inicio">Pacotes Perú</a>
             <a href="" class="btn-inicio">Pacotes Trilha Inca</a>
-            <a href="" class="btn-inicio">Pacotes Peru</a>
-            <a href="" class="btn-inicio">Pacotes Alternativas</a>
         </div>
     </div>
     <section>

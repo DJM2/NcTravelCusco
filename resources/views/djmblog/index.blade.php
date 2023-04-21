@@ -61,8 +61,11 @@
 
                                             <td>
                                                 <form action="{{ route('djm.destroy', $djmblog->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary "
+                                                    {{-- <a class="btn btn-sm btn-primary "
                                                         href="{{ route('djm.show', $djmblog->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i> </a> --}}
+                                                            <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('djm.show', $djmblog->slug) }}"><i
                                                             class="fa fa-fw fa-eye"></i> </a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('djm.edit', $djmblog->id) }}"><i

@@ -20,10 +20,10 @@
     <div class="hero">
         <div class="centrado">
             <h1 class="h1-inicio">Encontre os melhores passeios para o Peru</h1>
-            <a href="" class="btn-inicio">Pacotes Perú</a>
-            <a href="" class="btn-inicio">Pacotes Trilha Inca</a>
-            <a href="" class="btn-inicio">Pacotes Peru</a>
-            <a href="" class="btn-inicio">Pacotes Alternativas</a>
+            <a href="{{ route('peru') }}" class="btn-inicio">Pacotes Perú</a>
+            <a href="{{ route('trilhas') }}" class="btn-inicio">Pacotes Trilha Inca</a>
+            <a href="{{ route('mapi') }}" class="btn-inicio">Pacotes Machu Picchu</a>
+            <a href="{{ route('alternativas') }}" class="btn-inicio">Pacotes Alternativas</a>
         </div>
     </div>
     <section>
@@ -158,7 +158,7 @@
                 <div class="col-lg-6 m-auto">
                     <h4>Reserva Trilha Inca <span class="subrayado"> 2023</span></h4>
                 </div>
-                <div class="col-lg-6 m-auto-djm"><a href="">Reservar</a></div>
+                <div class="col-lg-6 m-auto-djm"><a href="https://www.trilhaincacuzco.com/trilha-salkantay-machu-picchu">Reservar</a></div>
             </div>
         </div>
         <div class="container mt-5 mb-5">
@@ -249,13 +249,14 @@
             </div>
         </div>
         <div class="contenedor">
-
             @foreach ($blogs as $blog)
                 <div class="columna">
                     <div class="superpuesto"></div>
                     <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}" loading="lazy">
                     <h5>{{ $blog->nombre }}</h5>
-                    <a href="{{ route('blog.show', $blog->slug) }}">Leer blog</a>
+                    <a href="{{ route('muestrame', $blog->slug) }}">Leer Blog</a>
+                    {{-- <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">Más
+                        detalles</a> --}}
                 </div>
             @endforeach
         </div>

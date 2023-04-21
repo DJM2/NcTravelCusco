@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Buscadore;
 use App\Models\Djmblog;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 
 /**
@@ -22,19 +23,11 @@ class DjmblogController extends Controller
         $djmblogs = Djmblog::query()->with('categorias')->get();
         return view('djmblog.index', compact('djmblogs'));
     }
-    public function djmblog()
+    public function mostrar($slug)
     {
-        $blogs = Djmblog::query()->with('categorias')->get();
-        return view('djmblog.mostrar', compact('blogs'));
-        ;
-    }
-    public function mostrarblog($slug)
-    {
-        /* $blog = Djmblog::query()->where('slug', $slug)->firstOrFail(); */
-        /* $blog = Djmblog::query()->with('categorias')->find($slug);
-        return view('djmblog.mostrar')->with('blog', $blog); */
+        $tours = Tour::all();
         $blog = Djmblog::query()->where('slug', $slug)->with('categorias')->firstOrFail();
-        return view('djmblog.mostrar')->with('blog', $blog);
+        return view('djmblog.mostrar', compact('blog', 'tours'));
     }
 
     /**
@@ -91,9 +84,10 @@ class DjmblogController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $djmblog = Djmblog::query()->with('categorias')->find($id);
+        /* $djmblog = Djmblog::query()->with('categorias')->find($slug); */
+        $djmblog = Djmblog::query()->where('slug', $slug)->with('categorias')->firstOrFail();
         return view('djmblog.show', compact('djmblog'));
     }
 

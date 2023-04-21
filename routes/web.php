@@ -33,7 +33,7 @@ Route::get('pagamentos',[EnlacesCategorias::class, 'pagamentos'])->name('pagamen
 
 //blogs
 Route::get('blog',[DjmblogController::class, 'djmblogs'])->name('blog');
-Route::get('blog/{slug}', [DjmblogController::class, 'mostrarblog'])->name('blog.show');
+Route::get('blog/{slug}', [DjmblogController::class, 'mostrar'])->name('muestrame');
 
 
 
