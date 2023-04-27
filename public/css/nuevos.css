@@ -5,10 +5,106 @@
   transition: 1s;
 }
 
+.suscribe h4 {
+  font-size: 15px !important;
+  margin-top: 1.6em;
+}
+.suscribe input:focus {
+  color: #000000;
+  background-color: #fff;
+  border-color: rgba(225, 114, 0, 0.1607843137);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(201, 95, 4, 0.25);
+}
+.suscribe .btn-blog {
+  color: #fff;
+  background: #e55500;
+  padding: 12px;
+  font-size: 9px;
+  border-radius: 16px;
+  margin-right: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.5s;
+  border: 1px solid #e55500;
+}
+.suscribe .btn-blog:hover {
+  background: #fff;
+  color: #e55500;
+  border: 1px solid #e55500;
+  transition: 0.5s;
+}
+.suscribe .btn-blog:focus {
+  background: #fff;
+  color: #e55500;
+  border: 1px solid #e55500;
+  transition: 0.5s;
+}
+
+.toursBlog {
+  margin-top: 1em;
+}
+.toursBlog i {
+  font-size: 10px;
+}
+.toursBlog a {
+  font-weight: 400;
+  font-size: 12px;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 1.1em;
+  font-weight: 600;
+}
+.toursBlog a:hover {
+  color: #e55500 !important;
+}
+.toursBlog span {
+  font-weight: 400;
+}
+
+.blogsrelative {
+  text-align: center;
+}
+.blogsrelative div {
+  border-bottom: 1px dashed #e55500;
+  padding-bottom: 0.8em;
+  margin-top: 1.4em;
+}
+.blogsrelative a {
+  font-size: 14px;
+  color: #000;
+}
+.blogsrelative a:hover {
+  color: #e55500 !important;
+}
+
 .sticky-wrapper.is-sticky .logo {
   width: 150px;
   transition: 1s;
   padding: 1em;
+}
+
+.blog-head {
+  height: 280px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.19), rgba(0, 0, 0, 0.27)), url(../img/blog/tejido-manta-chinchero.webp);
+}
+.blog-head h1 {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  color: #fff;
+  font-weight: bold;
+  padding-top: 1.6em;
+  font-size: 2em;
+  text-shadow: 2px 2px 2px black;
+}
+.blog-head .lineablog {
+  height: 4px;
+  background: #e55500;
+  width: 60px;
+  margin: auto;
 }
 
 .centrado {
@@ -65,7 +161,7 @@
   padding: 0px;
   margin-left: -25px;
   width: 100%;
-  height: 160px;
+  height: auto;
 }
 
 #popup {
@@ -454,9 +550,51 @@ table tr td {
   border-width: 1px;
 }
 
+.share {
+  margin-top: 2em;
+}
+.share h3 {
+  margin-bottom: 1.2em;
+}
+
+.btn-social {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background: #e55500;
+  color: #fff;
+  border-radius: 17px;
+  text-align: center;
+  margin-left: 1em;
+  transition: 0.6s;
+  border: 1px solid #e55500;
+}
+.btn-social:hover {
+  color: #e55500;
+  background: #fff;
+  border: 1px solid #e55500;
+  transition: 0.6s;
+}
+.btn-social i {
+  display: inline-block;
+  line-height: 28px;
+  vertical-align: middle;
+}
+
+.uldjm .active {
+  color: #fff !important;
+  background: #e55500 !important;
+}
 .uldjm li a {
   color: #e55500;
   font-weight: 500;
+  border: 0.8px solid rgba(255, 94, 0, 0.1725490196) !important;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+.uldjm li a:hover {
+  color: #283950;
 }
 
 .h3book {

@@ -6,6 +6,7 @@ use App\Models\Buscadore;
 use App\Models\Djmblog;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+use Spatie\LaravelIgnition\Recorders\QueryRecorder\Query;
 
 /**
  * Class DjmblogController
@@ -26,8 +27,10 @@ class DjmblogController extends Controller
     public function mostrar($slug)
     {
         $tours = Tour::all();
+        $djmblogs = Djmblog::Query()->latest()->take(4)->get();
         $blog = Djmblog::query()->where('slug', $slug)->with('categorias')->firstOrFail();
-        return view('djmblog.mostrar', compact('blog', 'tours'));
+        $update = $blog->updated_at->format('d/m/Y');
+        return view('djmblog.mostrar', compact('blog', 'tours', 'update', 'djmblogs'));
     }
 
     /**
@@ -100,9 +103,10 @@ class DjmblogController extends Controller
     public function edit($id)
     {
         $djmblog = Djmblog::with('categorias')->findOrFail($id);
-        dd($djmblog);
-        return view('djmblog.edit', compact('djmblog'));
-    }
+        $categorias = Buscadore::query()->pluck('nombre', 'id');
+        return view('djmblog.edit', compact('djmblog', 'categorias'));
+    } 
+   
 
     /**
      * Update the specified resource in storage.

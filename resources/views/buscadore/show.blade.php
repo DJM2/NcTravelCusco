@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('contenido')
-    {{ $buscadore->name ?? 'Show Buscadore' }}
+    {{ $buscadore->name ?? 'Mostrar Tags de blogs' }}
 @endsection
 
 @section('content')

@@ -15,21 +15,10 @@ class MailController extends Controller
         $datos = request()->all();
         Mail::send("emails.contacto", $datos, function ($message) use ($datos) {
             $message->from($datos['email'], $datos['nombre'])
-                ->to('info@pachamamaspirit.com', 'DJM2')
-                ->subject('Envio de formulario desde la página web.');
+                ->to('nctravelcusco@gmail.com', 'DJM2')
+                ->subject('Formulario desde Trilha Inca Cuzco web.');
         });
         session()->flash('status', 'Mensaje enviado exitosamente!');
-        return back();
-    }
-    public function getMailEn()
-    {
-        $datos = request()->all();
-        Mail::send("emails.contacto", $datos, function ($message) use ($datos) {
-            $message->from($datos['email'], $datos['nombre'])
-                ->to('info@pachamamaspirit.com', 'DJM2')
-                ->subject('Envio de formulario desde la página web.');
-        });
-        session()->flash('status', 'Message sent successfully!');
         return back();
     }
 }

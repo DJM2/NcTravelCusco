@@ -23,6 +23,7 @@
                 </div>
                 <!-----Fin orueba--->
                 @foreach ($tours as $tour)
+                    @if ($tour->categoria=='hikes')
                     <div class="col-lg-3 col-md-6">
                         <div class="card card-new" style="width: 18rem;">
                             <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
@@ -52,6 +53,8 @@
                             </div>
                         </div>
                     </div>
+                        
+                    @endif
                 @endforeach
             </div>
         </div>

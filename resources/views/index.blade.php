@@ -1,17 +1,18 @@
 @extends('layouts.app')
 @section('titulo', 'Agência de viagens NC Travel Cusco')
 @section('metas')
+    <meta name="keywords" content="Trilha inca Machu Picchu, Machu Picchu 2024, Pacotes peru 2024, Trilha Inca Cusco">
     <link rel="canonical" href="https://www.trilhaincacuzco.com/" />
     <meta name="description"
         content="A Trilha Inca ou  Trilha Inca Cuzco é o trekking mais famoso da América do Sul e é classificado por muitos como uma das 5 melhores trilhas do mundo. Uma experiência única e quem o fez tem a certeza de que o esforço vale a pena!" />
     <meta property="og:image"
-        content="https://www.trilhaincacuzco.com/img/sliders/home/trilhaantisuyopiuraymachupicchu.jpg" />
+        content="https://trilhaincacuzco.com/img/Machu-Picchu-trilha-Inca-Salkantay.jpg" />
     <!------Open Graph-------------->
     <meta property="og:title" content="Agência de viagens NC Travel Cusco" />
     <meta property="og:description"
         content="A Trilha Inca ou  Trilha Inca Cuzco é o trekking mais famoso da América do Sul e é classificado por muitos como uma das 5 melhores trilhas do mundo. Uma experiência única e quem o fez tem a certeza de que o esforço vale a pena!" />
     <meta property="og:image"
-        content="https://www.trilhaincacuzco.com/img/sliders/home/trilhaantisuyopiuraymachupicchu.jpg" />
+        content="https://trilhaincacuzco.com/img/Machu-Picchu-trilha-Inca-Salkantay.jpg" />
     <meta property="og:url" content="https://www.trilhaincacuzco.com/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
@@ -27,14 +28,13 @@
         </div>
     </div>
     <section>
-        <div id="popup">
-            <div id="popup-content">
+        <div id="popup" onclick="cerrar()">
+            <div id="popup-content" style="width: 400px; background: transparent">
                 <a href="https://balsaspiuray.com/tour/paseo-laguna-piuray-con-balsa-ecologica/" target="_blank">
                     <img src="img/oferta-01.webp" alt="Balsas piuray" style="width: 100%" loading="lazy">
                 </a>
                 <div class="row">
                     <div class="col-lg-12">
-
                         <a class="btn-inicio" href="https://balsaspiuray.com/tour/paseo-laguna-piuray-con-balsa-ecologica/"
                             target="_blank">
                             Ver promoção
@@ -56,7 +56,6 @@
         </div>
         <div class="container">
             <div class="row">
-
                 <!------Listado de tours----------->
                 @foreach ($tours->take(8) as $tour)
                     <div class="col-lg-3 col-md-6 escritorio">
@@ -158,7 +157,8 @@
                 <div class="col-lg-6 m-auto">
                     <h4>Reserva Trilha Inca <span class="subrayado"> 2023</span></h4>
                 </div>
-                <div class="col-lg-6 m-auto-djm"><a href="https://www.trilhaincacuzco.com/trilha-salkantay-machu-picchu">Reservar</a></div>
+                <div class="col-lg-6 m-auto-djm"><a
+                        href="https://www.trilhaincacuzco.com/trilha-salkantay-machu-picchu">Reservar</a></div>
             </div>
         </div>
         <div class="container mt-5 mb-5">
@@ -255,33 +255,31 @@
                     <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}" loading="lazy">
                     <h5>{{ $blog->nombre }}</h5>
                     <a href="{{ route('muestrame', $blog->slug) }}">Leer Blog</a>
-                    {{-- <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">Más
-                        detalles</a> --}}
                 </div>
             @endforeach
         </div>
         <div class="container">
-            <div class="row mt-5 mb-4">
-                <div class="col-lg-12 mb-2 text-center">
+            <div class="row mt-5 mb-4 text-center">
+                <div class="col-lg-12 mb-2">
                     <h5>Metodos de pagamento:</h5>
                 </div>
-                <div class="col-lg-1"></div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/Visa.png') }}" alt="" width="100px"></div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/banco-do-brasil.png') }}" alt=""
-                        width="100px"></div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/american-express.png') }}" alt=""
-                        width="100px"></div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/Bradesco.png') }}" alt="" width="100px">
+                <div class="col-lg-1 col-sm-12"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Visa.png') }}" alt="Pagamento Visa" width="100px" loading="lazy"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/banco-do-brasil.png') }}" alt="banco do brasil"
+                        width="100px" loading="lazy"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/american-express.png') }}" alt="American express"
+                        width="100px" loading="lazy"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Bradesco.png') }}" alt=" Banco Bradesco" width="100px" loading="lazy">
                 </div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/Dinner-Club-internacional.png') }}" alt=""
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Dinner-Club-internacional.png') }}" alt="Dinner club internacional" loading="lazy"
                         width="100px"></div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/wester-union.png') }}" alt=""
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/wester-union.png') }}" alt="Wester Union " loading="lazy"
                         width="100px"></div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/Paypal.png') }}" alt="" width="100px">
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Paypal.png') }}" alt="pagamento paypal" loading="lazy" width="100px">
                 </div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/Master-card.png') }}" alt=""
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Master-card.png') }}" alt=" Master Card" loading="lazy"
                         width="100px"></div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/tranferencia.png') }}" alt=""
+                <div class="col-lg-1"><img src="{{ asset('img/thumb/tranferencia.png') }}" alt="Pagamento tranferencia" loading="lazy"s
                         width="100px"></div>
             </div>
         </div>

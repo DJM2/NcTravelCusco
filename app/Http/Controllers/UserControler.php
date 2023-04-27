@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserControler extends Controller
 {
@@ -28,6 +29,24 @@ class UserControler extends Controller
         return view('auth.register');
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = new User;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        $users = User::all();
+        session()->flash('status', 'Usuario nuevo creado exitosamente!');
+        return view('auth.users.index')->with('users', $users);
+    }
     /**
      * Store a newly created resource in storage.
      *

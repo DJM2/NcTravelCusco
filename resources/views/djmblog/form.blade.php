@@ -37,8 +37,7 @@
                 </div>
             @endforeach
             {!! $errors->first('categorias', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        
+        </div>        
         
         <div class="form-group">
             {{ Form::label('slug') }}

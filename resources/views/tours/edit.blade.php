@@ -85,7 +85,7 @@
                         <label for="" class="form-label">Categoría:</label>
                         {{-- <input type="text" id="categoria" name="categoria" class="ckeditor form-control" required value="{{$tour->categoria}}"> --}}
                         <select name="categoria[]" id="categoria" class="form-control" aria-label="Default select example"
-                            required multiple="multiple">
+                            required>
                             <option value="{{ $tour->categoria }}" selected style="text-transform: capitalize">
                                 {{ $tour->categoria }} <small>(Seleccionado)</small></option>
                             <option value="hikes">Pacotes Perú</option>

@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt">
 
 <head>
     <meta charset="utf-8">
@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/nuevos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{asset('css/nuevos.css')}}">
+    
     @yield('metas')
 </head>
 
@@ -30,7 +31,6 @@
                     <a href="/"><img src="{{ asset('img/Logo-Salkantay-trilha-inca.png') }}"
                             alt="Logo Trilha Salkantay" class="logo"></a>
                 </div>
-
                 <div class="col-12 col-md-8 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-left" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
@@ -38,9 +38,9 @@
                                 <a href="{{ route('peru') }}" class="nav-link">Pacotes perú</a>
                                 <ul class="dropdown">
                                     @foreach ($tours as $tour)
-                                        @if ($tour->categoria == 'hikes')
+                                        @if ($tour->categoria == 'hikes') 
                                             <li>
-                                                <a href="{{ $tour->slug }}">
+                                                <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
                                                     Pacote de {{ $tour->dias }} días
                                                 </a>
@@ -55,7 +55,7 @@
                                     @foreach ($tours as $tour)
                                         @if ($tour->categoria == 'around')
                                             <li>
-                                                <a href="{{ $tour->slug }}">
+                                                <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
                                                     Pacote de {{ $tour->dias }} días
                                                 </a>
@@ -71,7 +71,7 @@
                                     @foreach ($tours as $tour)
                                         @if ($tour->categoria == 'machupicchu')
                                             <li>
-                                                <a href="{{ $tour->slug }}">
+                                                <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
                                                     Pacote de {{ $tour->dias }} días
                                                 </a>
@@ -86,7 +86,7 @@
                                     @foreach ($tours as $tour)
                                         @if ($tour->categoria == 'luxury')
                                             <li>
-                                                <a href="{{ $tour->slug }}">
+                                                <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
                                                     Pacote de {{ $tour->dias }} días
                                                 </a>
@@ -105,13 +105,13 @@
                                     @csrf
                                     <div class="input-group mb-3">
                                         <input type="search" id="name" name="name" class="form-control"
-                                            placeholder="Procurar...">
+                                            placeholder="Procurar..." style="z-index:10">
                                         <div class="input-group-append">
                                             <input type="submit" class="btn btn-outline-secondary"
                                                 value="Ir"></button>
                                         </div>
                                     </div>
-                                </form>
+                                </form>                                
                             </li>
                         </ul>
                     </nav>
@@ -156,16 +156,16 @@
             <div class="row">
                 <div class="col-lg-4"><span class="line-left"></span></div>
                 <div class="col-lg-4 text-center">
-                    <a href="https://www.facebook.com/MachupicchuCusco" class="social-foot" target="_blank">
+                    <a href="https://www.facebook.com/MachupicchuCusco" class="social-foot" target="_blank" alt="Facebook Nc Travel Cusco">
                         <span class="icon-facebook"></span>
                     </a>
-                    <a href="https://www.instagram.com/nctravelcusco_oficial/" class="social-foot" target="_blank">
+                    <a href="https://www.instagram.com/nctravelcusco_oficial/" class="social-foot" target="_blank" alt="Instagram Nc Travel">
                         <span class="icon-instagram"></span>
                     </a>
-                    <a href="https://www.pinterest.es/nctravelcusco/" class="social-foot" target="_blank">
+                    <a href="#" class="social-foot" target="_blank" alt="Trip Advisor Nc Travel">
                         <span class="icon-tripadvisor"></span>
                     </a>
-                    <a href="https://www.pinterest.es/nctravelcusco/" class="social-foot" target="_blank">
+                    <a href="https://www.pinterest.es/nctravelcusco/" class="social-foot" target="_blank" alt="Pinterest NC Travel Cusco">
                         <span class="icon-pinterest"></span>
                     </a>
                 </div>
@@ -188,32 +188,39 @@
                     <h4>Passeios mais populares</h4>
                     <div class="linea"></div>
                     <ul>
-                        <li><a href="">Cusco Classico Opcional 3 Dias e 2 Noites</a> </li>
+                        <li><a href="https://www.trilhaincacuzco.com/cusco-classico-opcional-3dias">Cusco Classico
+                                Opcional 3 Dias e 2 Noites</a> </li>
                     </ul>
                     <ul>
-                        <li><a href="">Cusco Classico Tradicional 4 Dias e 3 Noites</a> </li>
+                        <li><a href="https://www.trilhaincacuzco.com/cusco-classico-pernoite-4dias">Cusco Classico
+                                Tradicional 4 Dias e 3 Noites</a> </li>
                     </ul>
                     <ul>
-                        <li><a href="">Cusco Classico Imperial 6 Dias e 5 Noites</a> </li>
+                        <li><a href="https://www.trilhaincacuzco.com/cusco-classico-imperial-6dias">Cusco Classico
+                                Imperial 6 Dias e 5 Noites</a> </li>
                     </ul>
                     <ul>
-                        <li><a href="">Trilha Inca Clássica 4 Dias e 3 Noites</a> </li>
+                        <li><a href="https://www.trilhaincacuzco.com/trilha-inca-jungle-machu-picchu-4dias">Trilha Inca
+                                Clássica 4 Dias e 3 Noites</a> </li>
                     </ul>
                     <ul>
-                        <li><a href="">Trilha Salkantay Machu Picchu 5 Dias e 4 Noites</a> </li>
+                        <li><a href="https://www.trilhaincacuzco.com/trilha-salkantay-machu-picchu-4dias">Trilha
+                                Salkantay Machu Picchu 5 Dias e 4 Noites</a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <h4>Inquéritos</h4>
                     <div class="linea"></div>
                     <ul>
-                        <li><a href=""><i class="icon-envelope-o"></i> info@nctravelcusco.com</a> </li>
+                        <li><a href="mailto:nctravelcusco@gmail.com"><i class="icon-envelope-o"></i>
+                                info@nctravelcusco.com</a> </li>
                     </ul>
                     <ul>
-                        <li><a href=""><i class="icon-envelope-o"></i> nikocworld@hotmail.com</a></li>
+                        <li><a href="mailto:nctravelcusco@gmail.com"><i class="icon-envelope-o"></i>
+                                nikocworld@hotmail.com</a></li>
                     </ul>
                     <ul>
-                        <li><a href=""><i class="icon-whatsapp"></i>&nbsp; +51 984606757</a> </li>
+                        <li><a><i class="icon-whatsapp"></i>&nbsp; +51 984606757</a> </li>
                     </ul>
                     <ul>
                         <li><i class="icon-phone"></i>&nbsp; +51 84 235190 </li>
@@ -230,10 +237,10 @@
         <div class="row">
             <div class="down">
                 <div class="col-lg-12 text-center links">
-                    <a href="http://www.nctravelcusco.com/" target="_blank">NC Travel Cusco</a>
-                    <a href="https://www.pacotesperu.com/" target="_blank">Pacotes Perú</a>
-                    <a href="https://www.trilhasalkantay.com/" target="_blank">Trilha Salkantay</a>
-                    <a href="https://www.balsaspiuray.com/" target="_blank">Balsas Piuray</a>
+                        <a href="http://www.nctravelcusco.com/" target="_blank">NC Travel Cusco</a>
+                        <a href="https://www.pacotesperu.com/" target="_blank">Pacotes Perú</a>
+                        <a href="https://www.trilhasalkantay.com/" target="_blank">Trilha Salkantay</a>
+                        <a href="https://www.balsaspiuray.com/" target="_blank">Balsas Piuray</a>
                 </div>
                 <p><strong>NC Travel Cusco SAC</strong> direitos autorais ©2023 | Trekking e caminhadas no Peru, todos
                     os direitos autorais.</p>

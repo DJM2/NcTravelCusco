@@ -9,42 +9,42 @@ class EnlacesCategorias extends Controller
 {
     public function machu()
     {
-        $tours = Tour::all()->filter(function ($tour) {
-            return str_contains($tour->categoria, 'around');
-        });
+        $tours = Tour::all();
         return view('tours.machu-picchu', compact('tours'));
     }
     public function peru()
     {
-        $tours = Tour::all()->filter(function ($tour) {
-            return str_contains($tour->categoria, 'hikes');
-        });
+        $tours = Tour::all();
         return view('tours.pacotes-peru', compact('tours'));
-    } 
+    }
     public function trilhas()
     {
-        $tours = Tour::all()->filter(function ($tour) {
-            return str_contains($tour->categoria, 'machupicchu');
-        });
+        $tours = Tour::all();
         return view('tours.trilha-inca', compact('tours'));
-    } 
+    }
     public function alternativas()
     {
-        $tours = Tour::all()->filter(function ($tour) {
-            return str_contains($tour->categoria, 'luxury');
-        });
+        $tours = Tour::all();
         return view('tours.rotas-alternativas', compact('tours'));
-    } 
-    public function nosotros(){
-        return view('nosotros');
     }
-    public function contato(){
-        return view('tours.contato');
+    public function nosotros()
+    {
+        $tours = Tour::all();
+        return view('nosotros', compact('tours'));
     }
-    public function reserva(){
-        return view('tours.reserva');
+    public function contato()
+    {
+        $tours = Tour::all();
+        return view('tours.contato', compact('tours'));
     }
-    public function condicoes(){
-        return view('condicoes-gerais');
+    public function reserva()
+    {
+        $tours = Tour::all();
+        return view('tours.reserva', compact('tours'));
+    }
+    public function condicoes()
+    {
+        $tours = Tour::all();
+        return view('condicoes-gerais', compact('tours'));
     }
 }

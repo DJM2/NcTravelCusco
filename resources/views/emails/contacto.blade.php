@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h4>Correo enviado desde la página web Pacha Mama Spirit</h4>
+    <h4>Correo enviado desde la página web Trilha Inca Cusco</h4>
     <table class="table table-hover" style="text-align: left">
         {{-- <thead>
             <tr>
@@ -22,7 +22,7 @@
             
             </tr>
             <tr>
-                <th scope="row">Nombre:</th>
+                <th scope="row">Email:</th>
                 <td>{{ $email }}</td>
             
             </tr>
@@ -55,7 +55,7 @@
     <br><br><br>
     <div class="conteiner">
         <div class="col-lg-12 text-center">
-            Copiryght 2022 © todos los derechos reservados | Pacha Mama Spirit | Hecho por DJM2
+            Copiryght 2023 © todos los derechos reservados | NC Travel Cusco | Hecho por DJM2
         </div>
     </div>
 </body>

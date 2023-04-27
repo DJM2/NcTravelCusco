@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="utf-8">
@@ -19,7 +19,6 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('index') }}">
                 <img src="{{ asset('img/logo-nc-travel-blanco.png') }}" width="50%" alt="">
             </a>
-
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
                 Idiomas
@@ -27,34 +26,34 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#espanol" aria-expanded="false" aria-controls="espanol">
                     <i class="fas fa-fw fa-language"></i>
-                    <span>Portugues</span>
+                    <span>Tours</span>
                 </a>
                 <div id="espanol" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('tours.index') }}">
                             Tours Portugués
                         </a>
-                        <a class="collapse-item" href="{{ route('cat.tag.index') }}">
+                        {{-- <a class="collapse-item" href="{{ route('cat.tag.index') }}">
                             Categorias de blog
                         </a>
                         <a class="collapse-item" href="{{ route('blog.index') }}">
                             Blogs Portugués
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ingles" aria-expanded="false" aria-controls="ingles">
                     <i class="fas fa-fw fa-language"></i>
-                    <span>English</span>
+                    <span>Blogs Portugués</span>
                 </a>
                 <div id="ingles" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{route('cat.index')}}">
-                         Cat djm2
+                         Tags de blogs
                         </a>
                         <a class="collapse-item" href="{{route('djm.index')}}">
-                           blog djm2
+                           Blogs
                         </a>
                     </div>
                 </div>
@@ -93,9 +92,15 @@
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-user"></i>
+                    <span>Home</span>
+                </a>
+            </li> --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">
+                    <i class="fas fa-fw fa-home"></i>
                     <span>Home</span>
                 </a>
             </li>

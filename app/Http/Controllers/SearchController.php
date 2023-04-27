@@ -12,15 +12,20 @@ class SearchController extends Controller
         $name = $request->input('name');
         $respuesta = Tour::where('nombre', 'LIKE', "%$name%")->get();
         $numCoincidencias = count($respuesta);
+        $tours=Tour::all();
 
         if ($numCoincidencias != 0) {
             $respuestas = [
                 'respuestas' => $respuesta,
                 'numCoincidencias' => $numCoincidencias,
+                'tours' => $tours,
             ];
             return view('es.search', $respuestas);
         } else {
-            return view('es.noresults');
+            $datos = [
+                'tours' => $tours,
+            ];
+            return view('es.noresults', $datos);
         }
     }
 }

@@ -61,6 +61,7 @@
 
                                             <td>
                                                 <form action="{{ route('djm.destroy', $djmblog->id) }}" method="POST">
+                                                    @csrf
                                                     {{-- <a class="btn btn-sm btn-primary "
                                                         href="{{ route('djm.show', $djmblog->id) }}"><i
                                                             class="fa fa-fw fa-eye"></i> </a> --}}
@@ -70,7 +71,7 @@
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('djm.edit', $djmblog->id) }}"><i
                                                             class="fa fa-fw fa-edit"></i> </a>
-                                                    @csrf
+                                                    
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
                                                             class="fa fa-fw fa-trash"></i> </button>

@@ -1,5 +1,5 @@
-<meta name="keywords" content="{{ $tour->keywords}}"/>
-<meta name="description" content="{{$tour->descripcion}}">
+<meta name="keywords" content="{{ $blog->keywords}}"/>
+<meta name="description" content="{{$blog->descripcion}}">
 <link rel="canonical" href="{{ request()->fullUrl() }}" />
 
 <meta property="og:image" content="{{ asset('img/buscador/' . $tour->img)  }}"/>

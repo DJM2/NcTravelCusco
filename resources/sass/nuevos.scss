@@ -6,10 +6,114 @@ $colorPrincipal: #e55500;
     transition: 1s;
 }
 
+.suscribe {
+    h4 {
+        font-size: 15px !important;
+        margin-top: 1.6em;
+    }
+
+    input:focus {
+        color: #000000;
+        background-color: #fff;
+        border-color: #e1720029;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgb(201 95 4 / 25%);
+    }
+
+    .btn-blog {
+        color: #fff;
+        background: #e55500;
+        padding: 12px;
+        font-size: 9px;
+        border-radius: 16px;
+        margin-right: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: .5s;
+        border: 1px solid #e55500;
+
+        &:hover {
+            background: #fff;
+            color: #e55500;
+            border: 1px solid #e55500;
+            transition: .5s;
+        }
+
+        &:focus {
+            background: #fff;
+            color: #e55500;
+            border: 1px solid #e55500;
+            transition: .5s;
+        }
+    }
+
+}
+
+.toursBlog {
+    margin-top: 1em;
+    i{
+        font-size: 10px;
+    }
+    a {
+        font-weight: 400;
+        font-size: 12px;
+        color: #000;
+        cursor: pointer;
+        display: inline-block;
+        margin-bottom: 1.1em;
+        font-weight: 600;
+        &:hover{
+            color:$colorPrincipal!important;
+        }
+    }
+    span{
+        font-weight: 400;
+    }
+}
+.blogsrelative{
+    text-align: center;
+    div{
+        border-bottom: 1px dashed $colorPrincipal;
+        padding-bottom: 0.8em;
+        margin-top: 1.4em;
+    }
+    a{
+        font-size: 14px;
+        color: #000;
+        &:hover{
+            color:$colorPrincipal!important;
+        }
+    }
+}
+
 .sticky-wrapper.is-sticky .logo {
     width: 150px;
     transition: 1s;
     padding: 1em;
+}
+
+.blog-head {
+    height: 280px;
+    width: 100%;
+    background-image: linear-gradient(to right, rgb(0 0 0 / 19%), rgb(0 0 0 / 27%)), url(../img/blog/tejido-manta-chinchero.webp);
+
+    h1 {
+        text-align: center;
+        position: relative;
+        top: 50%;
+        color: #fff;
+        font-weight: bold;
+        padding-top: 1.6em;
+        font-size: 2em;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    .lineablog {
+        height: 4px;
+        background: #e55500;
+        width: 60px;
+        margin: auto;
+    }
 }
 
 .centrado {
@@ -71,7 +175,7 @@ $colorPrincipal: #e55500;
         padding: 0px;
         margin-left: -25px;
         width: 100%;
-        height: 160px;
+        height: auto;
     }
 }
 
@@ -118,6 +222,7 @@ $colorPrincipal: #e55500;
             border: none;
             color: #fff;
             cursor: pointer;
+
             cerrar-popup i {
                 color: #fff;
                 font-size: 20px;
@@ -511,10 +616,61 @@ table {
     }
 }
 
+.share {
+    margin-top: 2em;
+    h3 {
+        margin-bottom: 1.2em;
+    }
+}
 
-.uldjm li a {
-    color: $colorPrincipal;
-    font-weight: 500;
+.btn-social {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: $colorPrincipal;
+    color: #fff;
+    border-radius: 17px;
+    text-align: center;
+    margin-left: 1em;
+    transition: 0.6s;
+    border: 1px solid $colorPrincipal;
+
+    &:hover {
+        color: $colorPrincipal;
+        background: #fff;
+        border: 1px solid $colorPrincipal;
+        transition: 0.6s;
+    }
+
+    i {
+        display: inline-block;
+        line-height: 28px;
+        vertical-align: middle;
+
+    }
+}
+
+.uldjm {
+    .active {
+        color: #fff !important;
+        background: $colorPrincipal !important;
+    }
+
+    li {
+        a {
+            color: $colorPrincipal;
+            font-weight: 500;
+            border: 0.8px solid #ff5e002c !important;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 500;
+
+            &:hover {
+                color: #283950;
+            }
+        }
+
+    }
 }
 
 .h3book {
@@ -626,7 +782,8 @@ table {
     border-radius: 5px;
     transition: 0.8s;
 }
-.columna:hover a{
+
+.columna:hover a {
     top: 55%;
     transition: 0.8s;
 }
@@ -659,7 +816,7 @@ table {
 
 
 @media (max-width: 768px) {
-    .columna{
+    .columna {
         width: 100%;
     }
 

@@ -6,10 +6,8 @@
         content="Contato nc travel cusco, Comunique-se conosco e forneceremos as informações necessárias para planejar sua viagem NCTRAVELCUSCO">
     <meta name="keywords" content="NC travel, cobre nc travel, nc travel cusco" />
     <meta rel="canonical" href="https://www.trilhaincacuzco.com/quem-somos">
-
     <meta name="og_image" content="https://www.trilhaincacuzco.com/img/sliders/default/2trilha-inca.jpg" />
     <meta name="og_secureImage" content="https://www.trilhaincacuzco.com/img/sliders/default/2trilha-inca.jpg" />
-
     <meta property="og:title" content="Contato Nc Travel Cusco" />
     <meta property="og:description"
         content="Contato nc travel cusco, Comunique-se conosco e forneceremos as informações necessárias para planejar sua viagem NCTRAVELCUSCO" />
@@ -23,8 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h1 style="padding-top: 250px;color:#fff">Contato NC Travel Cusco</h1> <span><img
-                            src="{{ asset('img/pacha-mama-spirit-logo.png') }}" width="260px" alt=""></span>
+                    <h1 style="padding-top: 250px;color:#fff">Contato NC Travel Cusco</h1>
                 </div>
             </div>
         </div>
@@ -57,7 +54,7 @@
                 </div>
                 <div class="col-lg-6 mb-3 p-3">
                     <h3 class="text-center">Agende agora</h3>
-                    <form class="" action="{{ route('mensajePacha') }}" method="POST">
+                    <form class="" action="{{ route('mensaje') }}" method="POST">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-lg-6">

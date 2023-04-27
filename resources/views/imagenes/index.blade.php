@@ -2,7 +2,7 @@
 @section('titulo', 'Crud de imágenes')
 
 @section('contenido')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
 
     <div class="row">
         <div class="col-12">
@@ -19,7 +19,7 @@
             @endif
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-lg-12">
             <table id="tabladatos" class="table table-hover">
@@ -35,9 +35,9 @@
                     @foreach ($imagenes as $imagen)
                         <tr>
                             <td>{{ $imagen->id }}</td>
-                            <td> <img width="200px" height="auto" src="../img/galeria/{{ $imagen->img }}">
+                            <td> <img width="80px" height="auto" src="../img/galeria/{{ $imagen->img }}">
                             </td>
-                            <td onclick="copiar(this)">{{asset("img/galeria/$imagen->img")}} 
+                            <td onclick="copiar(this)">{{ asset("img/galeria/$imagen->img") }}
                             </td>
                             <td>
                                 <form action="{{ route('imagenes.destroy', $imagen->id) }}" method="POST">
@@ -45,8 +45,8 @@
                                     @method('DELETE')
                                     <a href="/imagenes/{{ $imagen->id }}/edit" class="btn btn-info btn-sm" title="Editar">
                                         <i class="fa fa-edit"></i> </a>
-                                    <a href='{{asset("img/galeria/$imagen->img")  }}' target="_blank" class="btn btn-success btn-sm"
-                                        title="Ver imagen">
+                                    <a href='{{ asset("img/galeria/$imagen->img") }}' target="_blank"
+                                        class="btn btn-success btn-sm" title="Ver imagen">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     <button type="submit" class="btn btn-danger btn-sm" title="Eliminar"><i
@@ -74,12 +74,12 @@
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         /*  $(document).ready(function() {
-                $('#tabladatos').DataTable();
-            }); */
+                        $('#tabladatos').DataTable();
+                    }); */
         var j = jQuery.noConflict();
         j(document).ready(function() {
             j('#tabladatos').DataTable();
         });
     </script>
-    
+
 @endsection

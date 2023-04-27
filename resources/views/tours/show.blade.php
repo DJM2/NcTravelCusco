@@ -29,6 +29,16 @@
                         <span><i class="icon-clock-o"></i> {{ $tour->dias }} días</span>&nbsp;&nbsp;
                         <span><i class="icon-usd"></i> {{ $tour->precio }}.00</span>&nbsp;&nbsp;
                     </div>
+                    @if (session('status'))
+                        <div class="text-success text-center">
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -37,13 +47,6 @@
         <div class="container pt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    @if (session('status'))
-                        <div class="text-success text-center">
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        </div>
-                    @endif
                     <div class="details">
                         <div class="location">
                             <p><a href="{{ route('inicio') }}">Inicio</a> /
@@ -55,15 +58,19 @@
                                         switch (tourCategoria) {
                                             case "machupicchu":
                                                 cat.textContent = "Pacotes Trilha Inca";
+                                                cat.href = "{{ route('trilhas') }}";
                                                 break;
                                             case "around":
                                                 cat.textContent = "Pacotes Machu Picchu";
+                                                cat.href = '{{ route('mapi') }}';
                                                 break;
                                             case "hikes":
                                                 cat.textContent = "Pacotes Peru";
+                                                cat.href = '{{ route('peru') }}';
                                                 break;
                                             case "luxury":
                                                 cat.textContent = "Rotas Alternativas";
+                                                cat.href = '{{ route('alternativas') }}';
                                                 break;
                                             default:
                                                 cat.textContent = tourCategoria;
@@ -81,7 +88,7 @@
                     <div class="linea-3"></div>
                     <p class="text-justify">{!! $tour->contenido !!}</p>
                     <br>
-                    <ul class="nav nav-tabs justify-content-center uldjm" id="myTab" role="tablist">
+                    <ul class="nav nav-tabs justify-content-center nav-fill uldjm" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="roteiro-tab" data-toggle="tab" href="#roteiro" role="tab"
                                 aria-controls="roteiro" aria-selected="true">Roteiro</a>
@@ -123,29 +130,34 @@
                         </div>
                     </div>
                     <div class="share">
-                        <h3>Compartir</h3>
-                        <!-- Load Facebook SDK for JavaScript -->
-                        <div id="fb-root"></div>
-                        <script>
-                            (function(d, s, id) {
-                                var js, fjs = d.getElementsByTagName(s)[0];
-                                if (d.getElementById(id)) return;
-                                js = d.createElement(s);
-                                js.id = id;
-                                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-                                fjs.parentNode.insertBefore(js, fjs);
-                            }(document, 'script', 'facebook-jssdk'));
-                        </script>
-
-                        <!-- Your share button code -->
-                        <div class="fb-share-button" data-href="{{ request()->fullUrl() }}" data-layout="button_count">
-                        </div>
+                        <h3>Compartir: </h3>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}" target="_blank"
+                            rel="nofollow noopener noreferrer" target="_blank" rel="noopener nofollow"
+                            class="btn-social">
+                            <i class="icon-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}" target="_blank"
+                            rel="nofollow noopener noreferrer" target="_blank" rel="noopener" class="btn-social">
+                            <i class="icon-twitter"></i>
+                        </a>
+                        <a href="https://wa.me/?text={{ request()->fullUrl() }}" target="_blank" rel="noopener"
+                            class="btn-social">
+                            <i class="icon-whatsapp"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request()->fullUrl() }}"
+                            target="_blank" rel="noopener" class="btn-social">
+                            <i class="icon-linkedin"></i>
+                        </a>
+                        <a href="https://www.pinterest.com/pin/create/button/?url={{ request()->fullUrl() }}&media={{ urlencode($tour->img) }}&description={{ urlencode($tour->descripcion) }}"
+                            target="_blank" rel="noopener" class="btn-social">
+                            <i class="icon-pinterest"></i>
+                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="div-form-tours">
                         <h3 class="h3book ">Solicite informações</h3>
-                        <form class="djmFormShow" action="{{ route('mensajePacha') }}" method="POST">
+                        <form class="djmFormShow" action="{{ route('mensaje') }}" method="POST">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-lg-6">
@@ -207,7 +219,7 @@
                         <div class="card align-items-center text-center">
                             <div class="card-bod">
                                 <h4 class="mt-2">Metodos de Pagamento:</h4>
-                                <img src="{{ asset('img/galeria//Métodos-de-pagamento.webp') }}"
+                                <img src="{{ asset('img/galeria/Metodos-de-pagamento.webp') }}"
                                     alt="Metodos de pagamento" width="100%">
                             </div>
                         </div>
@@ -220,35 +232,34 @@
                     <div class="linea-2"></div>
                 </div>
                 @foreach ($tours->take(4) as $tour)
-                <div class="col-lg-3 col-md-6">
-                    <div class="card card-new mx-auto" style="width: 18rem;">
-                        <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
-                            <div class="img-container">
-                                <img class="card-img-top" src="img/buscador/{{ $tour->img }}"
-                                    alt="{{ $tour->nombre }}" loading="lazy">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card card-new mx-auto" style="width: 18rem;">
+                            <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
+                                <div class="img-container">
+                                    <img class="card-img-top" src="img/buscador/{{ $tour->img }}"
+                                        alt="{{ $tour->nombre }}" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ $tour->nombre }}</h5>
+
+                                <div class="row iconos-tours mt-4">
+                                    <div class="col-4" style="float: left">
+                                        <span class="icon-clock-o"> {{ $tour->dias }} días</span>
+                                    </div>
+                                    <div class="col-4" style="float:right">
+                                        <span class="icon-map-marker"> {{ $tour->ubicacion }}</span>
+                                    </div>
+                                    <div class="col-4" style="float:right">
+                                        <span class="icon-usd"><strong>{{ $tour->precio }}</strong></span>
+                                    </div>
+                                </div>
+                                <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">Más
+                                    detalles</a>
                             </div>
-                        </a>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ $tour->nombre }}</h5>
-                            
-                            <div class="row iconos-tours mt-4">
-                                <div class="col-4" style="float: left">
-                                    <span class="icon-clock-o"> {{ $tour->dias }} días</span>
-                                </div>
-                                <div class="col-4" style="float:right">
-                                    <span class="icon-map-marker"> {{ $tour->ubicacion }}</span>
-                                </div>
-                                <div class="col-4" style="float:right">
-                                    <span class="icon-usd"><strong>{{ $tour->precio }}</strong></span>
-                                </div>
-                            </div>
-                            <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}"
-                                class="boton-card">Más
-                                detalles</a>
                         </div>
                     </div>
-                </div>
-        @endforeach
+                @endforeach
                 <div class="space mt-5"></div>
             </div>
         </div>

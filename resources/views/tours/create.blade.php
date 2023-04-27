@@ -18,7 +18,7 @@
                     <h3>Crear Nuevo Tour en español</h3>
                 </div>
                 <div class="col-lg-6">
-                    <a href="/toursen/create" class="btn btn-primary float-right">Crear tour en Ingles</a>
+                    <a href="/tours" class="btn btn-primary float-right">Volver</a>
                 </div>
             </div>
             <form action="/tours" method="post" enctype="multipart/form-data" class="bg-light">
@@ -79,9 +79,8 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="" class="form-label">Categoría: <small class="text-success">Presionar Ctrl para
-                                seleccionar mas de1 categoria</small></label>
-                        <select name="categoria[]" id="categoria" class="form-select" required multiple="multiple">
+                        <label for="" class="form-label">Categoría:</label>
+                        <select name="categoria[]" id="categoria" class="form-select" required>
                             <option value="hikes">Pacotes Perú</option>
                             <option value="around">Pacotes Machu Picchu</option>
                             <option value="machupicchu">Pacotes Trilha Inca</option>

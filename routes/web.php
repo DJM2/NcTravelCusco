@@ -35,7 +35,8 @@ Route::get('pagamentos',[EnlacesCategorias::class, 'pagamentos'])->name('pagamen
 Route::get('blog',[DjmblogController::class, 'djmblogs'])->name('blog');
 Route::get('blog/{slug}', [DjmblogController::class, 'mostrar'])->name('muestrame');
 
-
+// Mensajes
+Route::post('mensajeNc', [MailController::class, 'getMail'])->name('mensaje');
 
 
 // Páginas de inicio
@@ -70,6 +71,4 @@ Route::get('/toursen/{id}/{slug}/', [ToursenController::class, 'show'])->name('t
 Route::get('searchen', [SearchenController::class, 'search'])->name('searchen');
 
 
-// Mensajes
-Route::post('mensajePacha', [MailController::class, 'getMail'])->name('mensajePacha');
-Route::post('mensajePachaEn', [MailController::class, 'getMailEn'])->name('mensajePachaEn');
+
