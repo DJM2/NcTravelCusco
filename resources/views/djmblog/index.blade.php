@@ -9,7 +9,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Djmblog') }}
+                                {{ __('Lista de blogs') }}
                             </span>
 
                             <div class="float-right">
@@ -35,7 +35,6 @@
 
                                         <th>Nombre</th>
                                         <th>Descripcion</th>
-                                        <th>Cuerpo</th>
                                         <th>Img</th>
                                         <th>Keywords</th>
                                         <th>Slug</th>
@@ -49,7 +48,6 @@
                                             <td>{{ $djmblog->id }}</td>
                                             <td>{{ $djmblog->nombre }}</td>
                                             <td>{{ $djmblog->descripcion }}</td>
-                                            <td>{{ $djmblog->cuerpo }}</td>
                                             <td><img src="{{ $djmblog->img }}" alt="" width="120px"></td>
                                             <td>{{ $djmblog->keywords }}</td>
                                             <td>{{ $djmblog->slug }}</td>

@@ -54,10 +54,17 @@ class DjmblogController extends Controller
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nombre' => 'required|unique:djmblogs',
+            'descripcion' => 'required|max:255',
+            'cuerpo' => 'required',
+            'img' => 'required',
+            'keywords' => 'required|max:255',
+            'categorias' => 'required|array',
+            'slug' => 'required|unique:djmblogs|max:255'
+        ]);
 
         $djmblog = new Djmblog();
-        // Asignar los valores de las propiedades del modelo a partir de los datos del formulario
-
         $djmblog->nombre = $request->get('nombre');
         $djmblog->descripcion = $request->get('descripcion');
         $djmblog->cuerpo = $request->get('cuerpo');
@@ -71,15 +78,32 @@ class DjmblogController extends Controller
         $djmblog->keywords = $request->get('keywords');
         $djmblog->slug = $request->get('slug');
 
-        // Guardar el modelo en la base de datos
-        $djmblog->save();
-
-        // Asignar las categorías al modelo
+        if (!$djmblog->save()) {
+            return redirect()->back()->with('error', 'El nombre del blog ya esta en uso, utilize otro nombre.');
+        }
         $djmblog->categorias()->sync(request('categorias'));
 
-        // Redireccionar a la vista del detalle del nuevo registro
         return redirect()->route('djm.index', $djmblog->id)->with('success', 'El blog se ha creado correctamente.');
     }
+
+    /* public function store(Request $request)
+    {
+    $djmblog = new Djmblog();
+    $djmblog->nombre = $request->get('nombre');
+    $djmblog->descripcion = $request->get('descripcion');
+    $djmblog->cuerpo = $request->get('cuerpo');
+    if ($request->hasFile('img')) {
+    $image = $request->file('img');
+    $filename = $image->getClientOriginalName();
+    $image->move(public_path('img/blog'), $filename);
+    $djmblog->img = '/img/blog/' . $filename;
+    }
+    $djmblog->keywords = $request->get('keywords');
+    $djmblog->slug = $request->get('slug');
+    $djmblog->save();
+    $djmblog->categorias()->sync(request('categorias'));
+    return redirect()->route('djm.index', $djmblog->id)->with('success', 'El blog se ha creado correctamente.');
+    } */
 
     /**
      * Display the specified resource.
@@ -105,8 +129,8 @@ class DjmblogController extends Controller
         $djmblog = Djmblog::with('categorias')->findOrFail($id);
         $categorias = Buscadore::query()->pluck('nombre', 'id');
         return view('djmblog.edit', compact('djmblog', 'categorias'));
-    } 
-   
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -115,48 +139,68 @@ class DjmblogController extends Controller
      * @param  Djmblog $djmblog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Djmblog $djmblog)
+    /* public function update(Request $request, Djmblog $djmblog)
     {
-        $validatedData = $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required|max:255',
-            'cuerpo' => 'required',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'keywords' => 'required|max:255',
-            'categorias' => 'required|array',
-            'slug' => 'required|unique:djmblogs,slug,' . $djmblog->id . '|max:255'
-        ]);
-
-        // Asignar los valores de las propiedades del modelo a partir de los datos del formulario
-        $djmblog->nombre = $validatedData['nombre'];
-        $djmblog->descripcion = $validatedData['descripcion'];
-        $djmblog->cuerpo = $validatedData['cuerpo'];
+    $validatedData = $request->validate([
+    'nombre' => 'required',
+    'descripcion' => 'required|max:255',
+    'cuerpo' => 'required',
+    'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    'keywords' => 'required|max:255',
+    'categorias' => 'required|array',
+    'slug' => 'required|unique:djmblogs,slug,' . $djmblog->id . '|max:255'
+    ]);
+    // Asignar los valores de las propiedades del modelo a partir de los datos del formulario
+    $djmblog->nombre = $validatedData['nombre'];
+    $djmblog->descripcion = $validatedData['descripcion'];
+    $djmblog->cuerpo = $validatedData['cuerpo'];
+    if ($request->hasFile('img')) {
+    // Eliminar la imagen anterior si existe
+    if (Storage::exists($djmblog->img)) {
+    Storage::delete($djmblog->img);
+    }
+    $image = $request->file('img');
+    $filename = time() . '_' . $image->getClientOriginalName();
+    $image->storeAs('public/img/blog', $filename);
+    $djmblog->img = 'storage/img/blog/' . $filename;
+    }
+    $djmblog->keywords = $validatedData['keywords'];
+    $djmblog->slug = $validatedData['slug'];
+    // Actualizar el modelo en la base de datos
+    $djmblog->save();
+    // Asignar las categorías al modelo
+    $djmblog->categorias()->sync($request->input('categorias'));
+    // Redireccionar a la vista del detalle del registro actualizado
+    return redirect()->route('djm.show', $djmblog->id)
+    ->with('success', 'El registro se ha actualizado correctamente.');
+    } */
+    public function update(Request $request, $id)
+    {
+        $djmblog = Djmblog::query()->findOrFail($id);
+        $djmblog->nombre = $request->get('nombre');
+        $djmblog->descripcion = $request->get('descripcion');
+        $djmblog->cuerpo = $request->get('cuerpo');
 
         if ($request->hasFile('img')) {
-            // Eliminar la imagen anterior si existe
-            if (Storage::exists($djmblog->img)) {
-                Storage::delete($djmblog->img);
-            }
-
             $image = $request->file('img');
-            $filename = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('public/img/blog', $filename);
-            $djmblog->img = 'storage/img/blog/' . $filename;
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('img/blog'), $filename);
+            $djmblog->img = '/img/blog/' . $filename;
         }
 
-        $djmblog->keywords = $validatedData['keywords'];
-        $djmblog->slug = $validatedData['slug'];
+        $djmblog->keywords = $request->get('keywords');
+        $djmblog->slug = $request->get('slug');
 
         // Actualizar el modelo en la base de datos
-        $djmblog->save();
+        $djmblog->update();
 
         // Asignar las categorías al modelo
-        $djmblog->categorias()->sync($request->input('categorias'));
+        $djmblog->categorias()->sync(request('categorias'));
 
         // Redireccionar a la vista del detalle del registro actualizado
-        return redirect()->route('djm.show', $djmblog->id)
-            ->with('success', 'El registro se ha actualizado correctamente.');
+        return redirect()->route('djm.index', $djmblog->id)->with('success', 'El blog se ha actualizado correctamente.');
     }
+
 
 
     /**

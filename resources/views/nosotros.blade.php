@@ -24,8 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h1 style="padding-top: 250px;color:#fff">NC Travel Cusco</h1> <span><img
-                            src="{{ asset('img/pacha-mama-spirit-logo.png') }}" width="260px" alt=""></span>
+                    <h1 style="padding-top: 250px;color:#fff">NC Travel Cusco</h1>
                 </div>
             </div>
         </div>

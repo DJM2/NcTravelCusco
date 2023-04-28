@@ -25,7 +25,7 @@ class Djmblog extends Model
 {
 
   static $rules = [
-    'nombre' => 'required',
+    'nombre' => 'required|unique:djmblogs',
     'descripcion' => 'required|max:255',
     'cuerpo' => 'required',
     'img' => 'required',

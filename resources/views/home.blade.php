@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="col-lg-3 col-md-6">
-            <a href="{{ url('djm.index') }}">
+            <a href="{{ route('djm.index') }}">
                 <div class="card card-new" style="width: 18rem;">
                     <img class="card-img-top" src="{{ asset('img/blogs.webp') }}" alt="Blogs trilha Inca"
                         loading="lazy">
