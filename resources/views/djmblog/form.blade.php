@@ -27,13 +27,6 @@
                 <div class="invalid-feedback">{{ $errors->first('keywords') }}</div>
             @endif
         </div>
-        {{-- <div class="form-group">
-            {{ Form::label('keywords') }}
-            {{ Form::text('keywords', $djmblog->keywords, ['class' => 'form-control' . ($errors->has('keywords') ? ' is-invalid' : ''), 'placeholder' => 'Keywords']) }}
-            @if($errors->has('keywords'))
-            <div class="invalid-feedback">{{ $errors->first('keywords') }}</div>
-          @endif
-        </div> --}}
 
         <div class="form-group">
             {{ Form::label('categorias', 'Categorías') }}

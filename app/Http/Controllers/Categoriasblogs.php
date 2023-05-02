@@ -50,11 +50,17 @@ class Categoriasblogs extends Controller
      * @param  int  $categoriasblogs
      * @return \Illuminate\Http\Response
      */
-    public function show(categoriasblog $categoriasblog)
+    public function show($slug)
     {
-        $categoria = $categoriasblog;
+        $categoria = categoriasblog::where('slug', $slug)->firstOrFail();
         return view('blog.categorias.show', compact('categoria'));
     }
+
+    /* public function show(categoriasblog $categoriasblog)
+    {
+    $categoria = $categoriasblog;
+    return view('blog.categorias.show', compact('categoria'));
+    } */
 
     /**
      * Show the form for editing the specified resource.
@@ -63,10 +69,10 @@ class Categoriasblogs extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Categoriasblog $categoriasblog)
-{
-    $categoria = $categoriasblog;
-    return view('blog.categorias.edit', compact('categoria'));
-}
+    {
+        $categoria = $categoriasblog;
+        return view('blog.categorias.edit', compact('categoria'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -76,23 +82,23 @@ class Categoriasblogs extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function update(Request $request, categoriasblog $categoriasblog)
-{
-    $request->validate([
-        'nombre' => 'required|unique:categoriasblogs,nombre,'.$categoriasblog->id,
-    ]);
+    public function update(Request $request, categoriasblog $categoriasblog)
+    {
+        $request->validate([
+            'nombre' => 'required|unique:categoriasblogs,nombre,' . $categoriasblog->id,
+        ]);
 
-    $categoria = $categoriasblog;
-    $categoria->nombre = $request->nombre;
-    $categoria->save();
+        $categoria = $categoriasblog;
+        $categoria->nombre = $request->nombre;
+        $categoria->save();
 
-    return redirect()->route('cat.tag.index')->with('success', 'Categoría actualizada exitosamente.');
-}
+        return redirect()->route('cat.tag.index')->with('success', 'Categoría actualizada exitosamente.');
+    }
 
     /* public function update(Request $request, categoriasblog $categoriasblog)
     {
-        $categoria = $categoriasblog;
-        return redirect()->route('cat.tag.edit', compact('categoria'));
+    $categoria = $categoriasblog;
+    return redirect()->route('cat.tag.edit', compact('categoria'));
     } */
 
     /**

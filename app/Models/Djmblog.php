@@ -47,7 +47,7 @@ class Djmblog extends Model
   /**
    * @return \Illuminate\Database\Eloquent\Relations\HasOne
    */
-  public function categorias()
+  public function categorias() 
   {
     return $this->belongsToMany(Buscadore::class, 'blog_categoria', 'blog_id', 'categoria_id');
   }

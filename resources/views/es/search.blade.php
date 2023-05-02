@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h1 style="padding-top: 18%;color:#fff">Resultados da sua pesquisa</h1>
+                    <h1 style="padding-top: 30vh;color:#fff">Resultados da sua pesquisa</h1>
                 </div>
             </div>
         </div>
@@ -13,7 +13,7 @@
         <div class="row mb-5">
             <h3 class="mt-5">{{ $numCoincidencias }} coincidencias encontradas:</h3>
             @foreach ($respuestas as $respuesta)
-                <div class="col-lg-3 col-md-6 escritorio">
+                <div class="col-lg-3 col-md-6">
                     <div class="card card-new mx-auto" style="width: 18rem;">
                         <a href="{{ route('tours.show', ['id' => $respuesta->id, 'slug' => $respuesta->slug]) }}">
                             <div class="img-container">

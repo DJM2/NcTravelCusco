@@ -1,6 +1,17 @@
 @extends('layouts.app')
-@section('titulo', 'Agência de viagens NC Travel Cusco')
+@section('titulo', $blog->nombre)
 @section('metas')
+    <meta name="keywords" content="{{ $blog->keywords }}" />
+    <meta name="description" content="{{ $blog->descripcion }}">
+    <link rel="canonical" href="{{ request()->fullUrl() }}" />
+    <meta property="og:image" content="{{ $blog->img }}" />
+    <meta property="og:image:secure_url" content="{{ $blog->img }}" />
+    <meta property="og:title" content="{{ $blog->nombre }}" />
+    <meta property="og:description" content="{{ $blog->descripcion }}" />
+    <meta property="og:locale" content="es" />
+    <meta property="og:url" content="{{ request()->fullUrl() }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="robots" content="index,follow" />
 @endsection
 @section('contenido')
     <div class="blog-head">
@@ -13,18 +24,19 @@
         <div class="container-lg">
             <div class="row">
                 <div class="col-12 mt-4">
-                    <p style="font-weight:500">Última atualização fechar: <i class="icon-date_range"></i> {{ $update }}
+                    <p style="font-weight:500">Última atualização fechar: <i class="icon-date_range"></i>
+                        {{ $blog->created_at->format('d/m/Y') }}
                     </p>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <div class="row">
                         <div class="col-lg-12">
                             {!! $blog->cuerpo !!}
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 suscribe">
-                    <h4>Assine a newsletter</h4>
+                <div class="col-lg-3 suscribe">
+                    <h4>Assine a newsletter:</h4>
                     <form action="#" method="post" class="form-inline text-center">
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" id="name" name="name" required
@@ -53,31 +65,35 @@
                             </a>
                         @endforeach
                     </div>
+                    <h4>Tags del blog:</h4>
+                    @foreach ($djmblog->categorias as $categoria)
+                        <a href="{{ route('tag', $categoria->slug) }}"> #{{ $categoria->nombre }}</a>
+                    @endforeach
                 </div>
             </div>
             <div class="share">
                 <h3>Compartir: </h3>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}" target="_blank"
-                    rel="nofollow noopener noreferrer" target="_blank" rel="noopener nofollow"
-                    class="btn-social">
+                    rel="nofollow noopener noreferrer" target="_blank" rel="noopener nofollow" class="btn-social">
                     <i class="icon-facebook"></i>
                 </a>
-                <a href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}" target="_blank"
-                    rel="nofollow noopener noreferrer" target="_blank" rel="noopener" class="btn-social">
+                <a href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ urlencode($blog->descripcion . ' #travel') }}
+                    "
+                    target="_blank" rel="nofollow noopener noreferrer" target="_blank" rel="noopener" class="btn-social">
                     <i class="icon-twitter"></i>
                 </a>
-                <a href="https://wa.me/?text={{ request()->fullUrl() }}" target="_blank" rel="noopener"
-                    class="btn-social">
+                <a href="https://wa.me/?text={{ request()->fullUrl() }}" target="_blank" rel="noopener" class="btn-social">
                     <i class="icon-whatsapp"></i>
                 </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request()->fullUrl() }}"
-                    target="_blank" rel="noopener" class="btn-social">
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request()->fullUrl() }}&title={{ $blog->nombre }}&summary={{ $blog->descripcion }}&source=Nc Travel Cusco"
+                    target="_blank" rel="noopener nofollow" class="btn-social">
                     <i class="icon-linkedin"></i>
                 </a>
-                <a href="https://www.pinterest.com/pin/create/button/?url={{ request()->fullUrl() }}&media={{ urlencode($tour->img) }}&description={{ urlencode($tour->descripcion) }}"
+                <?php $img = $blog->img; ?>
+                <a href="https://www.pinterest.com/pin/create/button/?url={{ request()->fullUrl() }}&description={{ urlencode($blog->nombre . ': ' . $blog->descripcion) }}"
                     target="_blank" rel="noopener" class="btn-social">
                     <i class="icon-pinterest"></i>
-                 </a>
+                </a>
             </div>
 
         </div>

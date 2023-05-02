@@ -14,7 +14,6 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('cat.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
-
                             @include('buscadore.form')
 
                         </form>

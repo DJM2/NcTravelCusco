@@ -31,25 +31,22 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-
+                                        <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Slug</th>
-
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($buscadores as $buscadore)
                                         <tr>
-
+                                            <td>{{$buscadore->id}}</td>
                                             <td>{{ $buscadore->nombre }}</td>
-                                            <td>{{$buscadore->slug}}</td>
-
+                                            <td>{{ $buscadore->slug }}</td>
                                             <td>
                                                 <form action="{{ route('cat.destroy', $buscadore->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('cat.show', $buscadore->id) }}"><i
+                                                        href="{{ route('tag', $buscadore->slug) }}" target="_blank"><i
                                                             class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('cat.edit', $buscadore->id) }}"><i

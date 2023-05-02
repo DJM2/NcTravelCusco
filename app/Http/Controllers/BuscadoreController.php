@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buscadore;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 
 /**
@@ -45,7 +46,7 @@ class BuscadoreController extends Controller
 
         $buscadore = new Buscadore;
         $buscadore->nombre = $request->input('nombre');
-        $buscadore->slug=$request->input('slug');
+        $buscadore->slug = $request->input('slug');
         $buscadore->save();
 
         return redirect()->route('cat.index')
@@ -58,12 +59,18 @@ class BuscadoreController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $buscadore = Buscadore::query()->find($id);
-
-        return view('buscadore.show', compact('buscadore'));
+        $tag = Buscadore::query()->where('slug', $slug)->firstOrFail();
+        $tours = Tour::all();
+        $blogs = $tag->djmblogs()->get();
+        return view('buscadore.show', compact('tag', 'blogs', 'tours'));
     }
+    /* public function show($id)
+    {
+    $buscadore = Buscadore::query()->find($id);
+    return view('buscadore.show', compact('buscadore'));
+    } */
 
     /**
      * Show the form for editing the specified resource.
@@ -92,7 +99,7 @@ class BuscadoreController extends Controller
         $buscadore->update($request->all());
 
         return redirect()->route('buscadores.index')
-            ->with('success', 'Buscadore updated successfully');
+            ->with('success', 'Tag actualizado correctamente!');
     }
 
     /**

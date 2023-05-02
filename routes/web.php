@@ -15,6 +15,8 @@ use App\Http\Controllers\TourController;
 use App\Http\Controllers\ToursenController;
 use App\Http\Controllers\UserControler;
 use App\Mail\ContactoMailable;
+use App\Models\Buscadore;
+use App\Models\categoriasblog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +36,7 @@ Route::get('pagamentos',[EnlacesCategorias::class, 'pagamentos'])->name('pagamen
 //blogs
 Route::get('blog',[DjmblogController::class, 'djmblogs'])->name('blog');
 Route::get('blog/{slug}', [DjmblogController::class, 'mostrar'])->name('muestrame');
+Route::get('tag/{slug}', [BuscadoreController::class, 'show'])->name('tag');
 
 // Mensajes
 Route::post('mensajeNc', [MailController::class, 'getMail'])->name('mensaje');
@@ -51,8 +54,7 @@ Auth::routes();
 
 // Crud de imagenes
 Route::resource('imagenes', ImagenesController::class)->middleware('auth');
-
-Route::resource('categoriasblog', Categoriasblogs::class)->middleware('auth')->names('cat.tag');
+/* Route::resource('categoriasblog', Categoriasblogs::class)->middleware('auth')->names('cat.tag'); */
 Route::resource('blogs', BlogController::class)->middleware('auth')->names('blog'); 
 Route::resource('categoriasDjm', BuscadoreController::class)->names('cat');
 Route::resource('blogsDjm', DjmblogController::class)->names('djm');

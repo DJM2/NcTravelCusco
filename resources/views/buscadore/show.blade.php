@@ -1,31 +1,29 @@
-@extends('layouts.admin')
-
+@extends('layouts.app')
 @section('contenido')
-    {{ $buscadore->name ?? 'Mostrar Tags de blogs' }}
-@endsection
-
-@section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Buscadore</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('buscadores.index') }}"> Back</a>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $buscadore->nombre }}
-                        </div>
-                    </div>
+    <div class="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 style="padding-top: 30vh;color:#fff">Blogs relacionados al Tag: {{ $tag->nombre }}</h1>
                 </div>
+            </div>
+        </div>
+    </div>
+    <section class="container">
+        <div class="row mb-5">
+            <div class="col-lg-12">
+                <h2>Blogs relacionados al Tag:</h2>
+            </div>
+            <div class="col-lg-3">
+                @foreach ($blogs as $blog)
+                    <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}" loading="lazy" width="100%">
+                    <h2>{{ $blog->nombre }}</h2>
+                    <p>{{ $blog->descripcion }}</p>
+                    <p>Tags:</p>
+                    @foreach ($blog->categorias as $tag)
+                        <a href="{{ route('tag', $tag->slug) }}">#{{ $tag->nombre }}</a>
+                    @endforeach
+                @endforeach
             </div>
         </div>
     </section>

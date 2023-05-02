@@ -51,6 +51,8 @@ $colorPrincipal: #e55500;
 
 .toursBlog {
     margin-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px dashed $colorPrincipal;
     i{
         font-size: 10px;
     }

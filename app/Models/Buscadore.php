@@ -22,7 +22,7 @@ class Buscadore extends Model
 
   static $rules = [
     'nombre' => 'required',
-    'slug'=>'required',
+    'slug' => 'required',
   ];
 
   protected $perPage = 20;
@@ -38,9 +38,9 @@ class Buscadore extends Model
   /**
    * @return \Illuminate\Database\Eloquent\Relations\HasMany
    */
+  public function djmblogs()
+  {
+    return $this->belongsToMany(Djmblog::class, 'blog_categoria', 'categoria_id', 'blog_id');
+  }
 
-   public function djmblogs()
-   {
-       return $this->belongsToMany(Djmblog::class, 'blog_categoria', 'categoria_id', 'blog_id');
-   }
 }
