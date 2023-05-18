@@ -13,6 +13,8 @@
                     value="{{ $imagen->img }}">
                 <img class="mt-3" src='{{asset("img/galeria/$imagen->img")}}' width="220px">
             </div>
+            <a href="{{route('imagenes.index')}}" class="btn btn-secondary mt-4">Cancelar</a>
+                <button class="btn btn-primary mt-4" type="submit">Guardar</button>
         </div>
     </form>
 @endsection

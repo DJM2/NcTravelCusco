@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BuscadoreController;
-use App\Http\Controllers\Categoriasblogs;
 use App\Http\Controllers\DjmblogController;
 use App\Http\Controllers\EnlacesCategorias;
 use App\Http\Controllers\HomeController;
@@ -15,8 +13,6 @@ use App\Http\Controllers\TourController;
 use App\Http\Controllers\ToursenController;
 use App\Http\Controllers\UserControler;
 use App\Mail\ContactoMailable;
-use App\Models\Buscadore;
-use App\Models\categoriasblog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -54,16 +50,13 @@ Auth::routes();
 
 // Crud de imagenes
 Route::resource('imagenes', ImagenesController::class)->middleware('auth');
-/* Route::resource('categoriasblog', Categoriasblogs::class)->middleware('auth')->names('cat.tag'); */
-Route::resource('blogs', BlogController::class)->middleware('auth')->names('blog'); 
 Route::resource('categoriasDjm', BuscadoreController::class)->names('cat');
 Route::resource('blogsDjm', DjmblogController::class)->names('djm');
-
-
 
 // Administrador de tour español
 Route::resource('tours', TourController::class)->middleware('auth');
 Route::get('search', [SearchController::class, 'search'])->name('search');
+Route::get('blogsearch', [SearchController::class, 'blogsearch'])->name('blogsearch');
 Route::get('/{slug}/', [TourController::class, 'show'])->name('tours.show');
 
 

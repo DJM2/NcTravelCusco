@@ -24,11 +24,16 @@ class DjmblogController extends Controller
         $djmblogs = Djmblog::query()->with('categorias')->get();
         return view('djmblog.index', compact('djmblogs'));
     }
+    public function djmblogs(){
+        $blogs = Djmblog::query()->with('categorias')->get();
+        $tours = Tour::all();
+        return view('djmblog.listadoblogs', compact('blogs', 'tours'));
+    }
     public function mostrar($slug)
     {
         $tours = Tour::all();
-        $djmblogs = Djmblog::Query()->latest()->take(4)->get();
         $blog = Djmblog::query()->where('slug', $slug)->with('categorias')->firstOrFail();
+        $djmblogs = Djmblog::query()->latest()->take(4)->whereNotIn('id', [$blog->id])->get();
         $update = $blog->updated_at->format('d/m/Y');
         return view('djmblog.mostrar', compact('blog', 'tours', 'update', 'djmblogs'));
     }
@@ -85,25 +90,6 @@ class DjmblogController extends Controller
 
         return redirect()->route('djm.index', $djmblog->id)->with('success', 'El blog se ha creado correctamente.');
     }
-
-    /* public function store(Request $request)
-    {
-    $djmblog = new Djmblog();
-    $djmblog->nombre = $request->get('nombre');
-    $djmblog->descripcion = $request->get('descripcion');
-    $djmblog->cuerpo = $request->get('cuerpo');
-    if ($request->hasFile('img')) {
-    $image = $request->file('img');
-    $filename = $image->getClientOriginalName();
-    $image->move(public_path('img/blog'), $filename);
-    $djmblog->img = '/img/blog/' . $filename;
-    }
-    $djmblog->keywords = $request->get('keywords');
-    $djmblog->slug = $request->get('slug');
-    $djmblog->save();
-    $djmblog->categorias()->sync(request('categorias'));
-    return redirect()->route('djm.index', $djmblog->id)->with('success', 'El blog se ha creado correctamente.');
-    } */
 
     /**
      * Display the specified resource.

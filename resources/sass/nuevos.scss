@@ -1,9 +1,43 @@
-$colorPrincipal: #e55500;
+$colorPrincipal: #F67400;
+$colorIngrid: #c70707;
+$Blue: #283950;
+
+.ingrid {
+    h2 {
+        color: $colorIngrid;
+    }
+
+    h3 {
+        color: $colorIngrid;
+        font-size: 18px !important;
+    }
+}
 
 .logo {
     width: 230px;
     padding: 2em;
     transition: 1s;
+}
+
+.cuerpoImgs {
+    img {
+        height: 16rem;
+        object-fit: cover;
+    }
+
+    ul {
+        text-align: justify;
+    }
+}
+
+.decoracion-h2 {
+    h2 {
+        background: linear-gradient(to left, #3a4c68 91%, $colorPrincipal 9%);
+        padding: 0.2em;
+        color: #fff;
+        border-radius: 9px;
+        font-size: 18px !important;
+    }
 }
 
 .suscribe {
@@ -53,9 +87,11 @@ $colorPrincipal: #e55500;
     margin-top: 1em;
     padding-bottom: 1em;
     border-bottom: 1px dashed $colorPrincipal;
-    i{
+
+    i {
         font-size: 10px;
     }
+
     a {
         font-weight: 400;
         font-size: 12px;
@@ -64,26 +100,78 @@ $colorPrincipal: #e55500;
         display: inline-block;
         margin-bottom: 1.1em;
         font-weight: 600;
-        &:hover{
-            color:$colorPrincipal!important;
+
+        &:hover {
+            color: $colorPrincipal !important;
         }
     }
-    span{
+
+    span {
         font-weight: 400;
     }
 }
-.blogsrelative{
+
+.boton-blog-search {
+    background: #fff;
+    color: $colorPrincipal;
+    border: 1px solid rgba(51, 49, 49, 0.205);
+    border-radius: 5px;
+    transition: 0.5s;
+
+    &:hover {
+        background: $colorPrincipal;
+        color: #fff;
+        border: 1px solid $colorPrincipal;
+        transition: 0.5s;
+    }
+}
+
+.tagsDiv {
+    a {
+        color: $colorPrincipal;
+        transition: 0.5s;
+
+        &:hover {
+            color: grey;
+            transition: 0.5s;
+        }
+    }
+}
+
+.blogs-en-tours {
+    font-size: 12px;
+    margin-bottom: 2em;
+
+    a {
+        color: #F67400;
+        transition: 0.5s;
+        margin-bottom: 0.8em;
+        display: block;
+        font-size: 15px;
+        margin-top: 0.8em;
+
+        &:hover {
+            color: grey;
+            transition: 0.5s;
+        }
+    }
+}
+
+.blogsrelative {
     text-align: center;
-    div{
+
+    div {
         border-bottom: 1px dashed $colorPrincipal;
         padding-bottom: 0.8em;
         margin-top: 1.4em;
     }
-    a{
+
+    a {
         font-size: 14px;
         color: #000;
-        &:hover{
-            color:$colorPrincipal!important;
+
+        &:hover {
+            color: $colorPrincipal !important;
         }
     }
 }
@@ -97,7 +185,7 @@ $colorPrincipal: #e55500;
 .blog-head {
     height: 280px;
     width: 100%;
-    background-image: linear-gradient(to right, rgb(0 0 0 / 19%), rgb(0 0 0 / 27%)), url(../img/blog/tejido-manta-chinchero.webp);
+    background-image: linear-gradient(to right, rgb(0 0 0 / 53%), rgb(0 0 0 / 54%)), url(../img/blog/tejido-manta-chinchero.webp);
 
     h1 {
         text-align: center;
@@ -139,7 +227,7 @@ $colorPrincipal: #e55500;
 
 .img-container {
     width: 100%;
-    height: 190px;
+    height: 170px;
     /* ajusta esta altura según tus necesidades */
     overflow: hidden;
 
@@ -291,10 +379,25 @@ $colorPrincipal: #e55500;
         color: #000;
         text-transform: capitalize;
         font-weight: 500;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.1em;
 
         &:hover {
             color: $colorPrincipal;
         }
+    }
+
+    p {
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+    }
+
+    span {
+        color: $colorPrincipal;
     }
 }
 
@@ -313,7 +416,7 @@ $colorPrincipal: #e55500;
 
 .linea-3 {
     height: 4px;
-    background: #e55500;
+    background: $colorPrincipal;
     width: 75px;
     margin-bottom: 2em;
 }
@@ -397,13 +500,14 @@ section {
 .links {
     color: #fff;
     text-transform: uppercase;
-    padding-right: 2em;
 
     a {
         color: #fff;
         text-transform: uppercase;
         padding-right: 2em;
         transition: 0.5s;
+        font-weight: 600;
+        letter-spacing: 0.1em;
 
         &:hover {
             color: #000;
@@ -558,21 +662,58 @@ img.btn-whatsapp {
     background-repeat: no-repeat;
 }
 
+.scroll-to-top {
+    position: fixed;
+    bottom: 140px;
+    right: 85px;
+    display: none;
+    z-index: 9999;
+}
+
+.scroll-to-top i {
+    position: absolute;
+    font-size: 50px;
+    color: #fff;
+    padding: 0.1em;
+    border-radius: 10px;
+    transition: 0.6s;
+    color: #283950;
+
+    &:hover {
+
+        transition: 0.6s;
+    }
+}
+
+.scroll-to-top i:last-child {
+    top: 0;
+    left: 0;
+    transition: top 0.6s;
+}
+
+.scroll-to-top:hover i:last-child {
+    top: -10px;
+}
+
 table {
     width: 100%;
     border-style: solid;
-    border-color: $colorPrincipal;
+    border-color: $Blue;
     border-width: 1px;
     margin-top: 2em;
     margin-bottom: 2em;
 
     thead {
-        background: $colorPrincipal;
+        background: $Blue;
 
         tr {
             th {
                 color: #fff;
                 padding: 1em;
+
+                &:hover {
+                    background: $Blue;
+                }
             }
         }
     }
@@ -582,10 +723,6 @@ table {
             td {
                 a {
                     color: #000;
-
-                    &:hover {
-                        color: #fff
-                    }
                 }
             }
         }
@@ -599,13 +736,12 @@ table {
 
     tr {
         border-style: solid;
-        border-color: $colorPrincipal;
+        border-color: $Blue;
         border-width: 1px;
         transition: 0.4s;
 
         &:hover {
-            background: $colorPrincipal;
-            color: #fff;
+            background: #cecece;
             transition: 0.4s;
         }
 
@@ -620,6 +756,7 @@ table {
 
 .share {
     margin-top: 2em;
+
     h3 {
         margin-bottom: 1.2em;
     }
@@ -666,6 +803,7 @@ table {
             text-transform: uppercase;
             font-size: 12px;
             font-weight: 500;
+            /* background: #ebebeb!important; */
 
             &:hover {
                 color: #283950;
@@ -717,7 +855,7 @@ table {
 
 .djmFormShow {
     padding: 1.8em;
-    background: #283950;
+    background: #3a4c68;
     color: #fff;
     border-radius: 10px;
 
@@ -818,6 +956,50 @@ table {
 
 
 @media (max-width: 768px) {
+    .blog-head {
+        h1 {
+            font-size: 1.4em;
+        }
+    }
+    .decoracion-h2 {
+        h2 {
+            background: #3a4c68 ;
+        }
+    }
+
+    .cuerpoImgs {
+        img {
+            width: 100% !important;
+            object-fit: cover;
+        }
+    }
+
+    .location {
+        a {
+            font-size: 10px;
+        }
+
+        p {
+            font-size: 10px;
+        }
+    }
+
+    .links {
+        padding-right: 0px;
+
+        a {
+            display: block;
+            text-align: center;
+            padding-right: 0px;
+            padding-bottom: 1em;
+            margin-bottom: 1em;
+            border-bottom: 1px white dashed;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
     .columna {
         width: 100%;
     }

@@ -31,8 +31,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-
+                                        <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Descripcion</th>
                                         <th>Img</th>
@@ -60,11 +59,8 @@
                                             <td>
                                                 <form action="{{ route('djm.destroy', $djmblog->id) }}" method="POST">
                                                     @csrf
-                                                    {{-- <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('djm.show', $djmblog->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> </a> --}}
                                                             <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('djm.show', $djmblog->slug) }}"><i
+                                                        href="{{ route('muestrame', $djmblog->slug) }}" target="_blank"><i
                                                             class="fa fa-fw fa-eye"></i> </a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('djm.edit', $djmblog->id) }}"><i

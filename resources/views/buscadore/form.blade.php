@@ -16,10 +16,7 @@
             const slugInput = document.getElementById('slug');
         
             nombreInput.addEventListener('input', () => {
-                // Remplaza los espacios por guiones en el valor del campo nombre
-                const nombreSlug = nombreInput.value.trim().replace(/\s+/g, '-');
-                
-                // Actualiza el valor del campo slug con el valor del campo nombre convertido a slug
+                const nombreSlug = nombreInput.value.trim().replace(/\s+/g, '-');               
                 slugInput.value = nombreSlug;
             });
         </script>

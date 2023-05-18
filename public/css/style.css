@@ -38,11 +38,11 @@ h1, h2, h3, h4, h5, h6,
 }
 h2{
   font-size: 20px;
-  color: #ff6104;
+  color: #F67400;
   margin-top: 2em;
 }
 h3{
-  color: #ff6104;
+  color: #F67400;
   font-size: 19px ;
 }
 
@@ -598,11 +598,11 @@ img{
 }
 
 .sticky-wrapper .site-navbar .site-menu>li>a:hover, .sticky-wrapper .site-navbar .site-menu>li>a.active {
-  color: #f77200 !important;
+  color: #F67400 !important;
 }
 
 .sticky-wrapper.is-sticky .site-navbar {
-  background: #e55500;
+  background: #F67400;
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.1);
   box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.1);

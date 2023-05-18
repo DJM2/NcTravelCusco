@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{ asset('css/nuevos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nuevos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('metas')
 </head>
 
-<body>
+<body id="page-top">
     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
             <div class="site-mobile-menu-close mt-3">
@@ -37,11 +37,15 @@
                                 <a href="{{ route('peru') }}" class="nav-link">Pacotes perú</a>
                                 <ul class="dropdown">
                                     @foreach ($tours as $tour)
-                                        @if ($tour->categoria == 'hikes') 
+                                        @if ($tour->categoria == 'hikes')
                                             <li>
                                                 <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
-                                                    Pacote de {{ $tour->dias }} días
+                                                   <span style="color:#F67400;color: #F67400;
+                                                   font-weight: bold;
+                                                   text-transform: uppercase;
+                                                   font-size: 10px;"> Pacote de {{ $tour->dias }} días</span>
+                                                   
                                                 </a>
                                             </li>
                                         @endif
@@ -49,30 +53,37 @@
                                 </ul>
                             </li>
                             <li class="has-children">
-                                <a href="{{ route('mapi') }}" class="nav-link">Pacotes Machu Picchu</a>
+                                <a href="{{ route('mapi') }}" class="nav-link">Machu Picchu</a>
                                 <ul class="dropdown">
                                     @foreach ($tours as $tour)
                                         @if ($tour->categoria == 'around')
                                             <li>
                                                 <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
-                                                    Pacote de {{ $tour->dias }} días
+                                                    <span style="color:#F67400;color: #F67400;
+                                                    font-weight: bold;
+                                                    text-transform: uppercase;
+                                                    font-size: 10px;">Pacote de {{ $tour->dias }} días</span>
+                                                    
                                                 </a>
                                             </li>
                                         @endif
                                     @endforeach
                                 </ul>
                             </li>
-
                             <li class="has-children">
-                                <a href="{{ route('trilhas') }}" class="nav-link">Pacotes Trilha Inca</a>
+                                <a href="{{ route('trilhas') }}" class="nav-link">Trilha Inca</a>
                                 <ul class="dropdown">
                                     @foreach ($tours as $tour)
                                         @if ($tour->categoria == 'machupicchu')
                                             <li>
                                                 <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
-                                                    Pacote de {{ $tour->dias }} días
+                                                    <span style="color:#F67400;color: #F67400;
+                                                    font-weight: bold;
+                                                    text-transform: uppercase;
+                                                    font-size: 10px;">Pacote de {{ $tour->dias }} días</span>
+                                                    
                                                 </a>
                                             </li>
                                         @endif
@@ -87,12 +98,18 @@
                                             <li>
                                                 <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
-                                                    Pacote de {{ $tour->dias }} días
+                                                    <span style="color:#F67400;color: #F67400;
+                                                    font-weight: bold;
+                                                    text-transform: uppercase;
+                                                    font-size: 10px;">Pacote de {{ $tour->dias }} días</span>
                                                 </a>
                                             </li>
                                         @endif
                                     @endforeach
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="{{ route('blog') }}" class="nav-link">Blog</a>
                             </li>
                             <li class="escritorio">
                                 <div class="buscador" onclick=search()>
@@ -104,21 +121,38 @@
                                     @csrf
                                     <div class="input-group mb-3">
                                         <input type="search" id="name" name="name" class="form-control"
-                                            placeholder="Procurar..." style="z-index:10">
+                                            placeholder="Procurar..." style="z-index:10" required>
                                         <div class="input-group-append">
                                             <input type="submit" class="btn btn-outline-secondary"
                                                 value="Ir"></button>
                                         </div>
                                     </div>
-                                </form>                                
+                                </form>
                             </li>
+                            <ul class="site-menu main-menu mr-auto d-none d-lg-block responsive">
+                                <li class="social">
+                                    <a href="https://www.facebook.com/MachupicchuCusco" class="nav-link" target="_blank">
+                                        <span class="icon-facebook"></span>
+                                    </a>
+                                </li>
+                                <li class="social">
+                                    <a href="https://www.instagram.com/nctravelcusco_oficial/" class="nav-link"
+                                        target="_blank">
+                                        <span class="icon-instagram"></span>
+                                    </a>
+                                </li>
+                                <li class="social"><a href="https://www.pinterest.es/nctravelcusco/" class="nav-link"
+                                        target="_blank">
+                                        <span class="icon-pinterest"></span>
+                                    </a>
+                                </li>
+                            </ul>
                         </ul>
                     </nav>
                 </div>
-
                 <div class="col-12 col-md-2 d-none d-xl-block">
-                    <nav class="site-navigation position-relative text-left" role="navigation">
-                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                    <nav class="site-navigation position-relative text-left escritorio" role="navigation">
+                        <ul class="site-menu main-menu mr-auto d-none d-lg-block">
                             <li class="social">
                                 <a href="https://www.facebook.com/MachupicchuCusco" class="nav-link" target="_blank">
                                     <span class="icon-facebook"></span>
@@ -138,9 +172,10 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a
-                        href="#" class="site-menu-toggle js-menu-toggle float-right"><span
-                            class="icon-menu h3"></span></a>
+                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
+                    <a href="#" class="site-menu-toggle js-menu-toggle float-right">
+                        <span class="icon-menu h3"></span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -155,16 +190,19 @@
             <div class="row">
                 <div class="col-lg-4"><span class="line-left"></span></div>
                 <div class="col-lg-4 text-center">
-                    <a href="https://www.facebook.com/MachupicchuCusco" class="social-foot" target="_blank" alt="Facebook Nc Travel Cusco">
+                    <a href="https://www.facebook.com/MachupicchuCusco" class="social-foot" target="_blank"
+                        alt="Facebook Nc Travel Cusco">
                         <span class="icon-facebook"></span>
                     </a>
-                    <a href="https://www.instagram.com/nctravelcusco_oficial/" class="social-foot" target="_blank" alt="Instagram Nc Travel">
+                    <a href="https://www.instagram.com/nctravelcusco_oficial/" class="social-foot" target="_blank"
+                        alt="Instagram Nc Travel">
                         <span class="icon-instagram"></span>
                     </a>
                     <a href="#" class="social-foot" target="_blank" alt="Trip Advisor Nc Travel">
                         <span class="icon-tripadvisor"></span>
                     </a>
-                    <a href="https://www.pinterest.es/nctravelcusco/" class="social-foot" target="_blank" alt="Pinterest NC Travel Cusco">
+                    <a href="https://www.pinterest.es/nctravelcusco/" class="social-foot" target="_blank"
+                        alt="Pinterest NC Travel Cusco">
                         <span class="icon-pinterest"></span>
                     </a>
                 </div>
@@ -236,10 +274,10 @@
         <div class="row">
             <div class="down">
                 <div class="col-lg-12 text-center links">
-                        <a href="http://www.nctravelcusco.com/" target="_blank">NC Travel Cusco</a>
-                        <a href="https://www.pacotesperu.com/" target="_blank">Pacotes Perú</a>
-                        <a href="https://www.trilhasalkantay.com/" target="_blank">Trilha Salkantay</a>
-                        <a href="https://www.balsaspiuray.com/" target="_blank">Balsas Piuray</a>
+                    <a href="http://www.nctravelcusco.com/" target="_blank">NC Travel Cusco</a>
+                    <a href="https://www.pacotesperu.com/" target="_blank">Pacotes Perú</a>
+                    <a href="https://www.trilhasalkantay.com/" target="_blank">Trilha Salkantay</a>
+                    <a href="https://www.balsaspiuray.com/" target="_blank">Balsas Piuray</a>
                 </div>
                 <p><strong>NC Travel Cusco SAC</strong> direitos autorais ©2023 | Trekking e caminhadas no Peru, todos
                     os direitos autorais.</p>
@@ -251,19 +289,44 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h4>Pesquisar passeios no Peru</h4>
+
                     <form action="{{ route('search') }}" method="get">
                         @csrf
                         <div class="input-group">
                             <div class="form-outline">
-                                <input type="search" id="name" name="name" class="form-control" />
+                                <input type="search" id="name" name="name" class="form-control" required />
                             </div>
-                            <input type="submit" style="border:none" class="btn-inicio" value="Procurar">
+                            <input type="submit" id="buscar" style="border:none" class="btn-inicio"
+                                value="Procurar" required>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <a class="scroll-to-top" href="#page-top">
+        <i class="icon-arrow_drop_up"></i>
+        <i class="icon-arrow_drop_up"></i>
+    </a>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var scrollTopButton = document.querySelector('.scroll-to-top');
+            scrollTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 100) {
+                    scrollTopButton.style.display = 'block';
+                } else {
+                    scrollTopButton.style.display = 'none';
+                }
+            });
+        });
+    </script>
     <script src="{{ asset('js/djm2.js') }}"></script>
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>

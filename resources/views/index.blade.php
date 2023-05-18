@@ -28,7 +28,7 @@
         </div>
     </div>
     <section>
-        <div id="popup" onclick="cerrar()">
+        {{-- <div id="popup" onclick="cerrar()">
             <div id="popup-content" style="width: 400px; background: transparent">
                 <a href="https://balsaspiuray.com/tour/paseo-laguna-piuray-con-balsa-ecologica/" target="_blank">
                     <img src="img/oferta-01.webp" alt="Balsas piuray" style="width: 100%" loading="lazy">
@@ -39,7 +39,7 @@
                             target="_blank">
                             Ver promoção
                         </a>
-                        {{-- <a class="cerrar" onclick="cerrar()">Cerrar</a> --}}
+                        <a class="cerrar" onclick="cerrar()">Cerrar</a>
                         <button class="cerrar-popup"><i class="icon-close" onclick=cerrar()></i></button>
                         <script>
                             setTimeout(function() {
@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="container">
             <div class="row">
                 <!------Listado de tours----------->

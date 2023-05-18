@@ -92,15 +92,18 @@ class BuscadoreController extends Controller
      * @param  Buscadore $buscadore
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Buscadore $buscadore)
+    public function update(Request $request, $id)
     {
-        request()->validate(Buscadore::$rules);
+        $request->validate(Buscadore::$rules);
+        $buscadore = Buscadore::query()->findOrFail($id);
+        $buscadore->nombre = $request->input('nombre');
+        $buscadore->slug = $request->input('slug');
+        $buscadore->save();
 
-        $buscadore->update($request->all());
-
-        return redirect()->route('buscadores.index')
+        return redirect()->route('cat.index')
             ->with('success', 'Tag actualizado correctamente!');
     }
+
 
     /**
      * @param int $id

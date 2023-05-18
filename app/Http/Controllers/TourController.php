@@ -16,13 +16,13 @@ class TourController extends Controller
      */
     public function index()
     {
-        $tours = Tour::all();
+        /* $tours = Tour::all(); */
+        $tours = Tour::latest('updated_at')->get();
         return view('tours.index', compact('tours'));
     }
     public function mostrar()
     {
         $tours = Tour::all();
-        /* $blogs = Djmblog::with('categorias')->get(); */
         $blogs = Djmblog::with('categorias')->latest('created_at')->take(4)->get();
         return view('index', compact('tours', 'blogs'));
     }
@@ -109,13 +109,9 @@ class TourController extends Controller
     public function show($slug)
     {
         $tour = Tour::where('slug', $slug)->firstOrFail();
-
-        $tours = Tour::where('id', '!=', $tour->id)->orderBy('created_at', 'desc')->get();
-
-        /* $tours = Tour::where('id', '!=', $tour->id)->get(); */
-
-        return view('tours.show')->with('tour', $tour)->with('tours', $tours);
-        /* return view('tours.show')->with('tour', $tour); */
+        $tours = Tour::where('id', '!=', $tour->id)->orderBy('dias')->get();
+        $blogs = Djmblog::with('categorias')->latest('created_at')->take(4)->get();
+        return view('tours.show', compact('tour', 'tours','blogs'));
     }
 
     /**

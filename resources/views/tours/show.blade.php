@@ -49,7 +49,7 @@
                 <div class="col-lg-12">
                     <div class="details">
                         <div class="location">
-                            <p><a href="{{ route('inicio') }}">Inicio</a> /
+                            <p><a href="{{ route('inicio') }}">Inicio</a> <span>/</span>
                                 <a id="cat">
                                     {{ $tour->categoria }}
                                     <script>
@@ -78,12 +78,13 @@
                                         }
                                     </script>
                                 </a>
-                                / <a>{{ $tour->nombre }}</a>
+                                <span>/</span>
+                            <p>&nbsp;{{ $tour->nombre }}</p>
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 decoracion-h2">
                     <h2>{{ $tour->nombre }}</h2>
                     <div class="linea-3"></div>
                     <p class="text-justify">{!! $tour->contenido !!}</p>
@@ -91,29 +92,31 @@
                     <ul class="nav nav-tabs justify-content-center nav-fill uldjm" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="roteiro-tab" data-toggle="tab" href="#roteiro" role="tab"
-                                aria-controls="roteiro" aria-selected="true">Roteiro</a>
+                                aria-controls="roteiro" aria-selected="true"><i class="icon-list"></i> Roteiro</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="precos-tab" data-toggle="tab" href="#precos" role="tab"
-                                aria-controls="precos" aria-selected="false">Precos</a>
+                                aria-controls="precos" aria-selected="false"><i class="icon-dollar"></i> Precos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="inclui-tab" data-toggle="tab" href="#inclui" role="tab"
-                                aria-controls="inclui" aria-selected="false">O que Inclui</a>
+                                aria-controls="inclui" aria-selected="false"><i class="icon-list"></i> O que Inclui</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="map-tab" data-toggle="tab" href="#map" role="tab"
-                                aria-controls="map" aria-selected="false">Mapa</a>
+                                aria-controls="map" aria-selected="false"><i class="icon-map"></i> Mapa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="opciones-tab" data-toggle="tab" href="#opciones" role="tab"
-                                aria-controls="opciones" aria-selected="false">Opcionais</a>
+                                aria-controls="opciones" aria-selected="false"><i class="icon-arrow-right"></i>
+                                Opcionais</a>
                         </li>
                     </ul>
                     <div class="tab-content pt-4" id="myTabContent">
-                        <div class="tab-pane fade show active" id="roteiro" role="tabpanel" aria-labelledby="roteiro-tab">
+                        <div class="tab-pane fade show active cuerpoImgs" id="roteiro" role="tabpanel"
+                            aria-labelledby="roteiro-tab">
                             {!! $tour->resumen !!}</div>
-                        <div class="tab-pane fade" id="precos" role="tabpanel" aria-labelledby="precose-tab">
+                        <div class="tab-pane fade cuerpoImgs" id="precos" role="tabpanel" aria-labelledby="precose-tab">
                             {!! $tour->detallado !!}
                         </div>
                         <div class="tab-pane fade" id="inclui" role="tabpanel" aria-labelledby="inclui-tab">
@@ -122,9 +125,23 @@
                         <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
                             @if ($tour->mapa)
                                 <img src="../img/buscador/{{ $tour->mapa }}" width="100%" height="auto"
-                                    loading="lazy">
+                                    loading="lazy" data-toggle="modal" data-target="#myModal" class="cursor-pointer">
                             @endif
                         </div>
+                        <!------text for popu image------------------>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog modal-lg" role="document">
+                              <div class="modal-content" style="background: transparent">
+                                <div class="modal-body">
+                                  <img src="../img/buscador/{{ $tour->mapa }}" width="100%" height="auto">
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-sm btn-secondary mx-auto" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <!----------enf test for popup i9mage------------------>
                         <div class="tab-pane fade" id="opciones" role="tabpanel" aria-labelledby="opciones-tab">
                             {!! $tour->importante !!}
                         </div>
@@ -148,56 +165,58 @@
                             target="_blank" rel="noopener" class="btn-social">
                             <i class="icon-linkedin"></i>
                         </a>
-                        <a href="https://www.pinterest.com/pin/create/button/?url={{ request()->fullUrl() }}&media={{ urlencode($tour->img) }}&description={{ urlencode($tour->descripcion) }}"
+                        <a href="https://www.pinterest.com/pin/create/button/?url={{ request()->fullUrl() }}&description={{ urlencode($tour->descripcion) }}"
                             target="_blank" rel="noopener" class="btn-social">
                             <i class="icon-pinterest"></i>
-                         </a>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="div-form-tours">
+
+                <div class="col-lg-4 mt-3">
+                    <div class="div-form-tours" style="position: sticky; top: 5.2em">
+                        <h4 class="text-center"><small style="font-size:13px">A partir de:</small>
+                            <br>${{ $tour->precio }}.00
+                        </h4>
+                        <div class="linea-2"></div>
                         <h3 class="h3book ">Solicite informações</h3>
                         <form class="djmFormShow" action="{{ route('mensaje') }}" method="POST">
                             @csrf
                             <div class="form-row">
-                                <div class="form-group col-lg-6">
+                                <div class="form-group col-lg-6 col-12">
                                     <label for="inputEmail4">Nome:</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre"
-                                        placeholder="Inca Pachacutec" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
-                                <div class="form-group col-lg-6">
+                                <div class="form-group col-lg-6 col-12">
                                     <label for="inputEmail4">Email:</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="hijo-del-sol@gmail.com" required>
+                                    <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6 col-12">
                                     <label for="inputAddress">N° Passageiros:</label>
                                     <input type="number" class="form-control" name="adultos" id="inputAddress"
-                                        placeholder="Number" required>
+                                        required>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6 col-12">
                                     <label for="inputAddress2" title="Children under 3 years old do not pay">Crianças:
                                         ⓘ</label>
-                                    <input type="number" name="childs" class="form-control" id="inputAddress2"
-                                        placeholder="Number">
+                                    <input type="number" name="childs" class="form-control" id="inputAddress2">
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6 col-12">
                                     <label for="inputCity">Data da viagem Peru:</label>
                                     <input type="date" name="date" class="form-control" id="date">
                                 </div>
 
-                                <div class="form-group col-md-6">
-                                    <label for="inputCity">Número de telefone: <i class="icon-whatsapp"></i></label>
+                                <div class="form-group col-md-6 col-12">
+                                    <label for="inputCity">Número telefone: <i class="icon-whatsapp"></i></label>
                                     <input type="number" class="form-control" id="phone" name="phone" required>
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-12 col-12">
                                     <label for="tour">Percorrer:</label>
                                     <input type="text" class="form-control" id="tour"
                                         value="{{ $tour->nombre }}" name="tour" readonly>
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-12 col-12">
                                     <label for="mensaje">Mensagem:</label>
                                     <textarea class="form-control" name="mensaje" id="mensaje">
                                     </textarea>
@@ -209,7 +228,7 @@
                         </form>
                         <div class="card align-items-center text-center">
                             <div class="card-bod">
-                                <h4 class="text-center mt-2">Suporte ao cliente:</h4>
+                                <h4 class="text-center mt-3">Suporte ao cliente:</h4>
                                 <p class="text-center"><i class="icon-whatsapp">
                                     </i> +51 984 606 757<br>
                                     </i> niko@nctravelcusco.com
@@ -218,13 +237,20 @@
                         </div>
                         <div class="card align-items-center text-center">
                             <div class="card-bod">
-                                <h4 class="mt-2">Metodos de Pagamento:</h4>
+                                <h4 class="mt-3">Metodos de Pagamento:</h4>
                                 <img src="{{ asset('img/galeria/Metodos-de-pagamento.webp') }}"
                                     alt="Metodos de pagamento" width="100%">
                             </div>
                         </div>
+                        <div class="card align-items-center text-center">
+                            <h4 class="mt-3">Postagens recentes:</h4>
+                            <div class="blogs-en-tours">
+                                @foreach ($blogs as $blog)
+                                    <a href="{{ route('muestrame', $blog->slug) }}">{{ $blog->nombre }}</a>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
-
                 </div>
                 <div class="space"></div>
                 <div class="col-lg-12">
