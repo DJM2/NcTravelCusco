@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class EnlacesCategorias extends Controller
 {
+
+    public function landing(){
+        return view('landing');
+    }
     public function machu()
     {
         $tours = Tour::all();

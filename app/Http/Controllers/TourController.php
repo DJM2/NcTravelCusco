@@ -9,14 +9,8 @@ use Illuminate\Http\Request;
 
 class TourController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        /* $tours = Tour::all(); */
         $tours = Tour::latest('updated_at')->get();
         return view('tours.index', compact('tours'));
     }

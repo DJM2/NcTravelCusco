@@ -15,8 +15,9 @@
 <file name="jquery-3.3.1.min.js" server="15.235.54.105" local="132168081360000000" remote="133278727800000000" Dst="0" />
 <file name="app.js" server="15.235.54.105" local="133133561243319221" remote="133278727800000000" Dst="0" />
 <file name="jquery.sticky.js" server="15.235.54.105" local="132218928110000000" remote="133278727800000000" Dst="0" />
-<file name="js.js" server="15.235.54.105" local="133135322592721544" remote="133135322400000000" Dst="0" />
+<file name="js.js" server="15.235.54.105" local="133135322592721544" remote="133134804000000000" Dst="0" />
 <file name="main.js" server="15.235.54.105" local="132218928600000000" remote="133278727800000000" Dst="0" />
 <file name="owl.carousel.min.js" server="15.235.54.105" local="131686501300000000" remote="133278727800000000" Dst="0" />
 <file name="popper.min.js" server="15.235.54.105" local="132168082760000000" remote="133278727800000000" Dst="0" />
+<file name="bootstrap.bundle.min.js" server="15.235.54.105" local="133143987606223353" remote="133308174000000000" Dst="0" />
 </dwsync>

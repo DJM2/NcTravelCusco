@@ -1,0 +1,103 @@
+body {
+  background: #F67400;
+}
+
+.compartir .share {
+  color: grey;
+  background: #fff;
+  font-size: 15px;
+  padding: 1em;
+  border-radius: 50%;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+}
+
+.modal-dialog .close {
+  background: #F67400;
+  color: #fff;
+  border: none;
+}
+.modal-dialog .modal-body a {
+  display: block;
+  margin-bottom: 1.2em;
+  text-decoration: none;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-bottom: 0.4em;
+  color: #F67400;
+  border-bottom: 1px dashed transparent;
+  float: left;
+  transition: 0.6s;
+}
+.modal-dialog .modal-body a:hover {
+  border-bottom: 1px dashed #F67400;
+  transition: 0.6s;
+}
+.modal-dialog .modal-body a:hover i {
+  background: #F67400;
+  color: #fff;
+  transition: 0.6s;
+}
+.modal-dialog .modal-body a i {
+  background: #fff;
+  color: #F67400;
+  border-bottom: dashed 1px #F67400;
+  padding: 0.4em 0.5em;
+  border-radius: 4px;
+  border: 1px solid #F67400;
+  transition: 0.6s;
+}
+
+.contenedor p {
+  color: #F67400;
+  font-size: 16px;
+  font-weight: bold;
+}
+.contenedor span {
+  font-size: 24px;
+  margin-right: 0.4em;
+  color: #F67400;
+  background: #fff;
+  padding: 0.5em;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border: #F67400 solid 1px;
+  transition: 0.6s;
+  cursor: pointer;
+}
+.contenedor span:hover {
+  border: #F67400 solid 1px;
+  background: #fff;
+  color: #F67400;
+  transition: 0.6s;
+  transform: translateY(-0.2em);
+}
+.contenedor a {
+  background: #2f5472;
+  color: #fff;
+  padding: 0.8em 0em;
+  display: block;
+  margin-top: 0.2em;
+  text-decoration: none;
+  border: 1px solid #737d85;
+  transition: 0.5s;
+}
+.contenedor a:hover {
+  box-shadow: inset 83.5em 0 0 0 #ffffff;
+  color: #F67400;
+  transition: 0.5s;
+}
+
+@media (max-width: 767px) {
+  .modal-dialog .modal-body a {
+    padding-left: 3em;
+    padding-right: 0px;
+  }
+}
+
+/*# sourceMappingURL=landing.css.map */

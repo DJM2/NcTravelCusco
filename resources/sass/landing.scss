@@ -1,0 +1,122 @@
+$color: #F67400;
+
+body{
+    background: $color;
+}
+.compartir {
+    .share {
+        color: grey;
+        background: #fff;
+        font-size: 15px;
+        padding: 1em;
+        border-radius: 50%;
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+}
+
+.modal-dialog {
+    .close {
+        background: $color;
+        color: #fff;
+        border: none;
+    }
+
+    .modal-body {
+        a {
+            display: block;
+            margin-bottom: 1.2em;
+            text-decoration: none;
+            padding-left: 25%;
+            padding-right: 25%;
+            padding-bottom: 0.4em;
+            color: $color;
+            border-bottom: 1px dashed transparent;
+            float: left;
+            transition: 0.6s;
+
+            &:hover {
+                border-bottom: 1px dashed $color;
+                transition: 0.6s;
+            }
+
+            &:hover i {
+                background: $color;
+                color: #fff;
+                transition: 0.6s;
+            }
+
+            i {
+                background: #fff;
+                color: $color;
+                border-bottom: dashed 1px $color;
+                padding: 0.4em 0.5em;
+                border-radius: 4px;
+                border: 1px solid $color;
+                transition: 0.6s;
+            }
+        }
+    }
+}
+
+.contenedor {
+    p {
+        color: $color;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    span {
+        font-size: 24px;
+        margin-right: 0.4em;
+        color: $color;
+        background: #fff;
+        padding: 0.5em;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        border: $color solid 1px;
+        transition: 0.6s;
+        cursor: pointer;
+
+        &:hover {
+            border: $color solid 1px;
+            background: #fff;
+            color: $color;
+            transition: 0.6s;
+            transform: translateY(-0.2em);
+        }
+    }
+
+    a {
+        background: #2f5472;
+        color: #fff;
+        padding: 0.8em 0em;
+        display: block;
+        margin-top: 0.2em;
+        text-decoration: none;
+        border: 1px solid #737d85;
+        transition: 0.5s;
+        &:hover {
+            box-shadow: inset 83.5em 0 0 0 #ffffff;
+            color: $color;
+            transition: 0.5s;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .modal-dialog {
+
+        .modal-body {
+            a {
+                padding-left: 3em;
+                padding-right: 0px;
+            }
+        }
+    }
+}

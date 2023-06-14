@@ -92,8 +92,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'mirandadjmdjm@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Página Web Trailha Inca Cuzco'),
+        'address' => env('MAIL_FROM_ADDRESS'),
+        'name' => env('MAIL_FROM_NAME'),
     ],
 
     /*

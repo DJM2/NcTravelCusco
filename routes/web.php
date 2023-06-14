@@ -7,6 +7,7 @@ use App\Http\Controllers\EnlacesCategorias;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImagenesController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SearchenController;
 use App\Http\Controllers\TourController;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
+//Oferta
+Route::get('viagem-ao-Peru-e-Machu-Picchu', [EnlacesCategorias::class, 'landing'])->name('landing');
 // Categorias 
 Route::get('pacotes-peru', [EnlacesCategorias::class, 'peru'])->name('peru');
 Route::get('machu-picchu', [EnlacesCategorias::class, 'machu'])->name('mapi');
@@ -43,6 +46,11 @@ Route::get('/', [TourController::class, 'mostrar'])->name('index');
 Route::get('/nikonctravel', [HomeController::class, 'index'])->name('home');
 Route::get('inicio', [TourController::class, 'mostrar'])->name('inicio');
 
+//Reportes
+Route::resource('reportes', ReporteController::class)->middleware('auth')->names('reportes');
+Route::get('reporte/{id}/pdf', [ReporteController::class, 'downloadPdf'])->name('reporte.pdf');
+Route::get('reporte/{id}', [ReporteController::class, 'show'])->name('reporte');
+
 // Usuarios
 Route::resource('users', UserControler::class)->middleware('auth');
 Route::post('upload_image', [ArticleController::class, 'uploadImage'])->name('upload');
@@ -64,6 +72,8 @@ Route::get('/{slug}/', [TourController::class, 'show'])->name('tours.show');
 Route::resource('toursen', ToursenController::class)->middleware('auth');
 Route::get('/toursen/{id}/{slug}/', [ToursenController::class, 'show'])->name('toursen.show');
 Route::get('searchen', [SearchenController::class, 'search'])->name('searchen');
+
+
 
 
 

@@ -7,6 +7,7 @@
 <file name="2022_11_24_110730_create_toursens_table.php" server="ftp.happyperutours.com" local="133159623721342067" remote="133159804800000000" Dst="0" />
 <file name="2022_11_21_184633_create_tours_table.php" server="ftp.happyperutours.com" local="133159623668986147" remote="133159804800000000" Dst="0" />
 <file name="2022_12_15_173851_create_imagenes_table.php" server="ftp.happyperutours.com" local="133155995559950728" remote="133159804800000000" Dst="0" />
-<file name="2022_12_19_192529_create_blogcategorias_table.php" server="ftp.happyperutours.com" local="133159515573181178" remote="133159804800000000" Dst="0" />
-<file name="2022_12_19_192622_create_blogs_table.php" server="ftp.happyperutours.com" local="133159523843961485" remote="133159804800000000" Dst="0" />
+<file name="2014_10_12_000000_create_users_table.php" server="15.235.54.105" local="133129126980000000" remote="133308171600000000" Dst="0" />
+<file name="2023_06_05_163007_create_reportes_table.php" server="15.235.54.105" local="133304571605483134" remote="133308172200000000" Dst="0" />
+<file name="2023_06_05_164843_create_pasajeros_table.php" server="15.235.54.105" local="133304646122790242" remote="133308172200000000" Dst="0" />
 </dwsync>

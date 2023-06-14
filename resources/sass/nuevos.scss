@@ -19,6 +19,19 @@ $Blue: #283950;
     transition: 1s;
 }
 
+.loggeado {
+    background: $colorPrincipal;
+    color: #fff;
+    padding: 1em;
+    position: fixed;
+    bottom: 50vh;
+    margin-left: -5em;
+    &:hover{
+        margin-left: 0em;
+        color: #fff;
+    }
+}
+
 .cuerpoImgs {
     img {
         height: 16rem;
@@ -32,11 +45,49 @@ $Blue: #283950;
 
 .decoracion-h2 {
     h2 {
-        background: linear-gradient(to left, #3a4c68 91%, $colorPrincipal 9%);
-        padding: 0.2em;
+        background: #3a4c68;
+        padding: 0.4em;
         color: #fff;
         border-radius: 9px;
-        font-size: 18px !important;
+        font-size: 17px !important;
+        position: relative;
+        margin-bottom: 2em;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 8px;
+            background: #f67400;
+            top: 2.1em;
+            border-radius: 10px;
+        }
+    }
+}
+
+.thumbBlog {
+    cursor: pointer;
+
+    &:hover {
+        background: #8080801f;
+        transition: 0.4s;
+    }
+
+    h5 {
+        font-size: 15px;
+    }
+
+    &:hover h5 {
+        color: $colorPrincipal;
+        transition: 0.4s;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
     }
 }
 
@@ -959,11 +1010,6 @@ table {
     .blog-head {
         h1 {
             font-size: 1.4em;
-        }
-    }
-    .decoracion-h2 {
-        h2 {
-            background: #3a4c68 ;
         }
     }
 

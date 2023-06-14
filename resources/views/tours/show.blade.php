@@ -26,8 +26,8 @@
                     <div class="linea-2"></div>
                     <div class="col-lg-12 text-center font-weight-bold" style="color: #fff">
                         <span><i class="icon-map-marker"></i> {{ $tour->ubicacion }}</span>&nbsp;&nbsp;
-                        <span><i class="icon-clock-o"></i> {{ $tour->dias }} días</span>&nbsp;&nbsp;
-                        <span><i class="icon-usd"></i> {{ $tour->precio }}.00</span>&nbsp;&nbsp;
+                        <span><i class="icon-clock-o"></i> {{ $tour->dias }} dias</span>&nbsp;&nbsp;
+                        <span><small>USD</small><i class="icon-usd"></i> {{ $tour->precio }}.00</span>&nbsp;&nbsp;
                     </div>
                     @if (session('status'))
                         <div class="text-success text-center">
@@ -43,6 +43,9 @@
             </div>
         </div>
     </div>
+    @if (auth()->check())
+        <a href="/tours/{{ $tour->id }}/edit" class="loggeado" target="_blank">Editar tour</a>
+    @endif
     <section>
         <div class="container pt-5">
             <div class="row justify-content-center">
@@ -86,17 +89,16 @@
                 </div>
                 <div class="col-lg-8 decoracion-h2">
                     <h2>{{ $tour->nombre }}</h2>
-                    <div class="linea-3"></div>
                     <p class="text-justify">{!! $tour->contenido !!}</p>
                     <br>
                     <ul class="nav nav-tabs justify-content-center nav-fill uldjm" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="roteiro-tab" data-toggle="tab" href="#roteiro" role="tab"
-                                aria-controls="roteiro" aria-selected="true"><i class="icon-list"></i> Roteiro</a>
+                                aria-controls="roteiro" aria-selected="true"><i class="icon-pencil"></i> Resumo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="precos-tab" data-toggle="tab" href="#precos" role="tab"
-                                aria-controls="precos" aria-selected="false"><i class="icon-dollar"></i> Precos</a>
+                                aria-controls="precos" aria-selected="false"><i class="icon-list"></i> Roteiro</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="inclui-tab" data-toggle="tab" href="#inclui" role="tab"
@@ -109,7 +111,7 @@
                         <li class="nav-item">
                             <a class="nav-link" id="opciones-tab" data-toggle="tab" href="#opciones" role="tab"
                                 aria-controls="opciones" aria-selected="false"><i class="icon-arrow-right"></i>
-                                Opcionais</a>
+                                Condições gerais</a>
                         </li>
                     </ul>
                     <div class="tab-content pt-4" id="myTabContent">
@@ -129,18 +131,20 @@
                             @endif
                         </div>
                         <!------text for popu image------------------>
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
                             <div class="modal-dialog modal-lg" role="document">
-                              <div class="modal-content" style="background: transparent">
-                                <div class="modal-body">
-                                  <img src="../img/buscador/{{ $tour->mapa }}" width="100%" height="auto">
+                                <div class="modal-content" style="background: transparent">
+                                    <div class="modal-body">
+                                        <img src="../img/buscador/{{ $tour->mapa }}" width="100%" height="auto">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-secondary mx-auto"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
                                 </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-sm btn-secondary mx-auto" data-dismiss="modal">Close</button>
-                                </div>
-                              </div>
                             </div>
-                          </div>
+                        </div>
                         <!----------enf test for popup i9mage------------------>
                         <div class="tab-pane fade" id="opciones" role="tabpanel" aria-labelledby="opciones-tab">
                             {!! $tour->importante !!}
@@ -175,7 +179,7 @@
                 <div class="col-lg-4 mt-3">
                     <div class="div-form-tours" style="position: sticky; top: 5.2em">
                         <h4 class="text-center"><small style="font-size:13px">A partir de:</small>
-                            <br>${{ $tour->precio }}.00
+                            <br>USD${{ $tour->precio }}.00
                         </h4>
                         <div class="linea-2"></div>
                         <h3 class="h3book ">Solicite informações</h3>
@@ -183,11 +187,11 @@
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-lg-6 col-12">
-                                    <label for="inputEmail4">Nome:</label>
+                                    <label for="nombre">Nome:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
                                 <div class="form-group col-lg-6 col-12">
-                                    <label for="inputEmail4">Email:</label>
+                                    <label for="email">Email:</label>
                                     <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
 
@@ -237,7 +241,7 @@
                         </div>
                         <div class="card align-items-center text-center">
                             <div class="card-bod">
-                                <h4 class="mt-3">Metodos de Pagamento:</h4>
+                                <h4 class="mt-3">Formas de pagamento:</h4>
                                 <img src="{{ asset('img/galeria/Metodos-de-pagamento.webp') }}"
                                     alt="Metodos de pagamento" width="100%">
                             </div>
@@ -246,7 +250,19 @@
                             <h4 class="mt-3">Postagens recentes:</h4>
                             <div class="blogs-en-tours">
                                 @foreach ($blogs as $blog)
-                                    <a href="{{ route('muestrame', $blog->slug) }}">{{ $blog->nombre }}</a>
+                                    <div class="row thumbBlog">
+                                        <div class="col-5">
+                                            <a href="{{ route('muestrame', $blog->slug) }}">
+                                                <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}">
+                                            </a>
+                                        </div>
+                                        <div class="col-7 d-flex align-items-center">
+                                            <a href="{{ route('muestrame', $blog->slug) }}">
+                                                <h5>{{ $blog->nombre }}</h5>
+                                            </a>
+                                        </div>
+
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
@@ -257,6 +273,7 @@
                     <h2 class="h2-nc-travel">Passeios semelhantes:</h2>
                     <div class="linea-2"></div>
                 </div>
+
                 @foreach ($tours->take(4) as $tour)
                     <div class="col-lg-3 col-md-6">
                         <div class="card card-new mx-auto" style="width: 18rem;">

@@ -34,18 +34,20 @@
                     <nav class="site-navigation position-relative text-left" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li class="has-children">
-                                <a href="{{ route('peru') }}" class="nav-link">Pacotes perú</a>
+                                <a href="{{ route('peru') }}" class="nav-link">Pacotes Peru</a>
                                 <ul class="dropdown">
                                     @foreach ($tours as $tour)
                                         @if ($tour->categoria == 'hikes')
                                             <li>
                                                 <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
-                                                   <span style="color:#F67400;color: #F67400;
+                                                    <span
+                                                        style="color:#F67400;color: #F67400;
                                                    font-weight: bold;
                                                    text-transform: uppercase;
-                                                   font-size: 10px;"> Pacote de {{ $tour->dias }} días</span>
-                                                   
+                                                   font-size: 10px;">
+                                                        Pacote de {{ $tour->dias }} dias</span>
+
                                                 </a>
                                             </li>
                                         @endif
@@ -60,11 +62,13 @@
                                             <li>
                                                 <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
-                                                    <span style="color:#F67400;color: #F67400;
+                                                    <span
+                                                        style="color:#F67400;color: #F67400;
                                                     font-weight: bold;
                                                     text-transform: uppercase;
-                                                    font-size: 10px;">Pacote de {{ $tour->dias }} días</span>
-                                                    
+                                                    font-size: 10px;">Pacote
+                                                        de {{ $tour->dias }} dias</span>
+
                                                 </a>
                                             </li>
                                         @endif
@@ -79,11 +83,13 @@
                                             <li>
                                                 <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
-                                                    <span style="color:#F67400;color: #F67400;
+                                                    <span
+                                                        style="color:#F67400;color: #F67400;
                                                     font-weight: bold;
                                                     text-transform: uppercase;
-                                                    font-size: 10px;">Pacote de {{ $tour->dias }} días</span>
-                                                    
+                                                    font-size: 10px;">Pacote
+                                                        de {{ $tour->dias }} dias</span>
+
                                                 </a>
                                             </li>
                                         @endif
@@ -98,10 +104,12 @@
                                             <li>
                                                 <a href="{{ url('/') }}/{{ $tour->slug }}">
                                                     <strong> {{ $tour->nombre }} → </strong>
-                                                    <span style="color:#F67400;color: #F67400;
+                                                    <span
+                                                        style="color:#F67400;color: #F67400;
                                                     font-weight: bold;
                                                     text-transform: uppercase;
-                                                    font-size: 10px;">Pacote de {{ $tour->dias }} días</span>
+                                                    font-size: 10px;">Pacote
+                                                        de {{ $tour->dias }} dias</span>
                                                 </a>
                                             </li>
                                         @endif
@@ -131,7 +139,8 @@
                             </li>
                             <ul class="site-menu main-menu mr-auto d-none d-lg-block responsive">
                                 <li class="social">
-                                    <a href="https://www.facebook.com/MachupicchuCusco" class="nav-link" target="_blank">
+                                    <a href="https://www.facebook.com/MachupicchuCusco" class="nav-link"
+                                        target="_blank">
                                         <span class="icon-facebook"></span>
                                     </a>
                                 </li>
@@ -246,7 +255,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h4>Inquéritos</h4>
+                    <h4>Inqueritos</h4>
                     <div class="linea"></div>
                     <ul>
                         <li><a href="mailto:nctravelcusco@gmail.com"><i class="icon-envelope-o"></i>
@@ -275,7 +284,7 @@
             <div class="down">
                 <div class="col-lg-12 text-center links">
                     <a href="http://www.nctravelcusco.com/" target="_blank">NC Travel Cusco</a>
-                    <a href="https://www.pacotesperu.com/" target="_blank">Pacotes Perú</a>
+                    <a href="https://www.pacotesperu.com/" target="_blank">Pacotes Peru</a>
                     <a href="https://www.trilhasalkantay.com/" target="_blank">Trilha Salkantay</a>
                     <a href="https://www.balsaspiuray.com/" target="_blank">Balsas Piuray</a>
                 </div>
@@ -308,6 +317,7 @@
         <i class="icon-arrow_drop_up"></i>
         <i class="icon-arrow_drop_up"></i>
     </a>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var scrollTopButton = document.querySelector('.scroll-to-top');

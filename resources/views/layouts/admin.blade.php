@@ -33,12 +33,6 @@
                         <a class="collapse-item" href="{{ route('tours.index') }}">
                             Tours Portugués
                         </a>
-                        {{-- <a class="collapse-item" href="{{ route('cat.tag.index') }}">
-                            Categorias de blog
-                        </a>
-                        <a class="collapse-item" href="{{ route('blog.index') }}">
-                            Blogs Portugués
-                        </a> --}}
                     </div>
                 </div>
             </li>
@@ -92,12 +86,13 @@
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Home</span>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('reportes.index')}}">
+                    <i class="fas fa-fw fa-bars"></i>
+                    <span>Reportes</span>
                 </a>
-            </li> --}}
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-home"></i>

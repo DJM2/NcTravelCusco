@@ -22,4 +22,6 @@
 <file name="Tour.php" server="15.235.54.105" local="133242314087767761" remote="133272670800000000" Dst="0" />
 <file name="Toursen.php" server="15.235.54.105" local="133137616507124853" remote="133272670800000000" Dst="0" />
 <file name="User.php" server="15.235.54.105" local="133252732275769211" remote="133272670800000000" Dst="0" />
+<file name="Pasajero.php" server="15.235.54.105" local="133304646351615858" remote="133308171000000000" Dst="0" />
+<file name="Reporte.php" server="15.235.54.105" local="133304596526960758" remote="133308171000000000" Dst="0" />
 </dwsync>

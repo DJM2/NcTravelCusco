@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('blog_id');
             $table->unsignedBigInteger('categoria_id');
             $table->timestamps();
-
             $table->foreign('blog_id')->references('id')->on('djmblogs')->onDelete('cascade');
             $table->foreign('categoria_id')->references('id')->on('buscadores')->onDelete('cascade');
             $table->unique(['blog_id', 'categoria_id']);
