@@ -51,4 +51,8 @@ class EnlacesCategorias extends Controller
         $tours = Tour::all();
         return view('condicoes-gerais', compact('tours'));
     }
+    public function pacotes(){
+        $tours = Tour::all();
+        return view('pacotes-de-viagem-no-peru', compact('tours'));
+    }
 }

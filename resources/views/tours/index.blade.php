@@ -20,14 +20,13 @@
                             </div>
                         </div>
                     @endif
-                </div>
+                </div> 
             </div>
             <table id="tabladatos" class="table mt-4 table-hover">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
-                        {{-- <th scope="col">Descripcion</th> --}}
                         <th scope="col">Imagen</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Días</th>
@@ -43,7 +42,6 @@
                         <tr>
                             <td>{{ $tour->id }}</td>
                             <td>{{ $tour->nombre }}</td>
-                            {{-- <td>{{ $tour->descripcion }}</td> --}}
                             <td><img src="../img/buscador/{{ $tour->img }}" width="120px"></td>
                             <td>{{ $tour->precio }}</td>
                             <td>{{ $tour->dias }}</td>

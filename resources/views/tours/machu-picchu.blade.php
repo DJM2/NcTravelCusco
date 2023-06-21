@@ -18,7 +18,7 @@
     <section>
         <div class="container">
             <div class="row mb-5">
-                <div class="col-12 pt-5 pb-4">                    
+                <div class="col-12 pt-5 pb-4">
                     <p>
                         Se o seu sonho é conhecer a cidade perdida dos incas deixe em nossas mãos para montarmos seu pacote
                         Machu Picchu. Nos vamos garantir uma viagem inesquecível e personalizado para que seu pacote para
@@ -35,38 +35,37 @@
                 </div>
                 <!-----Fin orueba--->
                 @foreach ($tours as $tour)
-                @if ($tour->categoria == 'around')
-                <div class="col-lg-3 col-md-6">
-                    <div class="card card-new" style="width: 18rem;">
-                        <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
-                            <div class="img-container">
-                                <img class="card-img-top" src="../img/buscador/{{ $tour->img }}" alt="Camino Inca 4 dias"
-                                loading="lazy">
-                            </div>
-                        </a>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ $tour->nombre }}</h5>
-                            <p class="text-card">{{ $tour->descripcion }}</p>
-                            <div class="row iconos-tours">
-                                <div class="col-4" style="float: left">
-                                    <span class="icon-clock-o"> {{ $tour->dias }} días</span>
-                                </div>
-                                <div class="col-4" style="float:right">
-                                    <span class="icon-map-marker"> {{ $tour->ubicacion }}</span>
-                                </div>
-                                <div class="col-4" style="float:right">
-                                    <span class="icon-usd"><strong>{{ $tour->precio }}</strong></span>
-                                </div>
+                    @if ($tour->categoria == 'around')
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card card-new" style="width: 18rem;">
+                                <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
+                                    <div class="img-container">
+                                        <img class="card-img-top" src="../img/buscador/{{ $tour->img }}"
+                                            alt="Camino Inca 4 dias" loading="lazy">
+                                    </div>
+                                </a>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ $tour->nombre }}</h5>
+                                    <p class="text-card">{{ $tour->descripcion }}</p>
+                                    <div class="row iconos-tours">
+                                        <div class="col-4" style="float: left">
+                                            <span class="icon-clock-o"> {{ $tour->dias }} días</span>
+                                        </div>
+                                        <div class="col-4" style="float:right">
+                                            <span class="icon-map-marker"> {{ $tour->ubicacion }}</span>
+                                        </div>
+                                        <div class="col-4" style="float:right">
+                                            <span class="icon-usd"><strong>{{ $tour->precio }}</strong></span>
+                                        </div>
 
-                            </div>
-                            <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
-                                class="boton-card">Más Info</a>
+                                    </div>
+                                    <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
+                                        class="boton-card">Más Info</a>
 
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                @endif
-                    
+                    @endif
                 @endforeach
             </div>
         </div>

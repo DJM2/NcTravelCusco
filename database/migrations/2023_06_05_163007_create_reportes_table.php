@@ -16,6 +16,9 @@ return new class extends Migration {
             $table->id();
             $table->string('tour');
             $table->string('nombre');
+            $table->string('numero');
+            $table->string('llegada');
+            $table->string('salida');
             $table->string('email');
             $table->date('fechaInicio');
             $table->date('briefing');

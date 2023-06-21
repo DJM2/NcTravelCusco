@@ -1,5 +1,5 @@
 $colorPrincipal: #F67400;
-$colorIngrid: #c70707;
+$colorIngrid: #d66e0c;
 $Blue: #283950;
 
 .ingrid {
@@ -26,7 +26,8 @@ $Blue: #283950;
     position: fixed;
     bottom: 50vh;
     margin-left: -5em;
-    &:hover{
+
+    &:hover {
         margin-left: 0em;
         color: #fff;
     }
@@ -903,6 +904,27 @@ table {
     border: 1px solid #ffffff56;
     transition: 0.4s;
 }
+
+.boton-card-2 {
+    margin: auto;
+    background: $colorPrincipal;
+    border: 1px solid $colorPrincipal;
+    color: #fff;
+    padding: 0.5em;
+    display: block;
+    border-radius: 10px;
+    width: 9em;
+    margin-top: 1.5em;
+    font-size: 12px;
+    font-weight: 500;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+        color: #fff;
+    }
+}
+
 
 .djmFormShow {
     padding: 1.8em;

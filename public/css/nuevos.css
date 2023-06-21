@@ -1,9 +1,9 @@
 @charset "UTF-8";
 .ingrid h2 {
-  color: #c70707;
+  color: #d66e0c;
 }
 .ingrid h3 {
-  color: #c70707;
+  color: #d66e0c;
   font-size: 18px !important;
 }
 
@@ -791,6 +791,25 @@ table tr td {
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.337254902);
   transition: 0.4s;
+}
+
+.boton-card-2 {
+  margin: auto;
+  background: #F67400;
+  border: 1px solid #F67400;
+  color: #fff;
+  padding: 0.5em;
+  display: block;
+  border-radius: 10px;
+  width: 9em;
+  margin-top: 1.5em;
+  font-size: 12px;
+  font-weight: 500;
+  transition: transform 0.3s ease-in-out;
+}
+.boton-card-2:hover {
+  transform: scale(1.1);
+  color: #fff;
 }
 
 .djmFormShow {

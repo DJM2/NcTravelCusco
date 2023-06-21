@@ -13,13 +13,12 @@ use App\Http\Controllers\SearchenController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\ToursenController;
 use App\Http\Controllers\UserControler;
-use App\Mail\ContactoMailable;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 //Oferta
 Route::get('viagem-ao-Peru-e-Machu-Picchu', [EnlacesCategorias::class, 'landing'])->name('landing');
+Route::post('/enviar-formulario', [MailController::class, 'enviarFormulario'])->name('enviar.formulario');
 // Categorias 
 Route::get('pacotes-peru', [EnlacesCategorias::class, 'peru'])->name('peru');
 Route::get('machu-picchu', [EnlacesCategorias::class, 'machu'])->name('mapi');
@@ -32,6 +31,8 @@ Route::get('reserva',[EnlacesCategorias::class, 'reserva'])->name('reserva');
 Route::get('condicoes-gerais',[EnlacesCategorias::class, 'condicoes'])->name('condicoes');
 Route::get('pagamentos',[EnlacesCategorias::class, 'pagamentos'])->name('pagamentos');
 
+Route::get('pacotes-de-viagem-no-peru', [EnlacesCategorias::class, 'pacotes'])->name('pacotes');
+
 //blogs
 Route::get('blog',[DjmblogController::class, 'djmblogs'])->name('blog');
 Route::get('blog/{slug}', [DjmblogController::class, 'mostrar'])->name('muestrame');
@@ -39,7 +40,6 @@ Route::get('tag/{slug}', [BuscadoreController::class, 'show'])->name('tag');
 
 // Mensajes
 Route::post('mensajeNc', [MailController::class, 'getMail'])->name('mensaje');
-
 
 // Páginas de inicio
 Route::get('/', [TourController::class, 'mostrar'])->name('index');
@@ -51,6 +51,8 @@ Route::resource('reportes', ReporteController::class)->middleware('auth')->names
 Route::get('reporte/{id}/pdf', [ReporteController::class, 'downloadPdf'])->name('reporte.pdf');
 Route::get('reporte/{id}', [ReporteController::class, 'show'])->name('reporte');
 
+Route::post('enviar-correo/{id}', [ReporteController::class, 'enviarCorreo'])->name('enviar.correo');
+
 // Usuarios
 Route::resource('users', UserControler::class)->middleware('auth');
 Route::post('upload_image', [ArticleController::class, 'uploadImage'])->name('upload');
@@ -60,6 +62,7 @@ Auth::routes();
 Route::resource('imagenes', ImagenesController::class)->middleware('auth');
 Route::resource('categoriasDjm', BuscadoreController::class)->names('cat');
 Route::resource('blogsDjm', DjmblogController::class)->names('djm');
+
 
 // Administrador de tour español
 Route::resource('tours', TourController::class)->middleware('auth');

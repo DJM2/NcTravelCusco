@@ -62,23 +62,22 @@ body{
 
 .contenedor {
     p {
-        color: $color;
+        color: #fff;
         font-size: 16px;
         font-weight: bold;
     }
 
     span {
-        font-size: 24px;
+        font-size: 20px;
         margin-right: 0.4em;
         color: $color;
         background: #fff;
-        padding: 0.5em;
         border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: 50px;
-        width: 50px;
+        height: 40px;
+        width: 40px; 
         border: $color solid 1px;
         transition: 0.6s;
         cursor: pointer;
@@ -101,6 +100,7 @@ body{
         text-decoration: none;
         border: 1px solid #737d85;
         transition: 0.5s;
+        border-radius: 25px;
         &:hover {
             box-shadow: inset 83.5em 0 0 0 #ffffff;
             color: $color;

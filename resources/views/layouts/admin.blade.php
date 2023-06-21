@@ -183,8 +183,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <script src="//cdn.ckeditor.com/4.14.1/plugins/youtube/plugin.js"></script>
     <script src="//cdn.ckeditor.com/4.14.1/full/ckeditor.js"></script>
     
     <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>

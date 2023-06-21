@@ -38,23 +38,23 @@
                         <input type="text" id="ubicacion" name="ubicacion" class="form-control" required
                             value="{{ $tour->ubicacion }}">
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 mt-3">
                         <label for="descripcion" class="form-label">Descripción:</label>
                         <input type="text" id="descripcion" name="descripcion" class="form-control" required
                             value="{{ $tour->descripcion }}" maxlength="255">
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 mt-3">
                         <label for="contenido" class="form-label">Contenido inicial:</label>
                         <textarea class="ckeditor form-control" name="contenido" id="contenido">{!! Request::old('content', $tour->contenido) !!}</textarea>
                         </textarea>
                     </div>
                     <div class="col-lg-12">
-                        <label for="resumen" class="form-label">Roteiro:</label>
+                        <label for="resumen" class="form-label">Resumo do tour:</label>
                         <textarea class="ckeditor form-control" name="resumen" id="resumen">{!! Request::old('content', $tour->resumen) !!}</textarea>
                         </textarea>
                     </div>
                     <div class="col-lg-12">
-                        <label for="detallado" class="form-label">Precos:</label>
+                        <label for="detallado" class="form-label">Recorrido detallado:</label>
                         <textarea class="ckeditor form-control" name="detallado" id="detallado">{!! Request::old('content', $tour->detallado) !!}</textarea>
                         </textarea>
                     </div>
@@ -69,22 +69,22 @@
                         </textarea>
                     </div>
                     <div class="col-lg-6 mt-4">
-                        <label for="img" class="form-label">Imagen:</label>
-                        <input type="file" id="img" name="img" class="form-control" accept="image/*"
+                        <label for="img" class="form-label">Imagen pequeña:</label>
+                        <input type="file" id="img" name="img" class="form-control form-control-sm" accept="image/*"
                             value="{{ $tour->img }}">
                         <img src="../../img/buscador/{{ $tour->img }}" width="220px"><br>
                     </div>
                     <div class="col-lg-6 mt-4">
-                        <label for="mapa" class="form-label">Imagen:</label>
-                        <input type="file" id="mapa" name="mapa" class="form-control" accept="image/*"
+                        <label for="mapa" class="form-label">Mapa del tour:</label>
+                        <input type="file" id="mapa" name="mapa" class="form-control form-control-sm" accept="image/*"
                             value="{{ $tour->mapa }}">
                         <img src="../../img/buscador/{{ $tour->mapa }}" width="220px"><br>
                     </div>
 
-                    <div class="col-lg-6 form-group mt-5">
+                    <div class="col-lg-4 mt-5">
                         <label for="" class="form-label">Categoría:</label>
                         {{-- <input type="text" id="categoria" name="categoria" class="ckeditor form-control" required value="{{$tour->categoria}}"> --}}
-                        <select name="categoria[]" id="categoria" class="form-control" aria-label="Default select example"
+                        <select name="categoria[]" id="categoria" class="form-control form-control-sm" aria-label="Default select example"
                             required>
                             <option value="{{ $tour->categoria }}" selected style="text-transform: capitalize">
                                 {{ $tour->categoria }} <small>(Seleccionado)</small></option>
@@ -94,14 +94,14 @@
                             <option value="luxury">Rotas Alternativas</option>
                         </select>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4 mt-5">
                         <label for="" class="form-label">Días:</label>
-                        <input type="text" id="dias" name="dias" class="form-control" required
+                        <input type="text" id="dias" name="dias" class="form-control form-control-sm" required
                             value="{{ $tour->dias }}">
                     </div>
-                    <div class="col-lg-6 form-group">
+                    <div class="col-lg-4 mt-5">
                         <label class="form-label" for="clases">Clase:</label>
-                        <select selected name="clase" id="clase" class="form-control">
+                        <select selected name="clase" id="clase" class="form-control form-control-sm">
                             <option value="{{ $tour->clase }}" selected style="text-transform: capitalize">
                                 {{ $tour->clase }} <small>(Seleccionado)</small></option>
                             <option value="cusconoche">Cusco noche</option>
@@ -120,7 +120,6 @@
                             <option value="humantay">Humantay</option>
                         </select>
                     </div>
-
                     <div class="col-lg-12">
                         <label for="keywords" class="form-label">Keywords:</label>
                         <input type="text" id="keywords" name="keywords" class="form-control" required

@@ -8,6 +8,9 @@
 <file name="2022_11_21_184633_create_tours_table.php" server="ftp.happyperutours.com" local="133159623668986147" remote="133159804800000000" Dst="0" />
 <file name="2022_12_15_173851_create_imagenes_table.php" server="ftp.happyperutours.com" local="133155995559950728" remote="133159804800000000" Dst="0" />
 <file name="2014_10_12_000000_create_users_table.php" server="15.235.54.105" local="133129126980000000" remote="133308171600000000" Dst="0" />
-<file name="2023_06_05_163007_create_reportes_table.php" server="15.235.54.105" local="133304571605483134" remote="133308172200000000" Dst="0" />
+<file name="2023_06_05_163007_create_reportes_table.php" server="15.235.54.105" local="133312481942620026" remote="133314397800000000" Dst="0" />
 <file name="2023_06_05_164843_create_pasajeros_table.php" server="15.235.54.105" local="133304646122790242" remote="133308172200000000" Dst="0" />
+<file name="2014_10_12_100000_create_password_resets_table.php" server="15.235.54.105" local="133135293643906514" remote="133314397200000000" Dst="0" />
+<file name="2023_06_14_153249_create_trenes_tables.php" server="15.235.54.105" local="133312304463141085" remote="133314397800000000" Dst="0" />
+<file name="2023_06_14_191447_create_hoteles_table.php" server="15.235.54.105" local="133312437177672829" remote="133314397800000000" Dst="0" />
 </dwsync>
