@@ -27,7 +27,7 @@ Route::get('rotas-alternativas', [EnlacesCategorias::class, 'alternativas'])->na
 
 Route::get('quem-somos', [EnlacesCategorias::class, 'nosotros'])->name('nosotros');
 Route::get('contato',[EnlacesCategorias::class, 'contato'])->name('contato');
-Route::get('reserva',[EnlacesCategorias::class, 'reserva'])->name('reserva');
+Route::get('preguntas-frequentes',[EnlacesCategorias::class, 'faq'])->name('faq');
 Route::get('condicoes-gerais',[EnlacesCategorias::class, 'condicoes'])->name('condicoes');
 Route::get('pagamentos',[EnlacesCategorias::class, 'pagamentos'])->name('pagamentos');
 
@@ -40,6 +40,7 @@ Route::get('tag/{slug}', [BuscadoreController::class, 'show'])->name('tag');
 
 // Mensajes
 Route::post('mensajeNc', [MailController::class, 'getMail'])->name('mensaje');
+Route::post('mensajeNcTravel', [MailController::class, 'getMail2'])->name('mensaje2');
 
 // Páginas de inicio
 Route::get('/', [TourController::class, 'mostrar'])->name('index');

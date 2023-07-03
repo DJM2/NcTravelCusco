@@ -23,13 +23,13 @@ class ReporteController extends Controller
         $reportes = Reporte::with('pasajeros')->get();
         return view('reportes.index', compact('reportes'));
     }
-
+    
     public function enviarCorreo($id)
     {
         $reporte = Reporte::findOrFail($id);
         $correo = new ReporteMail($reporte);
         Mail::to($reporte->email)->send($correo);
-        return redirect()->back()->with('success', 'Email enviado com sucesso para'. $reporte->email);
+        return redirect()->back()->with('success', 'Email enviado com sucesso para: ' . $reporte->email);
     }
 
 

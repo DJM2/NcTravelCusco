@@ -8,7 +8,7 @@
 <file name="owl.carousel.min.css" server="ftp.happyperutours.com" local="131686501300000000" remote="133150311000000000" Dst="0" />
 <file name="style.css" server="ftp.happyperutours.com" local="133148394096146294" remote="133157236200000000" Dst="0" />
 <file name="app.css" server="ftp.happyperutours.com" local="133133561243319221" remote="133150311000000000" Dst="0" />
-<file name="nuevos.css" server="15.235.54.105" local="133318429144226074" remote="133318662600000000" Dst="0" />
+<file name="nuevos.css" server="15.235.54.105" local="133328693719194624" remote="133328874600000000" Dst="0" />
 <file name=".DS_Store" server="15.235.54.105" local="132188183710000000" remote="133268578800000000" Dst="0" />
 <file name="app.css" server="15.235.54.105" local="133239812009253008" remote="133289329800000000" Dst="0" />
 <file name="bootstrap.min.css.map" server="15.235.54.105" local="132188163060000000" remote="133289329800000000" Dst="0" />
@@ -16,11 +16,13 @@
 <file name="estilos-bootstrap.css" server="15.235.54.105" local="133152403776151590" remote="133289330400000000" Dst="0" />
 <file name="estilos.css" server="15.235.54.105" local="133239802219116419" remote="133289330400000000" Dst="0" />
 <file name="iconos.css" server="15.235.54.105" local="133238100755321794" remote="133289330400000000" Dst="0" />
-<file name="nuevos.css.map" server="15.235.54.105" local="133318429144226074" remote="133318662600000000" Dst="0" />
+<file name="nuevos.css.map" server="15.235.54.105" local="133328693719194624" remote="133328874600000000" Dst="0" />
 <file name="owl.carousel.min.css" server="15.235.54.105" local="131686501300000000" remote="133289330400000000" Dst="0" />
-<file name="style.css" server="15.235.54.105" local="133280334693526009" remote="133289330400000000" Dst="0" />
-<file name="pdf.css" server="15.235.54.105" local="133316678830329291" remote="133316862600000000" Dst="0" />
-<file name="pdf.css.map" server="15.235.54.105" local="133316678830319293" remote="133316862600000000" Dst="0" />
+<file name="style.css" server="15.235.54.105" local="133326995180324205" remote="133328874600000000" Dst="0" />
+<file name="pdf.css" server="15.235.54.105" local="133324453418822839" remote="133324648200000000" Dst="0" />
+<file name="pdf.css.map" server="15.235.54.105" local="133324453418802842" remote="133324648200000000" Dst="0" />
 <file name="landing.css" server="15.235.54.105" local="133316697050278631" remote="133318548000000000" Dst="0" />
 <file name="landing.css.map" server="15.235.54.105" local="133316697050268626" remote="133318548000000000" Dst="0" />
+<file name="pdf.scss" server="15.235.54.105" local="133324402081414788" remote="133324648200000000" Dst="0" />
+<file name="pdf.scss.map" server="15.235.54.105" local="133324402081414788" remote="133324648200000000" Dst="0" />
 </dwsync>

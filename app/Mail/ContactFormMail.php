@@ -44,9 +44,9 @@ class ContactFormMail extends Mailable
      */
     public function build()
     {
-        return $this->from('miranda_djm2@hotmail.com')
+        return $this->from($this->email, $this->nombre)
             ->view('emails.formularioPacotes')
-            ->subject('Nuevo mensaje de contacto')
+            ->subject('Mensaje peticion de informacion')
             ->with([
                 'nombre' => $this->nombre,
                 'email' => $this->email,

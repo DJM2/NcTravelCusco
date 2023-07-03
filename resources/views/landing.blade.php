@@ -64,14 +64,26 @@
         </div>
     </div>
 
-    <div class="container-sm text-center mt-5"> 
+    <div class="container-sm text-center mt-5">
         <div class="row">
             <div class="container">
                 <div class="row contenedor">
                     <div class="col-12">
-                        <img src="{{ asset('img/logo-nc-travel-colores-origin.png') }}" alt="Logo NC Travel Cusco"
+                        <img src="{{ asset('img/logo-nc-travel-colores-origin-2.png') }}" alt="Logo NC Travel Cusco"
                             width="240px">
                         <p class="mt-2">Junte-se a nós nessa aventura inesquecível pelo Peru!</p>
+                    </div>
+                    <div class="col-lg-12">
+                        @if (session('status'))
+                            <div class="text-success text-center">
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-12 mt-1">
                         <span class="icon-facebook"
@@ -91,14 +103,141 @@
                         <a href="https://wa.me/51984606757?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20viajar%20para%20o%20Peru%20e%20gostaria%20de%20falar%20com%20um%20especialista.
                         "
                             target="_blank">Whatsapp &nbsp;<i class="icon-whatsapp"></i></a>
-                        <a href="https://nctravelcusco.com/pacotes-machu-picchu" target="_blank">Pacotes Peru</a>
-                        <a href="https://nctravelcusco.com/quem-somos" target="_blank">Trilhas Peru</a>
-                        <a href="https://nctravelcusco.com/quem-somos" target="_blank">Quero um orçamento!</a>
-                        <a href="https://nctravelcusco.com/pacotes-machu-picchu" target="_blank">Nosso site
-                           </a>
-                        <a href="https://trilhaincacuzco.com/trilha-inca" target="_blank">Sobre nós</a>
-
+                        <a href="{{ route('pacotes') }}" target="_blank">Pacotes Peru</a>
+                        <a href="{{ route('trilhas') }}" target="_blank">Trilhas Peru</a>
+                        <a href="#popup2" class="open-popup">Quero um orçamento!</a>
+                        <a href="{{ route('index') }}" target="_blank">Nosso site
+                        </a>
+                        <a href="{{ route('nosotros') }}" target="_blank">Sobre Nós</a>
                     </div>
+
+                    <!---popup reserva-->
+                    <div id="popup2" class="popup">
+                        <div class="popup-content">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title mx-auto mb-3" id="popupModalLabel">Reserva o seu pacote
+                                        para Peru</h5>
+                                    <div class="linea-2"></div>
+                                    <button type="button" class="close-popup" data-dismiss="modal"
+                                        aria-label="Fechar">
+                                        &times;
+                                    </button>
+                                </div>
+                                <div class="modal-body mt-3">
+                                    <form action="{{ route('enviar.formulario') }}" method="POST">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="nombre">Nome: *</label>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="nombre" name="nombre" placeholder="Digite su nombre"
+                                                    required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="email">Email: *</label>
+                                                <input type="email" class="form-control form-control-sm"
+                                                    id="email" name="email" placeholder="Digite su e-mail"
+                                                    required>
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="telefono">Teléfono:<i
+                                                        class="icon-whatsapp text-success"></i> *</label>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="telefono" name="telefono" placeholder="Digite su teléfono"
+                                                    required>
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="fecha">Data da viagem:</label>
+                                                <input type="date" class="form-control form-control-sm"
+                                                    id="fecha" name="fecha"
+                                                    placeholder="Digite la fecha deseada">
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="nacionalidad">Nacionalidad:</label>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="nacionalidad" name="nacionalidad"
+                                                    placeholder="Digite su nacionalidad">
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="interes">Tipo de viagem:</label>
+                                                <select class="form-control form-control-sm" id="interes"
+                                                    name="interes">
+                                                    <option value="Família">Viajar en familia</option>
+                                                    <option value="Amigos">Viajar con amigos</option>
+                                                    <option value="Casal">Viajar em casal</option>
+                                                    <option value="Grupo">Viajar em grupo</option>
+                                                    <option value="Privado">Viajar em privado</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group mt-3">
+                                                <label for="mensaje">Mensagem: *</label>
+                                                <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                                                    placeholder="Escreva sua mensagem aqui..." required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-center mt-3">
+                                            <button type="submit"
+                                                style="background: #0a487c;
+                                            color: #fff;
+                                            border-radius: 7px;
+                                            padding: 0.4em 1.4em; border-none">Enviar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        .popup {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0, 0, 0, 0.5);
+                            display: none;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        .popup-content {
+                            background-color: #fff;
+                            padding: 20px;
+                            border-radius: 5px;
+                        }
+                    </style>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            var openButtons = document.querySelectorAll(".open-popup");
+                            var closeButtons = document.querySelectorAll(".close-popup");
+                            var popups = document.querySelectorAll(".popup");
+
+                            openButtons.forEach(function(button) {
+                                button.addEventListener("click", function(e) {
+                                    e.preventDefault();
+                                    var target = this.getAttribute("href");
+                                    document.querySelector(target).style.display = "flex";
+                                });
+                            });
+
+                            closeButtons.forEach(function(button) {
+                                button.addEventListener("click", function() {
+                                    var popup = this.closest(".popup");
+                                    popup.style.display = "none";
+                                });
+                            });
+
+                            // Cerrar el popup al hacer clic fuera de él
+                            popups.forEach(function(popup) {
+                                popup.addEventListener("click", function(e) {
+                                    if (e.target === this) {
+                                        this.style.display = "none";
+                                    }
+                                });
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </div>

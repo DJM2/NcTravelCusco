@@ -6,11 +6,9 @@
         content="Encontre os melhores pacotes de viagem para o Peru e descubra as maravilhas deste país incrível. Explore Machu Picchu, Cusco, Lima e muito mais. Reserve suas férias no Peru agora!">
     <meta name="keywords" content="pacotes de viagem, Peru, férias no Peru, Machu Picchu, Cusco, Lima, turismo no Peru" />
     <meta rel="canonical" href="https://www.trilhaincacuzco.com/pacotes-de-viagem-no-peru">
-
     <meta name="og_image" content="https://trilhaincacuzco.com/img/panoramico/machu-picchu--pacotes-peru-nc-travel.webp" />
     <meta name="og_secureImage"
         content="https://trilhaincacuzco.com/img/panoramico/machu-picchu--pacotes-peru-nc-travel.webp" />
-
     <meta property="og:title" content="Contato Nc Travel Cusco" />
     <meta property="og:description"
         content="Encontre os melhores pacotes de viagem para o Peru e descubra as maravilhas deste país incrível. Explore Machu Picchu, Cusco, Lima e muito mais. Reserve suas férias no Peru agora!" />
@@ -20,13 +18,14 @@
     <meta name="robots" content="index,follow" />
 @endsection
 @section('contenido')
-    <div class="peru">
+    <div class="mapi1">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 text-center">
-                    <h1 style="padding-top: 250px;color:#fff">
+                    <h1 style="padding-top: 250px;color:#fff; font-family:'Lobster'">
                         Pacotes de viagem no Peru
                     </h1>
+                    <div class="linea-2"></div>
                     <p style="color: #fff" class="text-center">
                         Esta é uma lista de todos os nossos passeios que percorrem o Peru
                     </p>
@@ -86,9 +85,9 @@
                     <h2>Lista de passeios pelo Peru:</h2>
                 </div>
                 <!-----Fin orueba--->
-                @foreach ($tours as $tour)
+                @foreach ($mostrarTours as $tour)
                     <div class="col-lg-3 col-md-6">
-                        <div class="card card-new" style="width: 18rem;">
+                        <div class="card card-new mx-auto" style="width: 17rem;">
                             <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
                                 <div class="img-container">
                                     <img class="card-img-top" src="../img/buscador/{{ $tour->img }}"
@@ -106,7 +105,7 @@
                                             <strong>U${{ $tour->precio }}</strong></p>
                                 </div>
                                 <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
-                                    class="boton-card-2">Más Info</a>
+                                    class="boton-card-2">SAIBA MAIS</a>
 
                             </div>
                         </div>
@@ -120,7 +119,7 @@
                     <h4 class="subrayado"> Informe-se agora!</h4>
                 </div>
                 <div class="col-lg-6 m-auto-djm">
-                    <a href="#popup" data-toggle="modal" data-target="#popupModal">Reservar</a>
+                    <a href="#popup" data-toggle="modal" data-target="#popupModal">Reservar</a> 
                 </div>
             </div>
         </div>
@@ -165,13 +164,13 @@
                                         name="nacionalidad" placeholder="Digite su nacionalidad">
                                 </div>
                                 <div class="col-md-6 mt-3">
-                                    <label for="interes">Interés:</label>
+                                    <label for="interes">Tipo de viagem:</label>
                                     <select class="form-control form-control-sm" id="interes" name="interes">
                                         <option value="Família">Viajar en familia</option>
                                         <option value="Amigos">Viajar con amigos</option>
-                                        <option value="Casal">Viajar en pareja</option>
-                                        <option value="Grupo">Viajar en grupo</option>
-                                        <option value="Privado">Viajar en privado</option>
+                                        <option value="Casal">Viajar em casal</option>
+                                        <option value="Grupo">Viajar em grupo</option>
+                                        <option value="Privado">Viajar em privado</option>
                                     </select>
                                 </div>
                                 <div class="form-group mt-3">

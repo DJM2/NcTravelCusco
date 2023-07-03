@@ -58,14 +58,40 @@ a, a:hover {
 img{
   padding: 1em;
 }
-
-.hero {
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1); /* Tamaño normal */
+  }
+  50% {
+    transform: scale(1.1); /* Zoom in */
+  }
+  100% {
+    transform: scale(1); /* Tamaño normal */
+  }
+}
+.hero-container {
   height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  margin-top: -4em;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
   background-image: linear-gradient(to right, rgb(0 0 0 / 34%), rgb(0 0 0 / 20%)), url(../img/Machu-Picchu-trilha-Inca-Salkantay.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  animation-name: zoomInOut; 
+  animation-duration: 14s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 .puno {
   height: 100vh;
@@ -74,6 +100,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .cusconoche {
   height: 100vh;
@@ -82,6 +109,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .lima1 {
   height: 100vh;
@@ -90,6 +118,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .lima2 {
   height: 100vh;
@@ -98,6 +127,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .mapi1 {
   height: 100vh;
@@ -106,6 +136,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .mapi2 {
   height: 100vh;
@@ -114,6 +145,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .caminoinca {
   height: 100vh;
@@ -122,6 +154,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .sacse {
   height: 100vh;
@@ -130,6 +163,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .valle {
   height: 100vh;
@@ -138,6 +172,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .valle2 {
   height: 100vh;
@@ -146,6 +181,7 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 .salkantay {
   height: 100vh;
@@ -154,6 +190,8 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
+
 }
 .choque {
   height: 100vh;
@@ -162,6 +200,8 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
+
 }
 .vinicunca {
   height: 100vh;
@@ -170,6 +210,8 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
+
 }
 .humantay {
   height: 100vh;
@@ -178,6 +220,8 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
+
 }
 .miraflores {
   height: 100vh;
@@ -186,6 +230,16 @@ img{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
+}
+.qeswachaca {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to right, rgb(0 0 0 / 34%), rgb(0 0 0 / 20%)), url(../img/panoramico/ponte-qeswachaca.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: -4em;
 }
 
 .site-navbar {

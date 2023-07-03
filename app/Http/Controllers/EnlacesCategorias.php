@@ -41,7 +41,7 @@ class EnlacesCategorias extends Controller
         $tours = Tour::all();
         return view('tours.contato', compact('tours'));
     }
-    public function reserva()
+    public function faq()
     {
         $tours = Tour::all();
         return view('tours.reserva', compact('tours'));
@@ -53,6 +53,7 @@ class EnlacesCategorias extends Controller
     }
     public function pacotes(){
         $tours = Tour::all();
-        return view('pacotes-de-viagem-no-peru', compact('tours'));
+        $mostrarTours = $tours->sortBy('dias');
+        return view('pacotes-de-viagem-no-peru', compact('tours', 'mostrarTours'));
     }
 }

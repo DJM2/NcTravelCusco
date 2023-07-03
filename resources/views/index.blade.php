@@ -5,26 +5,41 @@
     <link rel="canonical" href="https://www.trilhaincacuzco.com/" />
     <meta name="description"
         content="A Trilha Inca ou  Trilha Inca Cuzco é o trekking mais famoso da América do Sul e é classificado por muitos como uma das 5 melhores trilhas do mundo. Uma experiência única e quem o fez tem a certeza de que o esforço vale a pena!" />
-    <meta property="og:image"
-        content="https://trilhaincacuzco.com/img/Machu-Picchu-trilha-Inca-Salkantay.jpg" />
+    <meta property="og:image" content="https://trilhaincacuzco.com/img/Machu-Picchu-trilha-Inca-Salkantay.jpg" />
     <!------Open Graph-------------->
     <meta property="og:title" content="Agência de viagens NC Travel Cusco" />
     <meta property="og:description"
         content="A Trilha Inca ou  Trilha Inca Cuzco é o trekking mais famoso da América do Sul e é classificado por muitos como uma das 5 melhores trilhas do mundo. Uma experiência única e quem o fez tem a certeza de que o esforço vale a pena!" />
-    <meta property="og:image"
-        content="https://trilhaincacuzco.com/img/Machu-Picchu-trilha-Inca-Salkantay.jpg" />
+    <meta property="og:image" content="https://trilhaincacuzco.com/img/Machu-Picchu-trilha-Inca-Salkantay.jpg" />
     <meta property="og:url" content="https://www.trilhaincacuzco.com/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
 @endsection
 @section('contenido')
-    <div class="hero">
-        <div class="centrado">
-            <h1 class="h1-inicio">Encontre os melhores passeios para o Peru</h1>
-            <a href="{{ route('peru') }}" class="btn-inicio">Pacotes Perú</a>
-            <a href="{{ route('trilhas') }}" class="btn-inicio">Pacotes Trilha Inca</a>
-            <a href="{{ route('mapi') }}" class="btn-inicio">Pacotes Machu Picchu</a>
-            <a href="{{ route('alternativas') }}" class="btn-inicio">Pacotes Alternativas</a>
+    <div class="hero-container">
+        <div class="hero">
+            <div class="centrado">
+                <h1 class="h1-inicio">A Sua agência brasileira em Cusco</h1>
+                <div class="linea-2"></div>
+                <div class="botones-container">
+                    <a href="{{ route('peru') }}" class="btn-inicio">Pacotes Perú</a>
+                    <a href="{{ route('trilhas') }}" class="btn-inicio">Trilha Inca</a>
+                    <a href="{{ route('mapi') }}" class="btn-inicio">Machu Picchu</a>
+                    <a href="{{ route('alternativas') }}" class="btn-inicio">Alternativas</a>
+                  </div>
+                <div class="row mt-3">
+                    <div class="col-lg-12 text-center">
+                        @if (session('success'))
+                            <div class="alert alert-success text-center">
+                                {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <section>
@@ -59,7 +74,7 @@
                 <!------Listado de tours----------->
                 @foreach ($tours->take(8) as $tour)
                     <div class="col-lg-3 col-md-6 escritorio">
-                        <div class="card card-new mx-auto" style="width: 18rem;">
+                        <div class="card card-new mx-auto" style="width: 17rem;">
                             <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
                                 <div class="img-container">
                                     <img class="card-img-top" src="img/buscador/{{ $tour->img }}"
@@ -80,15 +95,15 @@
                                         <span class="icon-usd"><strong>{{ $tour->precio }}</strong></span>
                                     </div>
                                 </div>
-                                <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">Más
-                                    detalles</a>
+                                <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">SAIBA
+                                    MAIS</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
                 @foreach ($tours->take(4) as $tour)
                     <div class="col-lg-3 col-md-6 responsive">
-                        <div class="card card-new mx-auto" style="width: 18rem;">
+                        <div class="card card-new mx-auto" style="width: 17rem;">
                             <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
                                 <div class="img-container">
                                     <img class="card-img-top" src="img/buscador/{{ $tour->img }}"
@@ -109,8 +124,8 @@
                                         <span class="icon-usd"><strong>{{ $tour->precio }}</strong></span>
                                     </div>
                                 </div>
-                                <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">Más
-                                    detalles</a>
+                                <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">SAIBA
+                                    MAIS</a>
                             </div>
                         </div>
                     </div>
@@ -158,7 +173,7 @@
                     <h4>Reserva Trilha Inca <span class="subrayado"> 2023</span></h4>
                 </div>
                 <div class="col-lg-6 m-auto-djm"><a
-                        href="https://www.trilhaincacuzco.com/trilha-salkantay-machu-picchu">Reservar</a></div>
+                        href="https://www.trilhaincacuzco.com/trilha-inca-classica-4dias">Reservar</a></div>
             </div>
         </div>
         <div class="container mt-5 mb-5">
@@ -264,24 +279,77 @@
                     <h5>Metodos de pagamento:</h5>
                 </div>
                 <div class="col-lg-1 col-sm-12"></div>
-                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Visa.png') }}" alt="Pagamento Visa" width="100px" loading="lazy"></div>
-                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/banco-do-brasil.png') }}" alt="banco do brasil"
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Visa.png') }}" alt="Pagamento Visa"
                         width="100px" loading="lazy"></div>
-                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/american-express.png') }}" alt="American express"
-                        width="100px" loading="lazy"></div>
-                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Bradesco.png') }}" alt=" Banco Bradesco" width="100px" loading="lazy">
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/banco-do-brasil.png') }}"
+                        alt="banco do brasil" width="100px" loading="lazy"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/american-express.png') }}"
+                        alt="American express" width="100px" loading="lazy"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Bradesco.png') }}" alt=" Banco Bradesco"
+                        width="100px" loading="lazy">
                 </div>
-                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Dinner-Club-internacional.png') }}" alt="Dinner club internacional" loading="lazy"
-                        width="100px"></div>
-                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/wester-union.png') }}" alt="Wester Union " loading="lazy"
-                        width="100px"></div>
-                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Paypal.png') }}" alt="pagamento paypal" loading="lazy" width="100px">
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Dinner-Club-internacional.png') }}"
+                        alt="Dinner club internacional" loading="lazy" width="100px"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/wester-union.png') }}" alt="Wester Union "
+                        loading="lazy" width="100px"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Paypal.png') }}" alt="pagamento paypal"
+                        loading="lazy" width="100px">
                 </div>
-                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Master-card.png') }}" alt=" Master Card" loading="lazy"
-                        width="100px"></div>
-                <div class="col-lg-1"><img src="{{ asset('img/thumb/tranferencia.png') }}" alt="Pagamento tranferencia" loading="lazy"s
-                        width="100px"></div>
+                <div class="col-lg-1 col-6"><img src="{{ asset('img/thumb/Master-card.png') }}" alt=" Master Card"
+                        loading="lazy" width="100px"></div>
+                <div class="col-lg-1"><img src="{{ asset('img/thumb/tranferencia.png') }}" alt="Pagamento tranferencia"
+                        loading="lazy"s width="100px"></div>
             </div>
+        </div>
+        <div class="container-fuid">
+            <div class="col-lg-12 bg-light-dark pt-3 pb-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center pt-4 pb-5">
+                            <h4 class="text-white">Solicite informações:</h4>
+                            <div class="linea2"></div>
+                        </div>
+                        <div class="col-g-12 text-white">
+                            <form action="{{ route('enviar.formulario') }}" method="POST" class="form-nc">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-4 mb-5">
+                                        <input type="text" name="nombre" placeholder="Nombre: *" required>
+                                    </div>
+                                    <div class="col-md-4 mb-5">
+                                        <input type="email" name="email" placeholder="Email: *" required>
+                                    </div>
+                                    <div class="col-md-4 mb-5">
+                                        <input type="text" name="telefono" placeholder="Teléfono: *" required>
+                                    </div>
+                                    <div class="col-md-4 mb-5">
+                                        <input type="date" name="fecha" placeholder="Fecha de viaje:">
+                                    </div>
+                                    <div class="col-md-4 mb-5">
+                                        <input type="text" name="nacionalidad" placeholder="Nacionalidad:">
+                                    </div>
+                                    <div class="col-md-4 mb-5">
+                                        <select id="interes" name="interes">
+                                            <option value="Família">Viajar com a família</option>
+                                            <option value="Amigos">Viajar con amigos</option>
+                                            <option value="Casal">Viajar em casal</option>
+                                            <option value="Grupo">Viajar em grupo</option>
+                                            <option value="Privado">Viajar em privado</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <textarea name="mensaje" id="mensaje" placeholder="Digite sua mensagem...*"></textarea>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <input class="btn-form-index" type="submit" value="Enviar">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 @endsection

@@ -17,47 +17,37 @@
         <div class="row linea">
             <div class="col-12">
                 <div class="image-container">
-                    <img src="{{ asset('img/portada-reportes.png') }}" alt="">
-                    <h1>Reporte NC Travel Cusco para {{ $reporte->nombre }}</h1>
+                    <img src="https://trilhaincacuzco.com/img/portada-reportes.png" width="100%" alt="">
                 </div>
-                <style>
-                    .image-container {
-                        position: relative;
-                    }
-                    .image-container img {
-                        display: block;
-                    }
-                    .image-container h1 {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        z-index: -1;
-                        margin: 0;
-                        padding: 10px;
-                        color: #fff;
-                        background-color: rgba(0, 0, 0, 0.5);
-                    }
-                </style>
-                <div class="info">
-                    <span>+51 921 136 755</span>
-                    <span>info@nctravelcusco.com</span>
-                    <span>www.nctravelcusco.com</span>
+                <div style="text-align: center;">
+                    <span style="margin-left: 1em;color: #f17200;font-weight: 600;font-size: 13px;">+51 984 606
+                        757</span>
+                    <span
+                        style="margin-left: 1em;color: #f17200; font-weight: 600;font-size: 13px;">info@nctravelcusco.com</span>
+                    <span
+                        style="margin-left: 1em; color: #f17200; font-weight: 600; font-size: 13px;">www.nctravelcusco.com</span>
                 </div>
             </div>
             <div class="col-12 mt-3">
                 @if (session('success'))
-                    <div class="alert alert-success text-center">
+                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
                         {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-3 paquete">
-                <h2>{{ $reporte->tour }}</h2>
+            <div style="text-align: center; padding-top: 1em; padding-bottom: 1em;">
+                <h2 style="position: relative;">
+                    {{ $reporte->tour }}
+                    <span
+                        style="position: absolute; content: ''; display: block; width: 100px; height: 2px; background-color: #f17302; margin: auto; bottom: -10px; left: 0; right: 0;"></span>
+                </h2>
                 <span>Para: {{ $reporte->nombre }}</span>
             </div>
             <div class="col-12 datos">
@@ -65,83 +55,138 @@
                     <div class="col-12">
                         <h3 style="color:#f17200">Datos generales:</h3>
                     </div>
-                    <div class="col-12">
-                        <div class="row bordes">
-                            <div class="col-4">
-                                <p>Nome: <span>{{ $reporte->nombre }}</span></p>
-                            </div>
-                            <div class="col-4">
-                                <p>Email: <span>{{ $reporte->email }}</span></p>
-                            </div>
-                            <div class="col-4">
-                                <p>Telefone: <span>{{ $reporte->numero }}</span></p>
-                            </div>
-                            <div class="col-4">
-                                <p>Começo do passeio:
-                                    <span>{{ date('d \d\e F \d\e Y', strtotime($reporte->fechaInicio)) }}</span>
+                    <div class="col-12" style="display: flex; flex-wrap: wrap;">
+                        <div class="bordes" style="width: 100%; display: flex; flex-wrap: wrap;">
+                            <div class="col-4"
+                                style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                                <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                    Nome:
+                                    <span style="font-weight: 400">{{ $reporte->nombre }}</span>
                                 </p>
                             </div>
-                            <div class="col-4">
-                                <p>Briefing: <span>{{ date('d \d\e F \d\e Y', strtotime($reporte->briefing)) }}</span>
+                            <div class="col-4"
+                                style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                                <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                    Email: <span style="font-weight: 400">{{ $reporte->email }}</span>
                                 </p>
                             </div>
-                            <div class="col-4">
-                                <p>Tipo de moeda: <span>Dólares (USD)</span></p>
-                            </div>
-                            <div class="col-4">
-                                <p>Total do pacote: <span>{{ $reporte->precio }}</span></p>
-                            </div>
-                            <div class="col-4">
-                                <p>Adiantamento: <span>{{ $reporte->adelanto }}</span></p>
-                            </div>
-                            <div class="col-4">
-                                <p>Restante: <span id="resto"></span></p>
-                            </div>
-                            <div class="col-4">
-                                <p> Nº de passageiros: <span>{{ $reporte->numPaxs }}</span></p>
-                            </div>
-                            <div class="col-4">
-                                <p>Começo do passeio:
-                                    <span>{{ date('d \d\e F \d\e Y', strtotime($reporte->llegada)) }}</span>
-                                </p>
-                            </div>
-                            <div class="col-4">
-                                <p>Começo do passeio:
-                                    <span>{{ date('d \d\e F \d\e Y', strtotime($reporte->salida)) }}</span>
+                            <div class="col-4"
+                                style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                                <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                    Telefone:
+                                    <span style="font-weight: 400">{{ $reporte->numero }}</span>
                                 </p>
                             </div>
                         </div>
                     </div>
+                    <div style="display: flex;flex-wrap: wrap;">
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Começo do passeio:
+                                <span
+                                    style="font-weight: 400">{{ date('d \d\e F \d\e Y', strtotime($reporte->fechaInicio)) }}</span>
+                            </p>
+                        </div>
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Briefing:
+                                <span
+                                    style="font-weight: 400">{{ date('d \d\e F \d\e Y', strtotime($reporte->briefing)) }}</span>
+                            </p>
+                        </div>
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Tipo de moeda:
+                                <span style="font-weight: 400">Dólares (USD)</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex;flex-wrap: wrap;">
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Total do pacote:
+                                <span style="font-weight: 400">{{ $reporte->precio }}</span>
+                            </p>
+                        </div>
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Adiantamento:
+                                <span style="font-weight: 400">{{ $reporte->adelanto }}</span>
+                            </p>
+                        </div>
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Restante:
+                                <span style="font-weight: 400">{{ $reporte->precio - $reporte->adelanto }}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex;flex-wrap: wrap;">
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Nº de passageiros:
+                                <span style="font-weight: 400">{{ $reporte->numPaxs }}</span>
+                            </p>
+                        </div>
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Começo do passeio:
+                                <span
+                                    style="font-weight: 400">{{ date('d \d\e F \d\e Y', strtotime($reporte->llegada)) }}
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col-4" style="width: 33.33%; border-bottom: 1px solid grey; margin-bottom: 0.4em;">
+                            <p style="font-weight: bold; border-left: 3px solid #f17200; padding-left: 0.5em;">
+                                Começo do passeio:
+                                <span
+                                    style="font-weight: 400">{{ date('d \d\e F \d\e Y', strtotime($reporte->salida)) }}</span>
+                            </p>
+                        </div>
+                    </div>
+
                     @if ($reporte->pasajeros->isNotEmpty())
-                        <div class="row mt-4">
+                        <div class="row mt-4" style="width: 100%">
                             <div class="col-12">
-                                <h3>Detalhe de passageiros:</h3>
+                                <h3 style="color: #f17200">Detalhe de passageiros:</h3>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-hover">
+                            <div class="col-12" style="width: 100%;">
+                                <table class="table table-hover" style="width: 100%;">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nome completo</th>
-                                            <th scope="col">Passaporte</th>
-                                            <th scope="col">Nacionalidade</th>
-                                            <th scope="col">Alimentando</th>
-                                            <th>Data de nascimiento</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Nome completo</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Passaporte</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Nacionalidade</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Alimentando</th>
+                                            <th style="text-align: left;">Data de nascimiento</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($reporte->pasajeros as $pasajero): ?>
                                         <tr>
-                                            <td> {{ $pasajero->nombre }}</td>
-                                            <td>{{ $pasajero->numeroPasaporte }}</td>
-                                            <td>{{ $pasajero->nacionalidad }}</td>
-                                            <td>
+                                            <td style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                {{ $pasajero->nombre }}</td>
+                                            <td style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                {{ $pasajero->numeroPasaporte }}</td>
+                                            <td style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                {{ $pasajero->nacionalidad }}</td>
+                                            <td style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
                                                 @if ($pasajero->alimentacion == 'vegano')
                                                     Vegan@
                                                 @elseif($pasajero->alimentacion == 'no_vegano')
                                                     No vegan@
                                                 @endif
                                             </td>
-                                            <td>{{ date('d-m-Y', strtotime($pasajero->fechaNacimiento)) }}</td>
+                                            <td style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                {{ date('d-m-Y', strtotime($pasajero->fechaNacimiento)) }}</td>
                                         </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -153,27 +198,42 @@
                     @if ($reporte->trenes->isNotEmpty())
                         <div class="row mt-4">
                             <div class="col-12">
-                                <h3>Detalhe de trenes:</h3>
+                                <h3 style="color: #f17200">Detalhe de trenes:</h3>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-hover">
+                            <div class="col-12" style="width: 100%">
+                                <table class="table table-hover" style="width: 100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Ruta</th>
-                                            <th scope="col">Compañía</th>
-                                            <th scope="col">Servicio</th>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Hora</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Ruta</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Compañía</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Servicio</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Fecha</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Hora</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($reporte->trenes as $tren)
                                             <tr>
-                                                <td>{{ $tren->ruta }}</td>
-                                                <td>{{ $tren->compania }}</td>
-                                                <td>{{ $tren->servicio }}</td>
-                                                <td>{{ $tren->fecha }}</td>
-                                                <td>{{ $tren->hora }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $tren->ruta }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $tren->compania }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $tren->servicio }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $tren->fecha }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $tren->hora }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -184,27 +244,42 @@
                     @if ($reporte->hoteles->isNotEmpty())
                         <div class="row mt-4 mb-2">
                             <div class="col-12">
-                                <h3>Detalles de hoteles:</h3>
+                                <h3 style="color: #f17200">Detalles de hoteles:</h3>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-hover">
+                            <div class="col-12" style="width: 100%">
+                                <table class="table table-hover" style="width: 100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Hotel</th>
-                                            <th scope="col">Lugar</th>
-                                            <th scope="col">Acomodación</th>
-                                            <th scope="col">Fecha de ingreso</th>
-                                            <th scope="col">Fecha de salida</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Hotel</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Lugar</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Acomodación</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Fecha de ingreso</th>
+                                            <th scope="col"
+                                                style="text-align: left; border-bottom: 1px solid rgb(218, 218, 218)">
+                                                Fecha de salida</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($reporte->hoteles as $hotel)
                                             <tr>
-                                                <td>{{ $hotel->hotel }}</td>
-                                                <td>{{ $hotel->lugar }}</td>
-                                                <td>{{ $hotel->acomodacion }}</td>
-                                                <td>{{ $hotel->fechaIngreso }}</td>
-                                                <td>{{ $hotel->fechaSalida }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $hotel->hotel }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $hotel->lugar }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $hotel->acomodacion }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $hotel->fechaIngreso }}</td>
+                                                <td style="border-bottom: 1px solid rgb(218, 218, 218)">
+                                                    {{ $hotel->fechaSalida }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -214,7 +289,7 @@
                     @endif
                     <div class="row sinborde mt-4">
                         <div class="col-12">
-                            <h3> Detalhes do roteiro:</h3>
+                            <h3 style="color: #f17200"> Detalhes do roteiro:</h3>
                         </div>
                         <div class="col-12">
                             <h1>{{ $reporte->tour }}</h1>
@@ -223,12 +298,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-                var precio = {{ $reporte->precio }};
-                var adelanto = {{ $reporte->adelanto }};
-                var resto = precio - adelanto;
-                document.getElementById("resto").textContent = resto;
-            </script>
             <a class="pdf-button pdf-only" onclick="generatePDF()" title="Imprimir PDF">
                 <i class="fas fa-print"></i>
             </a>
@@ -238,6 +307,9 @@
             <button class="btnCorreo" type="submit" title="Enviar correio"><i class="fa fa-envelope"></i></button>
         </form>
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
         <script>
             function generatePDF() {
                 window.print();
@@ -246,7 +318,6 @@
                 window.location.reload();
             }
         </script>
-
 </body>
 
 </html>

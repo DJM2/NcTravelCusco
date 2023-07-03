@@ -118,6 +118,7 @@
                             <option value="choque">Choquequirao</option>
                             <option value="vinicunca">Vinicunca</option>
                             <option value="humantay">Humantay</option>
+                            <option value="qeswachaca">Qeswachaca</option>
                         </select>
                     </div>
                     <div class="col-lg-12">

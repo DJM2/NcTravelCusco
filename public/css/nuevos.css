@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .ingrid h2 {
   color: #d66e0c;
 }
@@ -8,9 +7,28 @@
 }
 
 .logo {
-  width: 230px;
-  padding: 2em;
+  width: 200px;
+  padding: 1em;
   transition: 1s;
+  background: #f67400;
+  margin-top: -4em;
+}
+
+.preguntas h2 {
+  margin-top: 0em;
+}
+.preguntas .accordion-button:not(.collapsed) {
+  background-color: #F67400;
+  color: #fff;
+  box-shadow: none;
+}
+.preguntas .accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3e%3cpath d='M12 4l-8 8h6v8h4v-8h6z'/%3e%3c/svg%3e");
+  transform: 0.4s;
+}
+.preguntas .accordion-button:focus {
+  border: none;
+  box-shadow: none;
 }
 
 .loggeado {
@@ -64,6 +82,8 @@
 }
 .thumbBlog h5 {
   font-size: 15px;
+  text-align: left;
+  padding: 0.4em;
 }
 .thumbBlog:hover h5 {
   color: #F67400;
@@ -136,11 +156,12 @@
 }
 
 .boton-blog-search {
-  background: #fff;
-  color: #F67400;
+  background: #F67400;
+  color: #fff;
   border: 1px solid rgba(51, 49, 49, 0.205);
   border-radius: 5px;
   transition: 0.5s;
+  font-size: 13px;
 }
 .boton-blog-search:hover {
   background: #F67400;
@@ -175,6 +196,30 @@
   transition: 0.5s;
 }
 
+.menuFijo {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7803921569);
+  position: inherit;
+  width: 75%;
+  z-index: 99;
+}
+.menuFijo .espaciop {
+  margin-left: 2em;
+  font-size: 13px;
+}
+.menuFijo p {
+  color: #fff;
+  font-size: 13px;
+}
+.menuFijo a {
+  color: #fff;
+}
+.menuFijo a:hover {
+  color: #F67400;
+}
+.menuFijo .fontspan {
+  font-size: 13px;
+}
+
 .blogsrelative {
   text-align: center;
 }
@@ -193,14 +238,16 @@
 
 .sticky-wrapper.is-sticky .logo {
   width: 150px;
-  transition: 1s;
+  transition: 0.5s;
   padding: 1em;
+  margin-top: 0em;
 }
 
 .blog-head {
-  height: 280px;
+  height: 380px;
   width: 100%;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.54)), url(../img/blog/tejido-manta-chinchero.webp);
+  margin-top: -4em;
 }
 .blog-head h1 {
   text-align: center;
@@ -219,15 +266,109 @@
   margin: auto;
 }
 
+.linea2 {
+  height: 1px;
+  background: #F67400;
+  width: 90px;
+  margin: auto;
+}
+
+.bg-light-dark {
+  background: #2d343b;
+}
+
+.form-nc input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #F67400;
+  color: #fff !important;
+  width: 100%;
+  border-radius: 5px;
+  transition: 0.4s;
+  padding: 0.4em;
+}
+.form-nc input::placeholder {
+  color: #c5c5c5;
+}
+.form-nc input:focus {
+  outline: 1px solid #F67400;
+  border: none;
+  transition: 0.4s;
+}
+.form-nc input:visited {
+  border: 1px solid #F67400;
+}
+.form-nc .btn-form-index {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  width: 160px;
+  border-bottom: 1px solid #F67400;
+  padding: 0.2em;
+  background: linear-gradient(to right, #F67400 0%, #F67400 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: 0.2s;
+}
+.form-nc .btn-form-index:hover {
+  background-position: 0 0;
+}
+.form-nc select {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #F67400;
+  color: #c5c5c5;
+  width: 100%;
+  border-radius: 5px;
+  transition: 0.4s;
+  padding: 0.4em;
+}
+.form-nc select option {
+  background-color: #2d343b;
+  color: #fff;
+}
+.form-nc select option:hover {
+  background: #F67400;
+  color: #fff;
+}
+.form-nc select::placeholder {
+  color: #c5c5c5 !important;
+}
+.form-nc select:focus-visible {
+  outline: 1px solid #F67400;
+  border: none;
+  transition: 0.4s;
+}
+.form-nc select:visited {
+  outline: 1px solid #F67400;
+}
+.form-nc textarea {
+  resize: vertical;
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #F67400;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.4em;
+}
+.form-nc textarea::placeholder {
+  color: #c5c5c5;
+}
+.form-nc textarea:focus-visible {
+  outline: 1px solid #F67400;
+  border: none;
+  transition: 0.4s;
+}
+
 .centrado {
-  text-align: center;
-  position: relative;
-  top: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   color: #fff;
   font-weight: bold;
-  margin: auto;
-  width: 100%;
-  height: auto;
+  transform: translateY(50%);
 }
 
 .contato {
@@ -239,8 +380,7 @@
 
 .img-container {
   width: 100%;
-  height: 170px;
-  /* ajusta esta altura según tus necesidades */
+  height: 200px;
   overflow: hidden;
 }
 .img-container:hover {
@@ -248,13 +388,13 @@
 }
 .img-container img {
   width: 100%;
-  height: auto;
+  height: 200px;
   object-fit: cover;
   transition: 1s;
 }
 .img-container img:hover {
   width: 110%;
-  height: auto;
+  height: 210px;
   transition: 1s;
 }
 
@@ -325,8 +465,20 @@
   border: 1px solid #000;
 }
 
+.bannernosso {
+  height: 80vh;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(15, 110, 13, 0.79), rgba(181, 154, 23, 0.65), rgba(21, 65, 120, 0.88)), url(../img/panoramico/machu-picchu-peru.webp);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  justify-content: center;
+  margin-top: -4em;
+}
+
 .bannerindex {
-  height: 50vh;
+  height: 70vh;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/panoramico/trilha-inca-salkantay.webp);
   background-size: cover;
@@ -334,6 +486,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   justify-content: center;
+  margin-top: -4em;
 }
 .bannerindex .m-auto-djm {
   margin: auto;
@@ -416,13 +569,19 @@ section {
   width: 100%;
 }
 
+.botones-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacio entre los botones */
+}
+
 .h1-inicio {
   text-align: center;
   position: relative;
-  top: 50%;
   color: #fff;
   font-weight: bold;
-  margin-bottom: 1em;
+  font-family: "Josefin Sans", sans-serif;
+  margin-top: 4em;
 }
 
 .btn-inicio {
@@ -608,21 +767,23 @@ img.btn-whatsapp {
 }
 
 .blog {
-  height: 60vh;
+  height: 80vh;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/blog/Winay-Wayna-Machu-Picchu-NC-travel.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  margin-top: -4em;
 }
 
 .peru {
-  height: 60vh;
+  height: 80vh;
   width: 100%;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.2)), url(../img/panoramico/machu-picchu--pacotes-peru-nc-travel.webp);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.05)), url(../img/panoramico/machu-picchu--pacotes-peru-nc-travel.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  margin-top: -4em;
 }
 
 .noresults {
@@ -632,6 +793,7 @@ img.btn-whatsapp {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  margin-top: -4em;
 }
 
 .scroll-to-top {
@@ -772,6 +934,21 @@ table tr td {
   width: 100%;
 }
 
+/* .card-new2 {
+    border: 1px solid #80808063;
+    padding: 0;
+
+    .img-container {
+        height: 200px;
+
+        img {
+            padding: 0px;
+            height: 200px;
+            width: 100%;
+        }
+    }
+
+} */
 .boton-card {
   margin: auto;
   background: #fff;

@@ -12,7 +12,7 @@
 <file name="MailController.php" server="ftp.happyperutours.com" local="133157053163568357" remote="133157236200000000" Dst="0" />
 <file name="DjmblogController.php" server="15.235.54.105" local="133277068227308284" remote="133277252400000000" Dst="0" />
 <file name="SearchController.php" server="15.235.54.105" local="133276020370894512" remote="133277080200000000" Dst="0" />
-<file name="EnlacesCategorias.php" server="15.235.54.105" local="133318388242920367" remote="133318669200000000" Dst="0" />
+<file name="EnlacesCategorias.php" server="15.235.54.105" local="133323634622620824" remote="133323831000000000" Dst="0" />
 <file name="UserControler.php" server="15.235.54.105" local="133270056077225298" remote="133270236000000000" Dst="0" />
 <file name="ArticleController.php" server="15.235.54.105" local="133135491048884985" remote="133271961000000000" Dst="0" />
 <file name="CategoriaproveedoreController.php" server="15.235.54.105" local="133214092462793794" remote="133271961000000000" Dst="0" />
@@ -22,11 +22,11 @@
 <file name="HomeController.php" server="15.235.54.105" local="133241577195112033" remote="133271961000000000" Dst="0" />
 <file name="ImageneController.php" server="15.235.54.105" local="133214014868363917" remote="133271961000000000" Dst="0" />
 <file name="ImagenesController.php" server="15.235.54.105" local="133156245258767705" remote="133271961000000000" Dst="0" />
-<file name="MailController.php" server="15.235.54.105" local="133318463840251762" remote="133318662000000000" Dst="0" />
+<file name="MailController.php" server="15.235.54.105" local="133324386007399479" remote="133324566600000000" Dst="0" />
 <file name="ProveedoreController.php" server="15.235.54.105" local="133214201862078929" remote="133271961000000000" Dst="0" />
 <file name="SearchenController.php" server="15.235.54.105" local="133137661242650451" remote="133271961000000000" Dst="0" />
 <file name="TourController.php" server="15.235.54.105" local="133293457108870215" remote="133308171000000000" Dst="0" />
 <file name="ToursenController.php" server="15.235.54.105" local="133238837201104234" remote="133271961000000000" Dst="0" />
 <file name="PasajeroController.php" server="15.235.54.105" local="133304577158942268" remote="133308171000000000" Dst="0" />
-<file name="ReporteController.php" server="15.235.54.105" local="133316680800575738" remote="133318547400000000" Dst="0" />
+<file name="ReporteController.php" server="15.235.54.105" local="133324471999999598" remote="133324653000000000" Dst="0" />
 </dwsync>

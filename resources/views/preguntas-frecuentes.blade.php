@@ -36,15 +36,15 @@
                     <h1 class="h1-index">
                         <beige>Lo que necesitas saber antes de viajar a Perú</beige>
                     </h1>
-                    <h2>1- ¿Es necesario hablar español para viajar por Perú?</h2>
+                    <h2>É necessário visto para visitar o Peru?</h2>
                     <p>
-                        En Perú el idioma oficial es el español y lo habla el 82% de la población y solo el 5% habla
-                        español-inglés. Si Ud. visita Perú por su cuenta es indispensable que tenga al menos una base en
-                        español, ya que lo necesitara para poder viajar y moverse dentro del país, pero si Ud. viaja con una
-                        agencia de viajes, lo mas probable es que no tenga problemas con no saber hablar español ya que
-                        durante todo su recorrido estará rodeado de personas que hablan el inglés. Las agencias de viaje
-                        también otorgan en sus tours guías exclusivos que sepan hablar el idioma que el pasajero requiera,
-                        los idiomas mas comunes son: inglés, francés, chino, alemán e italiano.
+                        Os brasileiros não precisam de visto para visitar o Peru.
+                        Podem entrar no país com um passaporte válido por pelo menos seis meses ou com o documento de
+                        identidade nacional (RG) válido e em bom estado.
+                        O RG deve ter sido emitido há menos de 10 anos, segundo as regras do Mercosul.
+                        Outros documentos, como carteira de motorista ou de trabalho, não são aceitos pelas autoridades
+                        peruanas.
+                        O tempo máximo de permanência no Peru é de 90 dias.
                     </p>
                     <h2>2- ¿Qué tan seguro es viajar por Perú?</h2>
                     <p>

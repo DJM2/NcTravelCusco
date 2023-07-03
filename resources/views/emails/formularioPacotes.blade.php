@@ -52,15 +52,16 @@
 
         img {
             text-align: center;
-            margin: auto
+            margin: auto;
+            width: 200px;
         }
     </style>
 </head>
 
 <body>
     <div class="contenedor">
-        <img src="img/logo-nc-travel-colores-origin.png" alt="Logo NC Travel Cusco">
-        <h1>Formulario de informes desde <strong>Pacotes de viagem no Peru</strong></h1>
+        <img src="https://trilhaincacuzco.com/img/logo-nc-travel-colores-origin.png" alt="Logo NC Travel Cusco">
+        <h3>Formulario de requerimiento de Información</h3>
         <p><span>Nombre:</span> {{ $nombre }}</p>
         <p><span>Email:</span> {{ $email }}</p>
         <p><span>Telefono:</span> {{ $telefono }}</p>

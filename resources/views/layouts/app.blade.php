@@ -9,9 +9,26 @@
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/nuevos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lobster&display=swap" rel="stylesheet">
     @yield('metas')
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSK5YCEV25"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-BSK5YCEV25');
+    </script>
 </head>
 
 <body id="page-top">
@@ -23,7 +40,27 @@
         </div>
         <div class="site-mobile-menu-body"></div>
     </div>
+    <div class="container menuFijo escritorio" style="color:#fff">
+        <div class="row mt-3">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5">
+                <p class="espaciop"><i class="icon-whatsapp"></i> +51 984 606 757 | info@nctravelcusco.com</p>
+            </div>
+            <div class="col-lg-4">
+                <span class="fontspan"><a href="{{ route('nosotros') }}">Quem Somos</a> | </span>
+                <span class="fontspan"><a href="{{ route('contato') }}">Contato</a> |</span>
+                <span class="fontspan"><a href="{{ route('condicoes') }}">Condições Gerais</a></span>
+            </div>
+            <div class="col-lg-1">
+                <span class="fontspan"><a href="{{ route('home') }}">Login <i class="icon-user"></i></a></span>
+            </div>
+        </div>
+    </div>
+    <style>
+
+    </style>
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6 col-xl-2">
@@ -47,7 +84,6 @@
                                                    text-transform: uppercase;
                                                    font-size: 10px;">
                                                         Pacote de {{ $tour->dias }} dias</span>
-
                                                 </a>
                                             </li>
                                         @endif
@@ -225,7 +261,7 @@
                     <ul>
                         <li><a href="{{ route('nosotros') }}">Quem Somos</a></li>
                         <li><a href="{{ route('contato') }}">Contato</a></li>
-                        <li><a href="">Nossa localização</a></li>
+                        <li><a href="{{ route('faq') }}">Preguntas frequentes</a></li>
                         <li><a href="{{ route('condicoes') }}">Condições Gerais</a></li>
                         <li><a href="">Pagamento</a></li>
                     </ul>
@@ -317,7 +353,7 @@
         <i class="icon-arrow_drop_up"></i>
         <i class="icon-arrow_drop_up"></i>
     </a>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var scrollTopButton = document.querySelector('.scroll-to-top');

@@ -4,7 +4,9 @@
 @section('contenido')
     <div class="peru">
         <div class="centrado">
-            <h1 class="h1-inicio">Encontre tópicos de interesse sobre turismo no Peru</h1>
+            <h1 class="h1-inicio" style="font-family: 'Lobster', cursive;">Encontre tópicos de interesse sobre turismo no Peru
+            </h1>
+            <div class="linea-2"></div>
         </div>
     </div>
     <div class="container">
@@ -26,48 +28,48 @@
                 </div>
             </div>
             <script>
-              function searchBlogs() {
-                  const input = document.getElementById('buscador');
-                  const blogs = document.querySelectorAll('.nombreBlog');
-                  const blogContainers = document.querySelectorAll('.blog-container');
-                  const noResults = document.getElementById('no-results');
-                  let numResults = 0;
+                function searchBlogs() {
+                    const input = document.getElementById('buscador');
+                    const blogs = document.querySelectorAll('.nombreBlog');
+                    const blogContainers = document.querySelectorAll('.blog-container');
+                    const noResults = document.getElementById('no-results');
+                    let numResults = 0;
 
-                  const searchWords = input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").split(' ');
+                    const searchWords = input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").split(' ');
 
-                  blogContainers.forEach(function(blogContainer) {
-                      let blogName = blogContainer.querySelector('.nombreBlog').textContent.toLowerCase().normalize('NFD')
-                          .replace(/[\u0300-\u036f]/g, "");
-                      let hasAllWords = true;
+                    blogContainers.forEach(function(blogContainer) {
+                        let blogName = blogContainer.querySelector('.nombreBlog').textContent.toLowerCase().normalize('NFD')
+                            .replace(/[\u0300-\u036f]/g, "");
+                        let hasAllWords = true;
 
-                      searchWords.forEach(function(searchWord) {
-                          if (!blogName.includes(searchWord)) {
-                              hasAllWords = false;
-                          }
-                      });
+                        searchWords.forEach(function(searchWord) {
+                            if (!blogName.includes(searchWord)) {
+                                hasAllWords = false;
+                            }
+                        });
 
-                      if (hasAllWords) {
-                          blogContainer.style.display = 'block';
-                          numResults++;
-                      } else {
-                          blogContainer.style.display = 'none';
-                      }
-                  });
+                        if (hasAllWords) {
+                            blogContainer.style.display = 'block';
+                            numResults++;
+                        } else {
+                            blogContainer.style.display = 'none';
+                        }
+                    });
 
-                  if (input.value === '') {
-                      blogContainers.forEach(function(blogContainer) {
-                          blogContainer.style.display = 'block';
-                      });
-                  }
+                    if (input.value === '') {
+                        blogContainers.forEach(function(blogContainer) {
+                            blogContainer.style.display = 'block';
+                        });
+                    }
 
-                  if (numResults === 0) {
-                      noResults.style.display = 'block';
-                  } else {
-                      noResults.style.display = 'none';
-                  }
-              }
-              setInterval(searchBlogs, 500);
-          </script>          
+                    if (numResults === 0) {
+                        noResults.style.display = 'block';
+                    } else {
+                        noResults.style.display = 'none';
+                    }
+                }
+                setInterval(searchBlogs, 500);
+            </script>
 
             <div id="no-results" style="display: none;" class="mt-5 mb-5">
                 Nenhum resultado de pesquisa encontrado...

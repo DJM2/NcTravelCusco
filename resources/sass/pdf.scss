@@ -18,7 +18,6 @@ $principal: #f17200;
             margin-top: 5px;
         }
     }
-
 }
 
 .btnCorreo{
@@ -41,33 +40,9 @@ $principal: #f17200;
         transition: 0.6s ease;
     }
 }
-.info {
-    text-align: center;
 
-    span {
-        margin-left: 1em;
-        color: $principal;
-        font-weight: 600;
-        font-size: 13px;
-    }
-}
 
-.paquete {
-    text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
 
-    h2 {
-        &:after {
-            content: "";
-            display: block;
-            width: 100px;
-            height: 2px;
-            background-color: #f17302;
-            margin: auto;
-        }
-    }
-}
 
 .bordes {
     .col-6 {
@@ -97,16 +72,50 @@ $principal: #f17200;
         }
     }
 }
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    display: block;
+}
+
+.image-container h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bordes .col-6:hover {
+    background: #8080801f;
+}
+
+.bordes .col-3 {
+    border-bottom: 1px solid grey;
+    margin-bottom: 0.4em;
+}
+
+.bordes .col-3:hover {
+    background: #8080801f;
+}
+
+.bordes .col-4 {
+    border-bottom: 1px solid grey;
+    margin-bottom: 0.4em;
+}
+
+.bordes .col-4:hover {
+    background: #8080801f;
+}
 
 .datos {
     h3 {
         color: $principal;
-    }
-
-    p {
-        font-weight: bold;
-        border-left: 3px solid #f17200;
-        padding-left: 0.5em;
     }
 
     span {

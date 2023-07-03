@@ -21,54 +21,55 @@
     </div>
     <div class="row mt-3">
         <div class="col-12">
-            <table id="tabladatos" class="table mt-4 table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Paquete:</th>
-                        <th scope="col">Nombre pax:</th>
-                        <th scope="col">N° Paxs:</th>
-                        <th scope="col">Email:</th>
-                        <th scope="col">Precio:</th>
-                        <th scope='col'>Teléfono:</th>
-                        <th scope="col">Fecha Inicio:</th>
-                        <th scope="col" class="text-center">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($reportes as $reporte)
+            <div class="table-responsive">
+                <table id="tabladatos" class="table mt-4 table-hover">
+                    <thead class="thead-dark">
                         <tr>
-                            <td>{{ $reporte->id }}</td>
-                            <td>{{ $reporte->tour }}</td>
-                            <td>{{ $reporte->nombre }}</td>
-                            <td>{{ $reporte->numPaxs }}</td>
-                            <td>{{ $reporte->email }}</td>
-                            <td>${{ $reporte->precio }} </td>
-                            <td>{{ $reporte->numero }}</td>
-                            <td>{{ $reporte->fechaInicio }}</td>
-                            <td class="text-center" style="width: 130px">
-                                <a href="{{ route('reportes.edit', $reporte->id) }}" target="_blank"
-                                    class="btn btn-primary btn-sm" title="Editar">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="{{ route('reporte', ['id' => $reporte->id, 'fecha' => $reporte->fechaInicio, 'nombre' => urlencode($reporte->nombre)]) }}"
-                                    class="btn btn-sm btn-info" title="Ver Reporte" target="_blank">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-
-                                <form action="{{ route('reportes.destroy', $reporte->id) }}" method="POST"
-                                    class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Borrar">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>                                
-                            </td>
+                            <th scope="col">ID</th>
+                            <th scope="col">Paquete:</th>
+                            <th scope="col">Nombre pax:</th>
+                            <th scope="col">N° Paxs:</th>
+                            <th scope="col">Email:</th>
+                            <th scope="col">Precio:</th>
+                            <th scope='col'>Teléfono:</th>
+                            <th scope="col">Fecha Inicio:</th>
+                            <th scope="col" class="text-center">Acciones</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($reportes as $reporte)
+                            <tr>
+                                <td>{{ $reporte->id }}</td>
+                                <td>{{ $reporte->tour }}</td>
+                                <td>{{ $reporte->nombre }}</td>
+                                <td>{{ $reporte->numPaxs }}</td>
+                                <td>{{ $reporte->email }}</td>
+                                <td>${{ $reporte->precio }} </td>
+                                <td>{{ $reporte->numero }}</td>
+                                <td>{{ $reporte->fechaInicio }}</td>
+                                <td class="text-center" style="width: 130px">
+                                    <a href="{{ route('reportes.edit', $reporte->id) }}" target="_blank"
+                                        class="btn btn-primary btn-sm" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="{{ route('reporte', ['id' => $reporte->id, 'fecha' => $reporte->fechaInicio, 'nombre' => urlencode($reporte->nombre)]) }}"
+                                        class="btn btn-sm btn-info" title="Ver Reporte" target="_blank">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <form action="{{ route('reportes.destroy', $reporte->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" title="Borrar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

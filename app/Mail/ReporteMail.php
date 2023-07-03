@@ -20,12 +20,12 @@ class ReporteMail extends Mailable
     {
         $this->reporte = $reporte;
     }
-
+    
     public function build()
     {
         return $this->view('reportes.show', ['reporte' => $this->reporte])
             ->subject('Reporte del Tour a Peru')
-            ->from('info@nctravelcusco.com', 'Nc Travel Cusco');
+            ->from('niko@nctravelcusco.com', 'Nc Travel Cusco');
     }
 
     public function envelope()

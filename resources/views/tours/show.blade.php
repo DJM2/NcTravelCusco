@@ -250,19 +250,16 @@
                             <h4 class="mt-3">Postagens recentes:</h4>
                             <div class="blogs-en-tours">
                                 @foreach ($blogs as $blog)
-                                    <div class="row thumbBlog">
-                                        <div class="col-5">
-                                            <a href="{{ route('muestrame', $blog->slug) }}">
+                                    <a href="{{ route('muestrame', $blog->slug) }}">
+                                        <div class="row thumbBlog">
+                                            <div class="col-3">
                                                 <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}">
-                                            </a>
-                                        </div>
-                                        <div class="col-7 d-flex align-items-center">
-                                            <a href="{{ route('muestrame', $blog->slug) }}">
+                                            </div>
+                                            <div class="col-9 d-flex align-items-center">
                                                 <h5>{{ $blog->nombre }}</h5>
-                                            </a>
+                                            </div>
                                         </div>
-
-                                    </div>
+                                    </a>
                                 @endforeach
                             </div>
                         </div>

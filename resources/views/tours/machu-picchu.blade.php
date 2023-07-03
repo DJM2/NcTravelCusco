@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 text-center">
-                    <h1 style="padding-top: 250px;color:#fff">
+                    <h1 style="padding-top: 250px;color:#fff; font-family:'Lobster', cursive;">
                         Pacotes Machu Picchu
                     </h1>
                     <p style="color: #fff" class="text-center">
@@ -20,9 +20,8 @@
             <div class="row mb-5">
                 <div class="col-12 pt-5 pb-4">
                     <p>
-                        Se o seu sonho é conhecer a cidade perdida dos incas deixe em nossas mãos para montarmos seu pacote
-                        Machu Picchu. Nos vamos garantir uma viagem inesquecível e personalizado para que seu pacote para
-                        Machu Picchu seja do seu agrado e satisfação. Machu Picchu é uma das 7 maravilhas do mundo moderno e
+                        Se o seu sonho é conhecer a cidade perdida dos incas deixe em nossas mãos para montarmos seu pacote                        Machu Picchu. Nos vamos garantir uma viagem inesquecível e personalizado para que seu pacote para
+                        Machu Picchu seja do seu agrado e satisfação. Machu Picchu é uma das 7 maravilhas do  mundo moderno e
                         considerado um dos principais destinos turísticos no Peru.<br>
 
                         Em seu entorno formam parte a imponente cadeia de montanhas do Peru e os Apus tutelares da região de
@@ -37,7 +36,7 @@
                 @foreach ($tours as $tour)
                     @if ($tour->categoria == 'around')
                         <div class="col-lg-3 col-md-6">
-                            <div class="card card-new" style="width: 18rem;">
+                            <div class="card card-new mx-auto" style="width: 18rem;">
                                 <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
                                     <div class="img-container">
                                         <img class="card-img-top" src="../img/buscador/{{ $tour->img }}"
@@ -60,13 +59,88 @@
 
                                     </div>
                                     <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
-                                        class="boton-card">Más Info</a>
+                                        class="boton-card">SAIBA MAIS</a>
 
                                 </div>
                             </div>
                         </div>
                     @endif
                 @endforeach
+            </div>
+        </div>
+        <div class="container-fluid bannerindex d-flex mt-5">
+            <div class="row" style="width: 700px">
+                <div class="col-lg-6 m-auto">
+                    <h4 class="subrayado"> Informe-se agora!</h4>
+                </div>
+                <div class="col-lg-6 m-auto-djm">
+                    <a href="#popup" data-toggle="modal" data-target="#popupModal">Reservar</a>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade modal-lg" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="popupModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="popupModalLabel">Reserva o seu pacote para Peru</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('enviar.formulario') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="nombre">Nombre: <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-sm" id="nombre" name="nombre"
+                                        placeholder="Digite su nombre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email">E-mail: <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control form-control-sm" id="email"
+                                        name="email" placeholder="Digite su e-mail" required>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label for="telefono">Teléfono:<i class="icon-whatsapp text-success"></i> <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-sm" id="telefono"
+                                        name="telefono" placeholder="Digite su teléfono" required>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label for="fecha">Fecha:</label>
+                                    <input type="date" class="form-control form-control-sm" id="fecha"
+                                        name="fecha" placeholder="Digite la fecha deseada">
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label for="nacionalidad">Nacionalidad:</label>
+                                    <input type="text" class="form-control form-control-sm" id="nacionalidad"
+                                        name="nacionalidad" placeholder="Digite su nacionalidad">
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <select class="form-control form-control-sm" id="interes" name="interes">
+                                        <option value="Família">Viajar com a família</option>
+                                        <option value="Amigos">Viajar con amigos</option>
+                                        <option value="Casal">Viajar em casal</option>
+                                        <option value="Grupo">Viajar em grupo</option>
+                                        <option value="Privado">Viajar em privado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="mensaje">Mensaje:<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" placeholder="Digite sua mensagem"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary btn-sm"
+                                    data-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Enviar mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
